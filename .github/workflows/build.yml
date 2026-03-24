@@ -153,7 +153,9 @@ jobs:
           set -e
           git clone --depth=1 https://github.com/hyprwm/hyprwire.git
           cd hyprwire
-          find src -name '*.cpp' -o -name '*.hpp' | xargs sed -i 's/\.append_range(\(.*\));/.insert(m_data.end(), \1.begin(), \1.end());/g'
+          # Replace C++23 append_range with compatible insert for gcc-14/C++23 stdlibc++ missing ranges support
+          find src -name '*.cpp' -o -name '*.hpp' | xargs perl -i -pe \
+            's/(\w[\w.>*]+)\.append_range\(([^;]+)\);/\1.insert(\1.end(), \2.begin(), \2.end());/g'
           cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 -DCMAKE_CXX_STANDARD=23 -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
