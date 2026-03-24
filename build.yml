@@ -131,20 +131,20 @@ jobs:
         run: |
           set -e
           pkg-config --modversion libinput
+          pkg-config --cflags --libs libinput
           git clone --depth=1 https://github.com/hyprwm/aquamarine.git
           cd aquamarine
+          # Patch CMakeLists to explicitly link libinput after PkgConfig
+          sed -i 's/target_link_libraries(aquamarine OpenGL::EGL OpenGL::OpenGL PkgConfig::deps)/target_link_libraries(aquamarine OpenGL::EGL OpenGL::OpenGL PkgConfig::deps)\nif(NOT TARGET libinput)\n  find_library(LIBINPUT_LIB libinput REQUIRED)\n  target_link_libraries(aquamarine PRIVATE ${LIBINPUT_LIB})\nendif()/' CMakeLists.txt
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
             -DCMAKE_C_COMPILER=gcc-14 \
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH=$PREFIX \
-            -DAQUAMARINE_BUILD_TESTS=OFF \
-            -DCMAKE_SHARED_LINKER_FLAGS="-L/opt/hypr/lib -linput" \
-            -DCMAKE_EXE_LINKER_FLAGS="-L/opt/hypr/lib -linput" \
             -DCMAKE_POLICY_DEFAULT_CMP0023=OLD \
             -S . -B build
-          cmake --build build -j$(nproc)
+          cmake --build build -j$(nproc) --verbose
           cmake --install build
 
       - name: Build hyprwire
