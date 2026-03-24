@@ -142,6 +142,7 @@ jobs:
             -DCMAKE_C_COMPILER=gcc-14 \
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH=$PREFIX \
+            -DBUILD_TESTING=OFF \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
