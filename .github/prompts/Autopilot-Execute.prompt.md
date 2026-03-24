@@ -11,7 +11,7 @@ applyTo: ["Goal"]
 
 # AUTOPILOT MASTER DIRECTIVE
 
-**ROLE:** You are the CI/CD autopilot executor. You run Goal.prompt.md to completion. 
+**ROLE:** You are the CI/CD autopilot executor. You run Goal.prompt.md to completion.
 **CONSTRAINT:** Non-interactive. No pauses. No questions. No exits until SUCCESS CONDITION confirmed.
 **ACCOUNTABILITY:** 100% success rate — if any step fails, diagnose and retry automatically.
 
@@ -53,13 +53,13 @@ max_attempts_per_step = 3
 
 WHILE STATE ≠ "SUCCESS" AND iteration < 100:
   iteration++
-  
+
   // Read Goal.prompt.md TASK QUEUE
   queue = load_goal_prompt_task_queue()
-  
+
   // Find first PENDING or ACTIVE row
   current_step = first_pending_or_active_row(queue)
-  
+
   IF current_step IS NULL:
     // All rows DONE — check artifact
     IF artifact_hyprland_tar_gz_exists_in_latest_run():
@@ -71,37 +71,37 @@ WHILE STATE ≠ "SUCCESS" AND iteration < 100:
       STATE = "ARTIFACT_VERIFICATION_FAILED"
       retry_or_trigger_packaging()
       CONTINUE
-  
+
   // Apply pre-patch if required
   IF current_step.pre_patch ≠ "—":
     patch_rule = resolve_patch_rule(current_step.pre_patch)
     apply_patch_to_build_yml(patch_rule)
     commit_and_push_build_yml()
-  
+
   // Trigger CI run for current step
   trigger_id = POST /repos/{owner}/{repo}/actions/workflows/build.yml/dispatches
-  
+
   // Poll until complete (timeout: 60 minutes per step)
   run_result = poll_github_actions_run(trigger_id, timeout=3600)
-  
+
   IF run_result.conclusion = "success":
     update_task_queue_status(current_step, "DONE")
     LOG_SUCCESS("Step {current_step.number} {current_step.name} DONE")
     CONTINUE
-  
+
   IF run_result.conclusion = "failure":
     attempt_count = get_step_attempt_count(current_step.number)
-    
+
     IF attempt_count >= max_attempts_per_step:
       STATE = "STEP_EXHAUSTED"
       LOG_FATAL("Step {current_step.number} failed {max_attempts_per_step}x")
       REPORT_FAILURE_CONTEXT()
       BREAK
-    
+
     // Diagnose failure
     error_logs = extract_ci_logs(run_result)
     matched_rule = match_error_to_patch_rule(error_logs)
-    
+
     IF matched_rule:
       LOG_DEBUG("Matched PATCH RULE: {matched_rule}")
       apply_patch_to_build_yml(matched_rule)
@@ -114,12 +114,12 @@ WHILE STATE ≠ "SUCCESS" AND iteration < 100:
       REPORT_UNMATCHED_ERROR(error_logs)
       STATE = "UNKNOWN_ERROR"
       BREAK
-  
+
   IF run_result.conclusion = "timed_out":
     LOG_WARN("Step {current_step.number} timed out — retrying")
     attempt_count++
     CONTINUE
-  
+
   // Unexpected conclusion
   LOG_ERROR("Unexpected run conclusion: {run_result.conclusion}")
   BREAK
@@ -201,24 +201,24 @@ Update `.github/prompts/Goal.prompt.md` TASK QUEUE table with current state afte
 
 ```
 FINAL_VERIFICATION():
-  
+
   // Verify all 16 rows DONE
   queue = load_goal_prompt_task_queue()
   done_count = count_rows_with_status(queue, "DONE")
   IF done_count ≠ 16:
     REPORT_ERROR("Not all rows DONE: {done_count}/16")
     RETURN FALSE
-  
+
   // Verify artifact
   latest_run = GET /repos/{owner}/{repo}/actions/runs?per_page=1
   run_id = latest_run.id
   artifacts = GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts
-  
+
   tar_artifact = find_artifact_by_name(artifacts, "hyprland-0.54.0-ubuntu24-x86_64")
   IF tar_artifact IS NULL:
     REPORT_ERROR("Artifact not found")
     RETURN FALSE
-  
+
   LOG_SUCCESS("✓ All 16 steps DONE")
   LOG_SUCCESS("✓ Artifact {tar_artifact.name} uploaded")
   RETURN TRUE
@@ -257,4 +257,3 @@ Every action logs with timestamp and severity:
 ```
 
 Logs accumulated in memory — final report at completion or failure.
-
