@@ -1,0 +1,492 @@
+﻿2026-03-24T19:27:39.4383414Z ##[group]Run git clone --depth=1 --branch xkbcommon-1.11.0 https://github.com/xkbcommon/libxkbcommon.git
+2026-03-24T19:27:39.4384350Z [36;1mgit clone --depth=1 --branch xkbcommon-1.11.0 https://github.com/xkbcommon/libxkbcommon.git[0m
+2026-03-24T19:27:39.4384930Z [36;1mcd libxkbcommon[0m
+2026-03-24T19:27:39.4385379Z [36;1mmeson setup build --prefix=$PREFIX -Denable-docs=false -Denable-tools=false[0m
+2026-03-24T19:27:39.4385894Z [36;1mninja -C build -j$(nproc)[0m
+2026-03-24T19:27:39.4386200Z [36;1mninja -C build install[0m
+2026-03-24T19:27:39.4435185Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:27:39.4435470Z env:
+2026-03-24T19:27:39.4435664Z   CC: gcc-14
+2026-03-24T19:27:39.4435875Z   CXX: g++-14
+2026-03-24T19:27:39.4436092Z   PREFIX: /opt/hypr
+2026-03-24T19:27:39.4436987Z   PKG_CONFIG_PATH: /opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig
+2026-03-24T19:27:39.4437915Z   CMAKE_PREFIX_PATH: /opt/hypr
+2026-03-24T19:27:39.4438330Z   LD_LIBRARY_PATH: /opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:27:39.4438729Z ##[endgroup]
+2026-03-24T19:27:39.4518829Z Cloning into 'libxkbcommon'...
+2026-03-24T19:27:40.2339066Z warning: refs/tags/xkbcommon-1.11.0 f164d3a26200e211fe92b34494374bbb907c6abd is not a commit!
+2026-03-24T19:27:40.2343769Z Note: switching to '0f9cefb1fedb23433666fa5d9045e48ff030c006'.
+2026-03-24T19:27:40.2344257Z 
+2026-03-24T19:27:40.2344621Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-03-24T19:27:40.2345584Z changes and commit them, and you can discard any commits you make in this
+2026-03-24T19:27:40.2346562Z state without impacting any branches by switching back to a branch.
+2026-03-24T19:27:40.2347181Z 
+2026-03-24T19:27:40.2347558Z If you want to create a new branch to retain commits you create, you may
+2026-03-24T19:27:40.2348504Z do so (now or later) by using -c with the switch command. Example:
+2026-03-24T19:27:40.2349049Z 
+2026-03-24T19:27:40.2349247Z   git switch -c <new-branch-name>
+2026-03-24T19:27:40.2349863Z 
+2026-03-24T19:27:40.2350055Z Or undo this operation with:
+2026-03-24T19:27:40.2350368Z 
+2026-03-24T19:27:40.2350512Z   git switch -
+2026-03-24T19:27:40.2350720Z 
+2026-03-24T19:27:40.2351069Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-03-24T19:27:40.2351648Z 
+2026-03-24T19:27:41.5025914Z The Meson build system
+2026-03-24T19:27:41.5026507Z Version: 1.3.2
+2026-03-24T19:27:41.5027252Z Source dir: /home/runner/work/hyprland-build/hyprland-build/libxkbcommon
+2026-03-24T19:27:41.5028437Z Build dir: /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/build
+2026-03-24T19:27:41.5029382Z Build type: native build
+2026-03-24T19:27:41.5030171Z Project name: libxkbcommon
+2026-03-24T19:27:41.5030553Z Project version: 1.11.0
+2026-03-24T19:27:41.5031221Z C compiler for the host machine: gcc-14 (gcc 14.2.0 "gcc-14 (Ubuntu 14.2.0-4ubuntu2~24.04.1) 14.2.0")
+2026-03-24T19:27:41.5032074Z C linker for the host machine: gcc-14 ld.bfd 2.42
+2026-03-24T19:27:41.5032592Z Host machine cpu family: x86_64
+2026-03-24T19:27:41.5032993Z Host machine cpu: x86_64
+2026-03-24T19:27:41.5033504Z Compiler for C supports arguments -fno-strict-aliasing: YES 
+2026-03-24T19:27:41.5034242Z Compiler for C supports arguments -Wno-unused-parameter: YES 
+2026-03-24T19:27:41.5035031Z Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+2026-03-24T19:27:41.5035786Z Compiler for C supports arguments -Wpointer-arith: YES 
+2026-03-24T19:27:41.5036463Z Compiler for C supports arguments -Wmissing-declarations: YES 
+2026-03-24T19:27:41.5037118Z Compiler for C supports arguments -Wformat=2: YES 
+2026-03-24T19:27:41.5037753Z Compiler for C supports arguments -Wstrict-prototypes: YES 
+2026-03-24T19:27:41.5038453Z Compiler for C supports arguments -Wmissing-prototypes: YES 
+2026-03-24T19:27:41.5039128Z Compiler for C supports arguments -Wnested-externs: YES 
+2026-03-24T19:27:41.5040019Z Compiler for C supports arguments -Wbad-function-cast: YES 
+2026-03-24T19:27:41.5040785Z Compiler for C supports arguments -Wshadow: YES 
+2026-03-24T19:27:41.5041243Z Compiler for C supports arguments -Wlogical-op: YES 
+2026-03-24T19:27:41.5041713Z Compiler for C supports arguments -Wdate-time: YES 
+2026-03-24T19:27:41.5042196Z Compiler for C supports arguments -Wwrite-strings: YES 
+2026-03-24T19:27:41.5042790Z Compiler for C supports arguments -Wno-documentation-deprecated-sync: NO 
+2026-03-24T19:27:41.5043396Z Compiler for C supports arguments -Wno-pedantic: YES 
+2026-03-24T19:27:41.5043840Z Compiler for C supports arguments /utf-8: NO 
+2026-03-24T19:27:41.5044266Z Compiler for C supports arguments /wd4100: NO 
+2026-03-24T19:27:41.5044699Z Found pkg-config: YES (/usr/bin/pkg-config) 1.8.1
+2026-03-24T19:27:41.5045156Z Run-time dependency xkeyboard-config found: YES 2.41
+2026-03-24T19:27:41.5045571Z Has header "unistd.h" : YES 
+2026-03-24T19:27:41.5045947Z Checking if "__builtin_expect" : links: YES 
+2026-03-24T19:27:41.5046347Z Header "unistd.h" has symbol "eaccess" : YES 
+2026-03-24T19:27:41.5046765Z Header "unistd.h" has symbol "euidaccess" : YES 
+2026-03-24T19:27:41.5047168Z Header "sys/mman.h" has symbol "mmap" : YES 
+2026-03-24T19:27:41.5047564Z Header "stdlib.h" has symbol "mkostemp" : YES 
+2026-03-24T19:27:41.5047994Z Header "fcntl.h" has symbol "posix_fallocate" : YES 
+2026-03-24T19:27:41.5048430Z Header "string.h" has symbol "strndup" : YES 
+2026-03-24T19:27:41.5048819Z Header "stdio.h" has symbol "asprintf" : YES 
+2026-03-24T19:27:41.5049233Z Header "stdio.h" has symbol "open_memstream" : YES 
+2026-03-24T19:27:41.5049811Z Header "stdlib.h" has symbol "secure_getenv" : YES 
+2026-03-24T19:27:41.5050243Z Header "limits.h" has symbol "PATH_MAX" : YES 
+2026-03-24T19:27:41.5050643Z Checking if "-Wl,--version-script" : links: YES 
+2026-03-24T19:27:41.5051358Z Program scripts/map-to-def found: YES (/home/runner/work/hyprland-build/hyprland-build/libxkbcommon/scripts/map-to-def)
+2026-03-24T19:27:41.5052113Z Program bison found: YES 3.8.2 3.8.2 (/usr/bin/bison)
+2026-03-24T19:27:41.5052495Z Run-time dependency xcb found: YES 1.15
+2026-03-24T19:27:41.5052843Z Run-time dependency xcb-xkb found: YES 1.15
+2026-03-24T19:27:41.5053209Z Run-time dependency libxml-2.0 found: YES 2.9.14
+2026-03-24T19:27:41.5053688Z Header "libxml/parser.h" has symbol "xmlCtxtSetErrorHandler" : NO 
+2026-03-24T19:27:41.5054218Z Header "libxml/parser.h" has symbol "xmlCtxtParseDtd" : NO 
+2026-03-24T19:27:41.5054637Z Run-time dependency icu-uc found: YES 74.2
+2026-03-24T19:27:41.5055036Z Configuring xkeyboard-config-test using configuration
+2026-03-24T19:27:41.5055450Z Configuring test-config.h using configuration
+2026-03-24T19:27:41.5055932Z Library m found: YES
+2026-03-24T19:27:41.5056298Z Program python3 (jinja2) found: YES (/usr/bin/python3) modules: jinja2
+2026-03-24T19:27:41.5057304Z Program scripts/update-merge-modes-tests.py found: YES (/home/runner/work/hyprland-build/hyprland-build/libxkbcommon/scripts/update-merge-modes-tests.py)
+2026-03-24T19:27:41.5058644Z Program test/symbols-leak-test.py found: YES (/home/runner/work/hyprland-build/hyprland-build/libxkbcommon/test/symbols-leak-test.py)
+2026-03-24T19:27:41.5059439Z Program Xvfb found: YES (/usr/bin/Xvfb)
+2026-03-24T19:27:41.5059896Z Program xkbcomp found: YES (/usr/bin/xkbcomp)
+2026-03-24T19:27:41.5060240Z Program valgrind found: NO
+2026-03-24T19:27:41.5060561Z Message: valgrind not found, disabling valgrind test setup
+2026-03-24T19:27:41.5060930Z Header "getopt.h" has symbol "getopt_long" : YES 
+2026-03-24T19:27:41.5061254Z Configuring config.h using configuration
+2026-03-24T19:27:41.5061530Z Build targets in project: 42
+2026-03-24T19:27:41.5061696Z 
+2026-03-24T19:27:41.5061778Z libxkbcommon 1.11.0
+2026-03-24T19:27:41.5061898Z 
+2026-03-24T19:27:41.5061975Z   Compiler
+2026-03-24T19:27:41.5062149Z     backend              : ninja
+2026-03-24T19:27:41.5062389Z     buildtype            : debug
+2026-03-24T19:27:41.5062615Z     id                   : gcc
+2026-03-24T19:27:41.5062836Z     c_args               :
+2026-03-24T19:27:41.5063042Z     c_link_args          :
+2026-03-24T19:27:41.5063421Z     yacc                 : /usr/bin/bison 3.8.2
+2026-03-24T19:27:41.5063621Z 
+2026-03-24T19:27:41.5063696Z   Directories
+2026-03-24T19:27:41.5063885Z     prefix               : /opt/hypr
+2026-03-24T19:27:41.5064134Z     bindir               : bin
+2026-03-24T19:27:41.5064376Z     libdir               : lib/x86_64-linux-gnu
+2026-03-24T19:27:41.5064655Z     datadir              : share
+2026-03-24T19:27:41.5064905Z     xkb-config-root      : /usr/share/X11/xkb
+2026-03-24T19:27:41.5065211Z     xkb-config-extra-path: /opt/hypr/etc/xkb
+2026-03-24T19:27:41.5065533Z     xlocaledir           : /opt/hypr/share/X11/locale
+2026-03-24T19:27:41.5065758Z 
+2026-03-24T19:27:41.5065826Z   Features
+2026-03-24T19:27:41.5065995Z     docs                 : false
+2026-03-24T19:27:41.5066228Z     tools                : false
+2026-03-24T19:27:41.5066456Z     wayland              : true
+2026-03-24T19:27:41.5066675Z     x11                  : true
+2026-03-24T19:27:41.5066820Z 
+2026-03-24T19:27:41.5066899Z   Defaults
+2026-03-24T19:27:41.5067070Z     layout               : us
+2026-03-24T19:27:41.5067299Z     model                : pc105
+2026-03-24T19:27:41.5067527Z     options              : 
+2026-03-24T19:27:41.5067751Z     rules                : evdev
+2026-03-24T19:27:41.5067973Z     variant              : 
+2026-03-24T19:27:41.5068120Z 
+2026-03-24T19:27:41.5068187Z   Tests
+2026-03-24T19:27:41.5068364Z     merge-modes          : true
+2026-03-24T19:27:41.5068516Z 
+2026-03-24T19:27:41.5068625Z   User defined options
+2026-03-24T19:27:41.5068969Z     prefix               : /opt/hypr
+2026-03-24T19:27:41.5069335Z     enable-docs          : false
+2026-03-24T19:27:41.5069744Z     enable-tools         : false
+2026-03-24T19:27:41.5070059Z 
+2026-03-24T19:27:41.5070261Z Found ninja-1.13.2 at /usr/local/bin/ninja
+2026-03-24T19:27:41.5553518Z ninja: Entering directory `build'
+2026-03-24T19:27:41.6018124Z [1/329] Compiling C object libxkbregistry.so.0.11.0.p/src_utils.c.o
+2026-03-24T19:27:41.6248764Z [2/329] Compiling C object libxkbregistry.so.0.11.0.p/src_util-list.c.o
+2026-03-24T19:27:41.6965676Z [3/329] Compiling C object libxkbregistry.so.0.11.0.p/src_registry.c.o
+2026-03-24T19:27:41.7301260Z [4/329] Linking target libxkbregistry.so.0.11.0
+2026-03-24T19:27:41.8725849Z [5/329] Generating symbol file libxkbregistry.so.0.11.0.p/libxkbregistry.so.0.11.0.symbols
+2026-03-24T19:27:41.9051160Z [6/329] Generating merge-modes.c with a custom command
+2026-03-24T19:27:41.9218646Z [7/329] Generating from 'src/xkbcomp/parser.y'
+2026-03-24T19:27:41.9582615Z [8/329] Generating from 'src/xkbcomp/parser.y'
+2026-03-24T19:27:41.9858346Z [9/329] Compiling C object libxkbcommon-test-internal.so.p/src_compose_paths.c.o
+2026-03-24T19:27:42.0141851Z [10/329] Compiling C object libxkbcommon-test-internal.so.p/src_compose_state.c.o
+2026-03-24T19:27:42.0565165Z [11/329] Compiling C object libxkbcommon-test-internal.so.p/src_compose_parser.c.o
+2026-03-24T19:27:42.0629194Z [12/329] Compiling C object libxkbcommon-test-internal.so.p/src_compose_table.c.o
+2026-03-24T19:27:42.0704484Z [13/329] Compiling C object libxkbcommon-test-internal.so.p/meson-generated_parser.c.o
+2026-03-24T19:27:42.1283153Z [14/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_action.c.o
+2026-03-24T19:27:42.1617071Z [15/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_ast-build.c.o
+2026-03-24T19:27:42.1767015Z [16/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_expr.c.o
+2026-03-24T19:27:42.2022997Z [17/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_compat.c.o
+2026-03-24T19:27:42.2140541Z [18/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_include.c.o
+2026-03-24T19:27:42.2728087Z [19/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_keymap.c.o
+2026-03-24T19:27:42.2737033Z [20/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_keycodes.c.o
+2026-03-24T19:27:42.2741433Z [21/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_keywords.c.o
+2026-03-24T19:27:42.3489837Z [22/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_keymap-dump.c.o
+2026-03-24T19:27:42.3762717Z [23/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_scanner.c.o
+2026-03-24T19:27:42.4435739Z [24/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_vmod.c.o
+2026-03-24T19:27:42.4643976Z [25/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_types.c.o
+2026-03-24T19:27:42.4885015Z [26/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_symbols.c.o
+2026-03-24T19:27:42.4991898Z [27/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_rules.c.o
+2026-03-24T19:27:42.5120526Z [28/329] Compiling C object libxkbcommon-test-internal.so.p/src_xkbcomp_xkbcomp.c.o
+2026-03-24T19:27:42.5187510Z [29/329] Compiling C object libxkbcommon-test-internal.so.p/src_atom.c.o
+2026-03-24T19:27:42.5620628Z [30/329] Compiling C object libxkbcommon-test-internal.so.p/src_context-priv.c.o
+2026-03-24T19:27:42.5689743Z [31/329] Compiling C object libxkbcommon-test-internal.so.p/src_context.c.o
+2026-03-24T19:27:42.5911367Z [32/329] Compiling C object libxkbcommon-test-internal.so.p/src_keysym-case-mappings.c.o
+2026-03-24T19:27:42.6202445Z [33/329] Compiling C object libxkbcommon-test-internal.so.p/src_keysym-utf.c.o
+2026-03-24T19:27:42.6369928Z [34/329] Compiling C object libxkbcommon-test-internal.so.p/src_keysym.c.o
+2026-03-24T19:27:42.6621526Z [35/329] Compiling C object libxkbcommon-test-internal.so.p/src_keymap-priv.c.o
+2026-03-24T19:27:42.6660465Z [36/329] Compiling C object libxkbcommon-test-internal.so.p/src_keymap.c.o
+2026-03-24T19:27:42.6901728Z [37/329] Compiling C object libxkbcommon-test-internal.so.p/src_scanner-utils.c.o
+2026-03-24T19:27:42.6935494Z [38/329] Compiling C object libxkbcommon-test-internal.so.p/src_rmlvo.c.o
+2026-03-24T19:27:42.7365998Z [39/329] Compiling C object libxkbcommon-test-internal.so.p/src_text.c.o
+2026-03-24T19:27:42.7393011Z [40/329] Compiling C object libxkbcommon-test-internal.so.p/src_utf8.c.o
+2026-03-24T19:27:42.7402933Z [41/329] Compiling C object libxkbcommon-test-internal.so.p/src_utf8-decoding.c.o
+2026-03-24T19:27:42.7810536Z [42/329] Compiling C object libxkbcommon-test-internal.so.p/src_utils-paths.c.o
+2026-03-24T19:27:42.7902189Z [43/329] Compiling C object libxkbcommon-test-internal.so.p/src_utils.c.o
+2026-03-24T19:27:42.8262416Z [44/329] Compiling C object libxkbcommon-test-internal.so.p/src_state.c.o
+2026-03-24T19:27:42.8535179Z [45/329] Compiling C object libxkbcommon.so.0.11.0.p/src_compose_paths.c.o
+2026-03-24T19:27:42.8684855Z [46/329] Linking target libxkbcommon-test-internal.so
+2026-03-24T19:27:42.8895021Z [47/329] Compiling C object libxkbcommon.so.0.11.0.p/meson-generated_parser.c.o
+2026-03-24T19:27:42.9115776Z [48/329] Compiling C object libxkbcommon.so.0.11.0.p/src_compose_parser.c.o
+2026-03-24T19:27:42.9134268Z [49/329] Compiling C object libxkbcommon.so.0.11.0.p/src_compose_state.c.o
+2026-03-24T19:27:42.9464600Z [50/329] Compiling C object libxkbcommon.so.0.11.0.p/src_compose_table.c.o
+2026-03-24T19:27:43.0011756Z [51/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_action.c.o
+2026-03-24T19:27:43.0150270Z [52/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_ast-build.c.o
+2026-03-24T19:27:43.0497363Z [53/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_expr.c.o
+2026-03-24T19:27:43.0517807Z [54/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_compat.c.o
+2026-03-24T19:27:43.0919445Z [55/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_include.c.o
+2026-03-24T19:27:43.1249485Z [56/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_keycodes.c.o
+2026-03-24T19:27:43.1501324Z [57/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_keymap.c.o
+2026-03-24T19:27:43.1513799Z [58/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_keywords.c.o
+2026-03-24T19:27:43.1941325Z [59/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_keymap-dump.c.o
+2026-03-24T19:27:43.2507671Z [60/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_scanner.c.o
+2026-03-24T19:27:43.3121708Z [61/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_types.c.o
+2026-03-24T19:27:43.3170017Z [62/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_vmod.c.o
+2026-03-24T19:27:43.3578256Z [63/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_rules.c.o
+2026-03-24T19:27:43.3711160Z [64/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_symbols.c.o
+2026-03-24T19:27:43.3719034Z [65/329] Compiling C object libxkbcommon.so.0.11.0.p/src_atom.c.o
+2026-03-24T19:27:43.3792686Z [66/329] Compiling C object libxkbcommon.so.0.11.0.p/src_xkbcomp_xkbcomp.c.o
+2026-03-24T19:27:43.4312628Z [67/329] Compiling C object libxkbcommon.so.0.11.0.p/src_context-priv.c.o
+2026-03-24T19:27:43.4410995Z [68/329] Compiling C object libxkbcommon.so.0.11.0.p/src_context.c.o
+2026-03-24T19:27:43.4427610Z [69/329] Compiling C object libxkbcommon.so.0.11.0.p/src_keysym-case-mappings.c.o
+2026-03-24T19:27:43.4912326Z [70/329] Compiling C object libxkbcommon.so.0.11.0.p/src_keysym-utf.c.o
+2026-03-24T19:27:43.4980674Z [71/329] Compiling C object libxkbcommon.so.0.11.0.p/src_keysym.c.o
+2026-03-24T19:27:43.5117151Z [72/329] Compiling C object libxkbcommon.so.0.11.0.p/src_keymap-priv.c.o
+2026-03-24T19:27:43.5342654Z [73/329] Compiling C object libxkbcommon.so.0.11.0.p/src_keymap.c.o
+2026-03-24T19:27:43.5510954Z [74/329] Compiling C object libxkbcommon.so.0.11.0.p/src_scanner-utils.c.o
+2026-03-24T19:27:43.5628276Z [75/329] Compiling C object libxkbcommon.so.0.11.0.p/src_rmlvo.c.o
+2026-03-24T19:27:43.6031187Z [76/329] Compiling C object libxkbcommon.so.0.11.0.p/src_utf8.c.o
+2026-03-24T19:27:43.6036994Z [77/329] Compiling C object libxkbcommon.so.0.11.0.p/src_text.c.o
+2026-03-24T19:27:43.6112876Z [78/329] Compiling C object libxkbcommon.so.0.11.0.p/src_utf8-decoding.c.o
+2026-03-24T19:27:43.6449467Z [79/329] Compiling C object libxkbcommon.so.0.11.0.p/src_utils-paths.c.o
+2026-03-24T19:27:43.6577760Z [80/329] Compiling C object libxkbcommon.so.0.11.0.p/src_utils.c.o
+2026-03-24T19:27:43.6773952Z [81/329] Compiling C object libxkbcommon.so.0.11.0.p/src_state.c.o
+2026-03-24T19:27:43.7380891Z [82/329] Compiling C object libxkbcommon-x11-internal.so.p/src_x11_state.c.o
+2026-03-24T19:27:43.7614079Z [83/329] Generating symbol file libxkbcommon-test-internal.so.p/libxkbcommon-test-internal.so.symbols
+2026-03-24T19:27:43.7691804Z [84/329] Compiling C object libxkbcommon-x11-internal.so.p/src_x11_util.c.o
+2026-03-24T19:27:43.8031686Z [85/329] Compiling C object libxkbcommon-x11-internal.so.p/src_context-priv.c.o
+2026-03-24T19:27:43.8220917Z [86/329] Compiling C object libxkbcommon-x11-internal.so.p/src_x11_keymap.c.o
+2026-03-24T19:27:43.8261191Z [87/329] Compiling C object libxkbcommon-x11-internal.so.p/src_atom.c.o
+2026-03-24T19:27:43.8307693Z [88/329] Compiling C object libxkbcommon-x11-internal.so.p/src_keymap-priv.c.o
+2026-03-24T19:27:43.8457380Z [89/329] Linking target libxkbcommon.so.0.11.0
+2026-03-24T19:27:43.8622341Z [90/329] Linking target libxkbcommon-x11-internal.so
+2026-03-24T19:27:43.9055904Z [91/329] Compiling C object libxkbcommon-x11.so.0.11.0.p/src_x11_state.c.o
+2026-03-24T19:27:43.9551346Z [92/329] Compiling C object libxkbcommon-x11.so.0.11.0.p/src_x11_util.c.o
+2026-03-24T19:27:43.9695615Z [93/329] Compiling C object libxkbcommon-x11.so.0.11.0.p/src_context-priv.c.o
+2026-03-24T19:27:43.9995104Z [94/329] Compiling C object libxkbcommon-x11.so.0.11.0.p/src_x11_keymap.c.o
+2026-03-24T19:27:44.0030868Z [95/329] Generating symbol file libxkbcommon.so.0.11.0.p/libxkbcommon.so.0.11.0.symbols
+2026-03-24T19:27:44.0233866Z [96/329] Compiling C object libxkbcommon-x11.so.0.11.0.p/src_keymap-priv.c.o
+2026-03-24T19:27:44.0241218Z [97/329] Compiling C object libxkbcommon-x11.so.0.11.0.p/src_atom.c.o
+2026-03-24T19:27:44.0574635Z [98/329] Compiling C object test-keysym.p/src_utf8-decoding.c.o
+2026-03-24T19:27:44.1370439Z [99/329] Compiling C object test-keysym.p/bench_bench.c.o
+2026-03-24T19:27:44.1376759Z [100/329] Generating symbol file libxkbcommon-x11-internal.so.p/libxkbcommon-x11-internal.so.symbols
+2026-03-24T19:27:44.1585392Z [101/329] Compiling C object test-keysym.p/test_common.c.o
+2026-03-24T19:27:44.2086596Z [102/329] Compiling C object test-keysym-unicode.p/test_keysym-unicode.c.o
+2026-03-24T19:27:44.2406656Z [103/329] Compiling C object test-keysym-unicode.p/bench_bench.c.o
+2026-03-24T19:27:44.2453553Z [104/329] Compiling C object test-keysym.p/tools_tools-common.c.o
+2026-03-24T19:27:44.2571271Z [105/329] Compiling C object test-keysym-unicode.p/src_utf8-decoding.c.o
+2026-03-24T19:27:44.3249255Z [106/329] Compiling C object test-keysym.p/test_keysym.c.o
+2026-03-24T19:27:44.3510152Z [107/329] Compiling C object test-keysym-unicode.p/tools_tools-common.c.o
+2026-03-24T19:27:44.3602888Z [108/329] Compiling C object test-keysym-unicode.p/test_common.c.o
+2026-03-24T19:27:44.3630800Z [109/329] Compiling C object test-keymap.p/test_keymap.c.o
+2026-03-24T19:27:44.3767350Z [110/329] Compiling C object test-keymap.p/src_keymap-formats.c.o
+2026-03-24T19:27:44.4111403Z [111/329] Compiling C object test-keymap.p/src_utf8-decoding.c.o
+2026-03-24T19:27:44.4322152Z [112/329] Compiling C object test-keymap.p/bench_bench.c.o
+2026-03-24T19:27:44.4607999Z [113/329] Compiling C object test-filecomp.p/test_filecomp.c.o
+2026-03-24T19:27:44.4825062Z [114/329] Compiling C object test-keymap.p/test_common.c.o
+2026-03-24T19:27:44.4838457Z [115/329] Compiling C object test-keymap.p/tools_tools-common.c.o
+2026-03-24T19:27:44.5121349Z [116/329] Compiling C object test-filecomp.p/src_utf8-decoding.c.o
+2026-03-24T19:27:44.5128395Z [117/329] Compiling C object test-filecomp.p/bench_bench.c.o
+2026-03-24T19:27:44.5817037Z [118/329] Compiling C object test-context.p/test_context.c.o
+2026-03-24T19:27:44.5897112Z [119/329] Compiling C object test-filecomp.p/tools_tools-common.c.o
+2026-03-24T19:27:44.5955040Z [120/329] Compiling C object test-context.p/bench_bench.c.o
+2026-03-24T19:27:44.6018023Z [121/329] Compiling C object test-filecomp.p/test_common.c.o
+2026-03-24T19:27:44.6283909Z [122/329] Compiling C object test-context.p/src_utf8-decoding.c.o
+2026-03-24T19:27:44.7012870Z [123/329] Compiling C object test-rules-file.p/test_rules-file.c.o
+2026-03-24T19:27:44.7043590Z [124/329] Compiling C object test-context.p/tools_tools-common.c.o
+2026-03-24T19:27:44.7084837Z [125/329] Compiling C object test-context.p/test_common.c.o
+2026-03-24T19:27:44.7102235Z [126/329] Compiling C object test-rules-file.p/bench_bench.c.o
+2026-03-24T19:27:44.7477640Z [127/329] Compiling C object test-rules-file.p/src_utf8-decoding.c.o
+2026-03-24T19:27:44.7727062Z [128/329] Compiling C object test-rules-file-includes.p/test_rules-file-includes.c.o
+2026-03-24T19:27:44.8168825Z [129/329] Compiling C object test-rules-file.p/tools_tools-common.c.o
+2026-03-24T19:27:44.8188221Z [130/329] Compiling C object test-rules-file-includes.p/src_utf8-decoding.c.o
+2026-03-24T19:27:44.8243503Z [131/329] Compiling C object test-rules-file.p/test_common.c.o
+2026-03-24T19:27:44.8283709Z [132/329] Compiling C object test-rules-file-includes.p/bench_bench.c.o
+2026-03-24T19:27:44.8871646Z [133/329] Compiling C object test-stringcomp.p/test_stringcomp.c.o
+2026-03-24T19:27:44.8882555Z [134/329] Compiling C object test-stringcomp.p/test_utils-text.c.o
+2026-03-24T19:27:44.9260408Z [135/329] Compiling C object test-rules-file-includes.p/tools_tools-common.c.o
+2026-03-24T19:27:44.9343103Z [136/329] Compiling C object test-stringcomp.p/src_utf8-decoding.c.o
+2026-03-24T19:27:44.9374650Z [137/329] Compiling C object test-rules-file-includes.p/test_common.c.o
+2026-03-24T19:27:44.9671671Z [138/329] Compiling C object test-stringcomp.p/bench_bench.c.o
+2026-03-24T19:27:45.0422821Z [139/329] Compiling C object test-stringcomp.p/tools_tools-common.c.o
+2026-03-24T19:27:45.0485380Z [140/329] Compiling C object test-stringcomp.p/test_common.c.o
+2026-03-24T19:27:45.0512825Z [141/329] Compiling C object test-buffercomp.p/bench_bench.c.o
+2026-03-24T19:27:45.0747082Z [142/329] Compiling C object test-buffercomp.p/test_buffercomp.c.o
+2026-03-24T19:27:45.0892077Z [143/329] Compiling C object test-buffercomp.p/src_utf8-decoding.c.o
+2026-03-24T19:27:45.1579484Z [144/329] Compiling C object test-buffercomp.p/tools_tools-common.c.o
+2026-03-24T19:27:45.1685956Z [145/329] Compiling C object test-buffercomp.p/test_common.c.o
+2026-03-24T19:27:45.1692176Z [146/329] Compiling C object test-merge-modes.p/bench_bench.c.o
+2026-03-24T19:27:45.2080796Z [147/329] Compiling C object test-merge-modes.p/src_utf8-decoding.c.o
+2026-03-24T19:27:45.2252549Z [148/329] Compiling C object test-merge-modes.p/meson-generated_.._merge-modes.c.o
+2026-03-24T19:27:45.2784683Z [149/329] Compiling C object test-log.p/test_log.c.o
+2026-03-24T19:27:45.2788569Z [150/329] Compiling C object test-merge-modes.p/tools_tools-common.c.o
+2026-03-24T19:27:45.2893048Z [151/329] Compiling C object test-merge-modes.p/test_common.c.o
+2026-03-24T19:27:45.3074847Z [152/329] Compiling C object test-log.p/bench_bench.c.o
+2026-03-24T19:27:45.3241414Z [153/329] Compiling C object test-log.p/src_utf8-decoding.c.o
+2026-03-24T19:27:45.3774379Z [154/329] Compiling C object test-atom.p/test_atom.c.o
+2026-03-24T19:27:45.3985555Z [155/329] Compiling C object test-log.p/tools_tools-common.c.o
+2026-03-24T19:27:45.3991384Z [156/329] Compiling C object test-log.p/test_common.c.o
+2026-03-24T19:27:45.4081394Z [157/329] Compiling C object test-atom.p/bench_bench.c.o
+2026-03-24T19:27:45.4241022Z [158/329] Compiling C object test-atom.p/src_utf8-decoding.c.o
+2026-03-24T19:27:45.4704945Z [159/329] Compiling C object test-utf8.p/src_utf8-decoding.c.o
+2026-03-24T19:27:45.4811534Z [160/329] Compiling C object test-utf8.p/test_utf8.c.o
+2026-03-24T19:27:45.5064156Z [161/329] Compiling C object test-atom.p/tools_tools-common.c.o
+2026-03-24T19:27:45.5212847Z [162/329] Compiling C object test-atom.p/test_common.c.o
+2026-03-24T19:27:45.5542277Z [163/329] Compiling C object test-utf8.p/bench_bench.c.o
+2026-03-24T19:27:45.6067782Z [164/329] Compiling C object test-utf8.p/test_common.c.o
+2026-03-24T19:27:45.6170166Z [165/329] Compiling C object test-utf8.p/tools_tools-common.c.o
+2026-03-24T19:27:45.6386247Z [166/329] Compiling C object test-state.p/bench_bench.c.o
+2026-03-24T19:27:45.6520952Z [167/329] Compiling C object test-state.p/src_utf8-decoding.c.o
+2026-03-24T19:27:45.7383075Z [168/329] Compiling C object test-state.p/test_common.c.o
+2026-03-24T19:27:45.7486665Z [169/329] Compiling C object test-state.p/tools_tools-common.c.o
+2026-03-24T19:27:45.7944437Z [170/329] Compiling C object test-keyseq.p/test_keyseq.c.o
+2026-03-24T19:27:45.7958058Z [171/329] Compiling C object test-keyseq.p/src_utf8-decoding.c.o
+2026-03-24T19:27:45.8187146Z [172/329] Compiling C object test-keyseq.p/bench_bench.c.o
+2026-03-24T19:27:45.8714655Z [173/329] Compiling C object test-state.p/test_state.c.o
+2026-03-24T19:27:45.8939095Z [174/329] Compiling C object test-rulescomp.p/test_rulescomp.c.o
+2026-03-24T19:27:45.9051095Z [175/329] Compiling C object test-keyseq.p/tools_tools-common.c.o
+2026-03-24T19:27:45.9154951Z [176/329] Compiling C object test-keyseq.p/test_common.c.o
+2026-03-24T19:27:45.9404535Z [177/329] Compiling C object test-rulescomp.p/src_utf8-decoding.c.o
+2026-03-24T19:27:45.9532466Z [178/329] Compiling C object test-rulescomp.p/bench_bench.c.o
+2026-03-24T19:27:46.0091493Z [179/329] Compiling C object test-compose.p/test_compose-iter.c.o
+2026-03-24T19:27:46.0232239Z [180/329] Compiling C object test-rulescomp.p/tools_tools-common.c.o
+2026-03-24T19:27:46.0270011Z [181/329] Compiling C object test-rulescomp.p/test_common.c.o
+2026-03-24T19:27:46.0672747Z [182/329] Compiling C object test-compose.p/test_utils-text.c.o
+2026-03-24T19:27:46.0766633Z [183/329] Compiling C object test-compose.p/src_compose_dump.c.o
+2026-03-24T19:27:46.1033142Z [184/329] Compiling C object test-compose.p/bench_bench.c.o
+2026-03-24T19:27:46.1129089Z [185/329] Compiling C object test-compose.p/test_compose.c.o
+2026-03-24T19:27:46.1137243Z [186/329] Compiling C object test-compose.p/src_utf8-decoding.c.o
+2026-03-24T19:27:46.1758117Z [187/329] Compiling C object test-utils.p/test_utils-text.c.o
+2026-03-24T19:27:46.1993819Z [188/329] Compiling C object test-compose.p/test_common.c.o
+2026-03-24T19:27:46.2074839Z [189/329] Compiling C object test-compose.p/tools_tools-common.c.o
+2026-03-24T19:27:46.2382115Z [190/329] Compiling C object test-utils.p/test_utils.c.o
+2026-03-24T19:27:46.2453973Z [191/329] Compiling C object test-utils.p/src_utf8-decoding.c.o
+2026-03-24T19:27:46.2565490Z [192/329] Compiling C object test-utils.p/bench_bench.c.o
+2026-03-24T19:27:46.3303492Z [193/329] Compiling C object test-utils.p/test_common.c.o
+2026-03-24T19:27:46.3391023Z [194/329] Compiling C object test-modifiers.p/bench_bench.c.o
+2026-03-24T19:27:46.3405349Z [195/329] Compiling C object test-modifiers.p/test_modifiers.c.o
+2026-03-24T19:27:46.3460417Z [196/329] Compiling C object test-utils.p/tools_tools-common.c.o
+2026-03-24T19:27:46.3771368Z [197/329] Compiling C object test-modifiers.p/src_utf8-decoding.c.o
+2026-03-24T19:27:46.3962821Z [198/329] Compiling C object test-messages.p/test_messages.c.o
+2026-03-24T19:27:46.4225999Z [199/329] Compiling C object test-messages.p/tools_messages.c.o
+2026-03-24T19:27:46.4491397Z [200/329] Compiling C object test-modifiers.p/tools_tools-common.c.o
+2026-03-24T19:27:46.4578034Z [201/329] Compiling C object test-modifiers.p/test_common.c.o
+2026-03-24T19:27:46.4701952Z [202/329] Compiling C object test-messages.p/src_utf8-decoding.c.o
+2026-03-24T19:27:46.4780003Z [203/329] Compiling C object test-messages.p/bench_bench.c.o
+2026-03-24T19:27:46.5389918Z [204/329] Compiling C object test-x11.p/test_x11.c.o
+2026-03-24T19:27:46.5400121Z [205/329] Compiling C object test-x11.p/test_xvfb-wrapper.c.o
+2026-03-24T19:27:46.5664066Z [206/329] Compiling C object test-messages.p/tools_tools-common.c.o
+2026-03-24T19:27:46.5692730Z [207/329] Compiling C object test-messages.p/test_common.c.o
+2026-03-24T19:27:46.5875825Z [208/329] Compiling C object test-x11.p/src_utf8-decoding.c.o
+2026-03-24T19:27:46.6210296Z [209/329] Compiling C object test-x11.p/bench_bench.c.o
+2026-03-24T19:27:46.6695174Z [210/329] Compiling C object test-x11comp.p/test_x11comp.c.o
+2026-03-24T19:27:46.6772659Z [211/329] Compiling C object test-x11.p/tools_tools-common.c.o
+2026-03-24T19:27:46.6803133Z [212/329] Compiling C object test-x11comp.p/test_xvfb-wrapper.c.o
+2026-03-24T19:27:46.6890233Z [213/329] Compiling C object test-x11.p/test_common.c.o
+2026-03-24T19:27:46.7231464Z [214/329] Compiling C object test-x11comp.p/src_utf8-decoding.c.o
+2026-03-24T19:27:46.7516175Z [215/329] Compiling C object test-x11comp.p/bench_bench.c.o
+2026-03-24T19:27:46.7930251Z [216/329] Compiling C object test-x11comp.p/tools_tools-common.c.o
+2026-03-24T19:27:46.8008145Z [217/329] Compiling C object test-x11comp.p/test_common.c.o
+2026-03-24T19:27:46.8336069Z [218/329] Compiling C object test-registry.p/bench_bench.c.o
+2026-03-24T19:27:46.8392469Z [219/329] Compiling C object test-registry.p/src_utf8-decoding.c.o
+2026-03-24T19:27:46.8722502Z [220/329] Compiling C object fuzz-keymap.p/fuzz_keymap_target.c.o
+2026-03-24T19:27:46.8939921Z [221/329] Compiling C object test-registry.p/test_registry.c.o
+2026-03-24T19:27:46.9271316Z [222/329] Compiling C object test-registry.p/test_common.c.o
+2026-03-24T19:27:46.9407752Z [223/329] Compiling C object fuzz-keymap.p/src_utf8-decoding.c.o
+2026-03-24T19:27:46.9418213Z [224/329] Compiling C object test-registry.p/tools_tools-common.c.o
+2026-03-24T19:27:46.9537308Z [225/329] Compiling C object fuzz-keymap.p/bench_bench.c.o
+2026-03-24T19:27:46.9765393Z [226/329] Compiling C object fuzz-compose.p/fuzz_compose_target.c.o
+2026-03-24T19:27:47.0234812Z [227/329] Compiling C object fuzz-compose.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.0347596Z [228/329] Compiling C object fuzz-compose.p/bench_bench.c.o
+2026-03-24T19:27:47.0466663Z [229/329] Compiling C object fuzz-keymap.p/test_common.c.o
+2026-03-24T19:27:47.0520983Z [230/329] Compiling C object fuzz-keymap.p/tools_tools-common.c.o
+2026-03-24T19:27:47.1004608Z [231/329] Compiling C object bench-key-proc.p/bench_key-proc.c.o
+2026-03-24T19:27:47.1306231Z [232/329] Compiling C object bench-key-proc.p/bench_bench.c.o
+2026-03-24T19:27:47.1408597Z [233/329] Compiling C object fuzz-compose.p/tools_tools-common.c.o
+2026-03-24T19:27:47.1448653Z [234/329] Compiling C object fuzz-compose.p/test_common.c.o
+2026-03-24T19:27:47.1475744Z [235/329] Compiling C object bench-key-proc.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.1976765Z [236/329] Compiling C object bench-keysym-case-mappings.p/bench_keysym-case-mappings.c.o
+2026-03-24T19:27:47.2287550Z [237/329] Compiling C object bench-keysym-case-mappings.p/bench_bench.c.o
+2026-03-24T19:27:47.2437578Z [238/329] Compiling C object bench-keysym-case-mappings.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.2487365Z [239/329] Compiling C object bench-key-proc.p/tools_tools-common.c.o
+2026-03-24T19:27:47.2514142Z [240/329] Compiling C object bench-key-proc.p/test_common.c.o
+2026-03-24T19:27:47.2996612Z [241/329] Compiling C object bench-rulescomp.p/bench_rulescomp.c.o
+2026-03-24T19:27:47.3302210Z [242/329] Compiling C object bench-rulescomp.p/bench_bench.c.o
+2026-03-24T19:27:47.3455438Z [243/329] Compiling C object bench-rulescomp.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.3508000Z [244/329] Compiling C object bench-keysym-case-mappings.p/test_common.c.o
+2026-03-24T19:27:47.3528322Z [245/329] Compiling C object bench-keysym-case-mappings.p/tools_tools-common.c.o
+2026-03-24T19:27:47.4150537Z [246/329] Compiling C object bench-rules.p/bench_rules.c.o
+2026-03-24T19:27:47.4332297Z [247/329] Compiling C object bench-rules.p/bench_bench.c.o
+2026-03-24T19:27:47.4515240Z [248/329] Compiling C object bench-rulescomp.p/test_common.c.o
+2026-03-24T19:27:47.4560608Z [249/329] Compiling C object bench-rulescomp.p/tools_tools-common.c.o
+2026-03-24T19:27:47.4623323Z [250/329] Compiling C object bench-rules.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.5103929Z [251/329] Compiling C object bench-compile-keymap.p/src_keymap-formats.c.o
+2026-03-24T19:27:47.5232618Z [252/329] Compiling C object bench-compile-keymap.p/bench_compile-keymap.c.o
+2026-03-24T19:27:47.5540727Z [253/329] Compiling C object bench-rules.p/test_common.c.o
+2026-03-24T19:27:47.5576151Z [254/329] Compiling C object bench-rules.p/tools_tools-common.c.o
+2026-03-24T19:27:47.5664105Z [255/329] Compiling C object bench-compile-keymap.p/src_utils.c.o
+2026-03-24T19:27:47.6021387Z [256/329] Compiling C object bench-compile-keymap.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.6046924Z [257/329] Compiling C object bench-compile-keymap.p/bench_bench.c.o
+2026-03-24T19:27:47.6538400Z [258/329] Compiling C object bench-dump-keymap.p/src_keymap-formats.c.o
+2026-03-24T19:27:47.6670247Z [259/329] Compiling C object bench-dump-keymap.p/bench_compile-keymap.c.o
+2026-03-24T19:27:47.6726313Z [260/329] Compiling C object bench-compile-keymap.p/tools_tools-common.c.o
+2026-03-24T19:27:47.6800944Z [261/329] Compiling C object bench-compile-keymap.p/test_common.c.o
+2026-03-24T19:27:47.7138429Z [262/329] Compiling C object bench-dump-keymap.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.7361910Z [263/329] Compiling C object bench-dump-keymap.p/bench_bench.c.o
+2026-03-24T19:27:47.7834721Z [264/329] Compiling C object bench-dump-keymap.p/tools_tools-common.c.o
+2026-03-24T19:27:47.7920482Z [265/329] Compiling C object bench-dump-keymap.p/test_common.c.o
+2026-03-24T19:27:47.7927096Z [266/329] Compiling C object bench-custom-parsers.p/src_utils.c.o
+2026-03-24T19:27:47.7950499Z [267/329] Compiling C object bench-custom-parsers.p/bench_custom-parsers.c.o
+2026-03-24T19:27:47.8376349Z [268/329] Compiling C object bench-custom-parsers.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.8662999Z [269/329] Compiling C object bench-custom-parsers.p/bench_bench.c.o
+2026-03-24T19:27:47.8890809Z [270/329] Compiling C object bench-compose.p/bench_compose.c.o
+2026-03-24T19:27:47.9002861Z [271/329] Compiling C object bench-custom-parsers.p/tools_tools-common.c.o
+2026-03-24T19:27:47.9124313Z [272/329] Compiling C object bench-custom-parsers.p/test_common.c.o
+2026-03-24T19:27:47.9352636Z [273/329] Compiling C object bench-compose.p/src_utf8-decoding.c.o
+2026-03-24T19:27:47.9470057Z [274/329] Compiling C object bench-compose.p/bench_bench.c.o
+2026-03-24T19:27:47.9908377Z [275/329] Compiling C object bench-compose-traversal.p/bench_compose-traversal.c.o
+2026-03-24T19:27:47.9995068Z [276/329] Compiling C object bench-compose-traversal.p/test_compose-iter.c.o
+2026-03-24T19:27:48.0236797Z [277/329] Compiling C object bench-compose.p/test_common.c.o
+2026-03-24T19:27:48.0243327Z [278/329] Compiling C object bench-compose.p/tools_tools-common.c.o
+2026-03-24T19:27:48.0491236Z [279/329] Compiling C object bench-compose-traversal.p/src_utf8-decoding.c.o
+2026-03-24T19:27:48.0722974Z [280/329] Compiling C object bench-compose-traversal.p/bench_bench.c.o
+2026-03-24T19:27:48.0984940Z [281/329] Compiling C object bench-atom.p/bench_atom.c.o
+2026-03-24T19:27:48.1323991Z [282/329] Compiling C object bench-compose-traversal.p/tools_tools-common.c.o
+2026-03-24T19:27:48.1440232Z [283/329] Compiling C object bench-compose-traversal.p/test_common.c.o
+2026-03-24T19:27:48.1470477Z [284/329] Compiling C object bench-atom.p/src_utf8-decoding.c.o
+2026-03-24T19:27:48.1528300Z [285/329] Compiling C object bench-atom.p/bench_bench.c.o
+2026-03-24T19:27:48.2140315Z [286/329] Compiling C object bench-x11.p/bench_x11.c.o
+2026-03-24T19:27:48.2334268Z [287/329] Compiling C object bench-x11.p/bench_bench.c.o
+2026-03-24T19:27:48.2541037Z [288/329] Compiling C object bench-atom.p/tools_tools-common.c.o
+2026-03-24T19:27:48.2547323Z [289/329] Compiling C object bench-atom.p/test_common.c.o
+2026-03-24T19:27:48.2615449Z [290/329] Compiling C object bench-x11.p/src_utf8-decoding.c.o
+2026-03-24T19:27:48.2861573Z [291/329] Linking target libxkbcommon-x11.so.0.11.0
+2026-03-24T19:27:48.3281060Z [292/329] Linking target test-keysym-unicode
+2026-03-24T19:27:48.3281731Z [293/329] Linking target test-keysym
+2026-03-24T19:27:48.3549420Z [294/329] Compiling C object bench-x11.p/test_common.c.o
+2026-03-24T19:27:48.3586278Z [295/329] Linking target test-keymap
+2026-03-24T19:27:48.3598425Z [296/329] Linking target test-filecomp
+2026-03-24T19:27:48.3609700Z [297/329] Compiling C object bench-x11.p/tools_tools-common.c.o
+2026-03-24T19:27:48.3911543Z [298/329] Linking target test-context
+2026-03-24T19:27:48.3933370Z [299/329] Linking target test-rules-file
+2026-03-24T19:27:48.3962105Z [300/329] Linking target test-rules-file-includes
+2026-03-24T19:27:48.3962681Z [301/329] Linking target test-stringcomp
+2026-03-24T19:27:48.4255610Z [302/329] Linking target test-buffercomp
+2026-03-24T19:27:48.4270740Z [303/329] Linking target test-atom
+2026-03-24T19:27:48.4279872Z [304/329] Linking target test-log
+2026-03-24T19:27:48.4287206Z [305/329] Linking target test-merge-modes
+2026-03-24T19:27:48.4616440Z [306/329] Linking target test-utf8
+2026-03-24T19:27:48.4622006Z [307/329] Linking target test-state
+2026-03-24T19:27:48.4632781Z [308/329] Linking target test-rulescomp
+2026-03-24T19:27:48.4635821Z [309/329] Linking target test-keyseq
+2026-03-24T19:27:48.4974106Z [310/329] Linking target test-utils
+2026-03-24T19:27:48.4976556Z [311/329] Linking target test-compose
+2026-03-24T19:27:48.4979340Z [312/329] Linking target test-modifiers
+2026-03-24T19:27:48.4991886Z [313/329] Linking target test-messages
+2026-03-24T19:27:48.5336538Z [314/329] Linking target fuzz-keymap
+2026-03-24T19:27:48.5363922Z [315/329] Linking target test-x11
+2026-03-24T19:27:48.5370993Z [316/329] Linking target test-x11comp
+2026-03-24T19:27:48.5677492Z [317/329] Linking target fuzz-compose
+2026-03-24T19:27:48.5703555Z [318/329] Linking target bench-key-proc
+2026-03-24T19:27:48.5711441Z [319/329] Linking target bench-keysym-case-mappings
+2026-03-24T19:27:48.5756880Z [320/329] Linking target test-registry
+2026-03-24T19:27:48.6052677Z [321/329] Linking target bench-rulescomp
+2026-03-24T19:27:48.6053294Z [322/329] Linking target bench-compile-keymap
+2026-03-24T19:27:48.6053768Z [323/329] Linking target bench-rules
+2026-03-24T19:27:48.6098267Z [324/329] Linking target bench-dump-keymap
+2026-03-24T19:27:48.6382938Z [325/329] Linking target bench-custom-parsers
+2026-03-24T19:27:48.6388259Z [326/329] Linking target bench-compose
+2026-03-24T19:27:48.6392078Z [327/329] Linking target bench-compose-traversal
+2026-03-24T19:27:48.6438866Z [328/329] Linking target bench-atom
+2026-03-24T19:27:48.6680026Z [329/329] Linking target bench-x11
+2026-03-24T19:27:48.6702559Z ninja: Entering directory `build'
+2026-03-24T19:27:48.6757259Z [0/1] Installing files.
+2026-03-24T19:27:48.8730253Z Installing libxkbcommon.so.0.11.0 to /opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:27:48.8731129Z Installing libxkbcommon-x11.so.0.11.0 to /opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:27:48.8731847Z Installing libxkbregistry.so.0.11.0 to /opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:27:48.8732960Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/include/xkbcommon/xkbcommon.h to /opt/hypr/include/xkbcommon
+2026-03-24T19:27:48.8734545Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/include/xkbcommon/xkbcommon-compat.h to /opt/hypr/include/xkbcommon
+2026-03-24T19:27:48.8736474Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/include/xkbcommon/xkbcommon-compose.h to /opt/hypr/include/xkbcommon
+2026-03-24T19:27:48.8738533Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/include/xkbcommon/xkbcommon-keysyms.h to /opt/hypr/include/xkbcommon
+2026-03-24T19:27:48.8740504Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/include/xkbcommon/xkbcommon-names.h to /opt/hypr/include/xkbcommon
+2026-03-24T19:27:48.8742362Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/include/xkbcommon/xkbcommon-x11.h to /opt/hypr/include/xkbcommon
+2026-03-24T19:27:48.8744250Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/include/xkbcommon/xkbregistry.h to /opt/hypr/include/xkbcommon
+2026-03-24T19:27:48.8746152Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/build/meson-private/xkbcommon.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:27:48.8748296Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/build/meson-private/xkbcommon-x11.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:27:48.8750589Z Installing /home/runner/work/hyprland-build/hyprland-build/libxkbcommon/build/meson-private/xkbregistry.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:27:48.8752147Z Installing symlink pointing to libxkbcommon.so.0.11.0 to /opt/hypr/lib/x86_64-linux-gnu/libxkbcommon.so.0
+2026-03-24T19:27:48.8753498Z Installing symlink pointing to libxkbcommon.so.0 to /opt/hypr/lib/x86_64-linux-gnu/libxkbcommon.so
+2026-03-24T19:27:48.8755202Z Installing symlink pointing to libxkbcommon-x11.so.0.11.0 to /opt/hypr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0
+2026-03-24T19:27:48.8756687Z Installing symlink pointing to libxkbcommon-x11.so.0 to /opt/hypr/lib/x86_64-linux-gnu/libxkbcommon-x11.so
+2026-03-24T19:27:48.8758242Z Installing symlink pointing to libxkbregistry.so.0.11.0 to /opt/hypr/lib/x86_64-linux-gnu/libxkbregistry.so.0
+2026-03-24T19:27:48.8759911Z Installing symlink pointing to libxkbregistry.so.0 to /opt/hypr/lib/x86_64-linux-gnu/libxkbregistry.so

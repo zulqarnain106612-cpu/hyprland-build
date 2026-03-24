@@ -1,0 +1,11 @@
+﻿2026-03-24T19:27:25.9748918Z ##[group]Run echo "/opt/hypr/bin" >> $GITHUB_PATH
+2026-03-24T19:27:25.9749410Z [36;1mecho "/opt/hypr/bin" >> $GITHUB_PATH[0m
+2026-03-24T19:27:25.9798134Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:27:25.9798450Z env:
+2026-03-24T19:27:25.9798667Z   CC: gcc-14
+2026-03-24T19:27:25.9799061Z   CXX: g++-14
+2026-03-24T19:27:25.9799299Z   PREFIX: /opt/hypr
+2026-03-24T19:27:25.9800446Z   PKG_CONFIG_PATH: /opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig
+2026-03-24T19:27:25.9801466Z   CMAKE_PREFIX_PATH: /opt/hypr
+2026-03-24T19:27:25.9801881Z   LD_LIBRARY_PATH: /opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:27:25.9802340Z ##[endgroup]

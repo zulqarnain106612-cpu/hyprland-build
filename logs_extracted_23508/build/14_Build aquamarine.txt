@@ -1,0 +1,64 @@
+﻿2026-03-24T19:27:48.9018921Z ##[group]Run set -e
+2026-03-24T19:27:48.9019263Z [36;1mset -e[0m
+2026-03-24T19:27:48.9019761Z [36;1mpkg-config --modversion libinput[0m
+2026-03-24T19:27:48.9020203Z [36;1mpkg-config --cflags --libs libinput[0m
+2026-03-24T19:27:48.9020739Z [36;1mgit clone --depth=1 https://github.com/hyprwm/aquamarine.git[0m
+2026-03-24T19:27:48.9021233Z [36;1mcd aquamarine[0m
+2026-03-24T19:27:48.9021674Z [36;1m# Patch CMakeLists to explicitly link libinput after PkgConfig[0m
+2026-03-24T19:27:48.9023660Z [36;1msed -i 's/target_link_libraries(aquamarine OpenGL::EGL OpenGL::OpenGL PkgConfig::deps)/target_link_libraries(aquamarine OpenGL::EGL OpenGL::OpenGL PkgConfig::deps)\nif(NOT TARGET libinput)\n  find_library(LIBINPUT_LIB libinput REQUIRED)\n  target_link_libraries(aquamarine PRIVATE ${LIBINPUT_LIB})\nendif()/' CMakeLists.txt[0m
+2026-03-24T19:27:48.9025513Z [36;1mcmake --no-warn-unused-cli \[0m
+2026-03-24T19:27:48.9025891Z [36;1m  -DCMAKE_BUILD_TYPE=Release \[0m
+2026-03-24T19:27:48.9026274Z [36;1m  -DCMAKE_INSTALL_PREFIX=$PREFIX \[0m
+2026-03-24T19:27:48.9026695Z [36;1m  -DCMAKE_C_COMPILER=gcc-14 \[0m
+2026-03-24T19:27:48.9027069Z [36;1m  -DCMAKE_CXX_COMPILER=g++-14 \[0m
+2026-03-24T19:27:48.9027437Z [36;1m  -DCMAKE_PREFIX_PATH=$PREFIX \[0m
+2026-03-24T19:27:48.9027831Z [36;1m  -DCMAKE_POLICY_DEFAULT_CMP0023=OLD \[0m
+2026-03-24T19:27:48.9028215Z [36;1m  -S . -B build[0m
+2026-03-24T19:27:48.9028550Z [36;1mcmake --build build -j$(nproc) --verbose[0m
+2026-03-24T19:27:48.9028961Z [36;1mcmake --install build[0m
+2026-03-24T19:27:48.9078973Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:27:48.9079272Z env:
+2026-03-24T19:27:48.9079490Z   CC: gcc-14
+2026-03-24T19:27:48.9079985Z   CXX: g++-14
+2026-03-24T19:27:48.9080229Z   PREFIX: /opt/hypr
+2026-03-24T19:27:48.9081148Z   PKG_CONFIG_PATH: /opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig
+2026-03-24T19:27:48.9082145Z   CMAKE_PREFIX_PATH: /opt/hypr
+2026-03-24T19:27:48.9082566Z   LD_LIBRARY_PATH: /opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:27:48.9083006Z ##[endgroup]
+2026-03-24T19:27:48.9166758Z 1.28.1
+2026-03-24T19:27:48.9179978Z -I/opt/hypr/include -L/opt/hypr/lib/x86_64-linux-gnu -linput 
+2026-03-24T19:27:48.9195294Z Cloning into 'aquamarine'...
+2026-03-24T19:27:49.4656666Z Not searching for unused variables given on the command line.
+2026-03-24T19:27:49.4657424Z -- The C compiler identification is GNU 14.2.0
+2026-03-24T19:27:49.5209063Z -- The CXX compiler identification is GNU 14.2.0
+2026-03-24T19:27:49.5291041Z -- Detecting C compiler ABI info
+2026-03-24T19:27:49.5835801Z -- Detecting C compiler ABI info - done
+2026-03-24T19:27:49.6010494Z -- Check for working C compiler: /usr/bin/gcc-14 - skipped
+2026-03-24T19:27:49.6014022Z -- Detecting C compile features
+2026-03-24T19:27:49.6018405Z -- Detecting C compile features - done
+2026-03-24T19:27:49.6131477Z -- Detecting CXX compiler ABI info
+2026-03-24T19:27:49.6770734Z -- Detecting CXX compiler ABI info - done
+2026-03-24T19:27:49.6949493Z -- Check for working CXX compiler: /usr/bin/g++-14 - skipped
+2026-03-24T19:27:49.6953708Z -- Detecting CXX compile features
+2026-03-24T19:27:49.6960711Z -- Detecting CXX compile features - done
+2026-03-24T19:27:49.7098619Z -- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1")
+2026-03-24T19:27:49.7267229Z -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: GLES3
+2026-03-24T19:27:49.7283947Z -- Checking for modules 'libseat>=0.8.0;libinput>=1.26.0;wayland-client;wayland-protocols;hyprutils>=0.8.0;pixman-1;libdrm;gbm;libudev;libdisplay-info;hwdata'
+2026-03-24T19:27:49.7555833Z --   Found libseat, version 0.8.0
+2026-03-24T19:27:49.7635365Z --   Found libinput, version 1.28.1
+2026-03-24T19:27:49.7715396Z --   Found wayland-client, version 1.23.1
+2026-03-24T19:27:49.7796494Z --   Found wayland-protocols, version 1.45
+2026-03-24T19:27:49.7875552Z --   Found hyprutils, version 0.11.1
+2026-03-24T19:27:49.7956463Z --   Found pixman-1, version 0.42.2
+2026-03-24T19:27:49.8035715Z --   Found libdrm, version 2.4.125
+2026-03-24T19:27:49.8115997Z --   Found gbm, version 25.2.8-0ubuntu0.24.04.1
+2026-03-24T19:27:49.8194570Z --   Found libudev, version 255
+2026-03-24T19:27:49.8277431Z --   Found libdisplay-info, version 0.1.1
+2026-03-24T19:27:49.8356846Z --   Found hwdata, version 0.379
+2026-03-24T19:27:49.8677902Z -- Configuring aquamarine in Release
+2026-03-24T19:27:49.8701877Z CMake Error at CMakeLists.txt:72 (find_library):
+2026-03-24T19:27:49.8703006Z   Could not find LIBINPUT_LIB using the following names: libinput
+2026-03-24T19:27:49.8703779Z 
+2026-03-24T19:27:49.8703791Z 
+2026-03-24T19:27:49.8704092Z -- Configuring incomplete, errors occurred!
+2026-03-24T19:27:49.8772613Z ##[error]Process completed with exit code 1.

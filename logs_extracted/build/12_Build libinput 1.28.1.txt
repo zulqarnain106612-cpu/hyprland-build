@@ -1,0 +1,386 @@
+﻿2026-03-24T19:17:58.5160943Z ##[group]Run git clone --depth=1 --branch 1.28.1 https://gitlab.freedesktop.org/libinput/libinput.git
+2026-03-24T19:17:58.5161593Z [36;1mgit clone --depth=1 --branch 1.28.1 https://gitlab.freedesktop.org/libinput/libinput.git[0m
+2026-03-24T19:17:58.5162009Z [36;1mcd libinput[0m
+2026-03-24T19:17:58.5162370Z [36;1mmeson setup build --prefix=$PREFIX -Ddocumentation=false -Dtests=false -Dlibwacom=false[0m
+2026-03-24T19:17:58.5162781Z [36;1mninja -C build -j$(nproc)[0m
+2026-03-24T19:17:58.5163025Z [36;1mninja -C build install[0m
+2026-03-24T19:17:58.5189615Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:17:58.5189857Z env:
+2026-03-24T19:17:58.5190025Z   CC: gcc-14
+2026-03-24T19:17:58.5190189Z   CXX: g++-14
+2026-03-24T19:17:58.5190365Z   PREFIX: /opt/hypr
+2026-03-24T19:17:58.5190937Z   PKG_CONFIG_PATH: /opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig
+2026-03-24T19:17:58.5191567Z   CMAKE_PREFIX_PATH: /opt/hypr
+2026-03-24T19:17:58.5191900Z   LD_LIBRARY_PATH: /opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:17:58.5192207Z ##[endgroup]
+2026-03-24T19:17:58.5247813Z Cloning into 'libinput'...
+2026-03-24T19:18:00.6776674Z warning: refs/tags/1.28.1 4a9545d45ba35ffc98f253886e36c8ca840fdbf7 is not a commit!
+2026-03-24T19:18:00.6779396Z Note: switching to '4f7b4ef0e4eb5d569df36be387579858eba349bb'.
+2026-03-24T19:18:00.6779777Z 
+2026-03-24T19:18:00.6780000Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-03-24T19:18:00.6780446Z changes and commit them, and you can discard any commits you make in this
+2026-03-24T19:18:00.6780872Z state without impacting any branches by switching back to a branch.
+2026-03-24T19:18:00.6781117Z 
+2026-03-24T19:18:00.6781283Z If you want to create a new branch to retain commits you create, you may
+2026-03-24T19:18:00.6781878Z do so (now or later) by using -c with the switch command. Example:
+2026-03-24T19:18:00.6782098Z 
+2026-03-24T19:18:00.6782202Z   git switch -c <new-branch-name>
+2026-03-24T19:18:00.6782368Z 
+2026-03-24T19:18:00.6782455Z Or undo this operation with:
+2026-03-24T19:18:00.6782595Z 
+2026-03-24T19:18:00.6782676Z   git switch -
+2026-03-24T19:18:00.6782782Z 
+2026-03-24T19:18:00.6782960Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-03-24T19:18:00.6783257Z 
+2026-03-24T19:18:01.8457245Z The Meson build system
+2026-03-24T19:18:01.8457641Z Version: 1.3.2
+2026-03-24T19:18:01.8458057Z Source dir: /home/runner/work/hyprland-build/hyprland-build/libinput
+2026-03-24T19:18:01.8458774Z Build dir: /home/runner/work/hyprland-build/hyprland-build/libinput/build
+2026-03-24T19:18:01.8459255Z Build type: native build
+2026-03-24T19:18:01.8459558Z Project name: libinput
+2026-03-24T19:18:01.8459845Z Project version: 1.28.1
+2026-03-24T19:18:01.8460414Z C compiler for the host machine: gcc-14 (gcc 14.2.0 "gcc-14 (Ubuntu 14.2.0-4ubuntu2~24.04.1) 14.2.0")
+2026-03-24T19:18:01.8461173Z C linker for the host machine: gcc-14 ld.bfd 2.42
+2026-03-24T19:18:01.8461634Z Host machine cpu family: x86_64
+2026-03-24T19:18:01.8461953Z Host machine cpu: x86_64
+2026-03-24T19:18:01.8462379Z Compiler for C supports arguments -Wno-unused-parameter: YES 
+2026-03-24T19:18:01.8462959Z Compiler for C supports arguments -Wmissing-prototypes: YES 
+2026-03-24T19:18:01.8463535Z Compiler for C supports arguments -Wstrict-prototypes: YES 
+2026-03-24T19:18:01.8464030Z Compiler for C supports arguments -Wundef: YES 
+2026-03-24T19:18:01.8464510Z Compiler for C supports arguments -Wlogical-op: YES 
+2026-03-24T19:18:01.8465044Z Compiler for C supports arguments -Wpointer-arith: YES 
+2026-03-24T19:18:01.8465524Z Compiler for C supports arguments -Wuninitialized: YES 
+2026-03-24T19:18:01.8465968Z Compiler for C supports arguments -Winit-self: YES 
+2026-03-24T19:18:01.8466333Z Compiler for C supports arguments -Wstrict-prototypes: YES (cached)
+2026-03-24T19:18:01.8466745Z Compiler for C supports arguments -Wimplicit-fallthrough: YES 
+2026-03-24T19:18:01.8467107Z Compiler for C supports arguments -Wredundant-decls: YES 
+2026-03-24T19:18:01.8467834Z Compiler for C supports arguments -Wincompatible-pointer-types: YES 
+2026-03-24T19:18:01.8468207Z Compiler for C supports arguments -Wformat=2: YES 
+2026-03-24T19:18:01.8468581Z Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+2026-03-24T19:18:01.8469184Z Compiler for C supports arguments -Wmissing-declarations: YES 
+2026-03-24T19:18:01.8469560Z Compiler for C supports arguments -fvisibility=hidden: YES 
+2026-03-24T19:18:01.8469908Z Fetching value of define "static_assert" : _Static_assert 
+2026-03-24T19:18:01.8470231Z Header "dirent.h" has symbol "versionsort" : YES 
+2026-03-24T19:18:01.8470525Z Fetching value of define "SYS_pidfd_open" : 434 
+2026-03-24T19:18:01.8470808Z Checking for function "sigabbrev_np" : YES 
+2026-03-24T19:18:01.8471127Z Header "errno.h" has symbol "program_invocation_short_name" : YES 
+2026-03-24T19:18:01.8471450Z Has header "xlocale.h" : NO 
+2026-03-24T19:18:01.8471672Z Checking if "locale.h" : links: YES 
+2026-03-24T19:18:01.8471955Z Header "sys/ptrace.h" has symbol "PTRACE_ATTACH" : YES 
+2026-03-24T19:18:01.8472271Z Found pkg-config: YES (/usr/bin/pkg-config) 1.8.1
+2026-03-24T19:18:01.8472546Z Run-time dependency libudev found: YES 255
+2026-03-24T19:18:01.8472806Z Run-time dependency mtdev found: YES 1.1.6
+2026-03-24T19:18:01.8473069Z Run-time dependency libevdev found: YES 1.13.1
+2026-03-24T19:18:01.8473319Z Library m found: YES
+2026-03-24T19:18:01.8473504Z Library rt found: YES
+2026-03-24T19:18:01.8473788Z Configuring 80-libinput-device-groups.rules using configuration
+2026-03-24T19:18:01.8474182Z Configuring 90-libinput-fuzz-override.rules using configuration
+2026-03-24T19:18:01.8474597Z Configuring 80-libinput-device-groups-litest.rules using configuration
+2026-03-24T19:18:01.8475038Z Configuring 90-libinput-fuzz-override-litest.rules using configuration
+2026-03-24T19:18:01.8475554Z Header "sys/epoll.h" has symbol "epoll_create1" : YES 
+2026-03-24T19:18:01.8475934Z Configuring test-util-includes-util-backtrace.h.c using configuration
+2026-03-24T19:18:01.8476353Z Configuring test-util-includes-util-bits.h.c using configuration
+2026-03-24T19:18:01.8476781Z Configuring test-util-includes-util-input-event.h.c using configuration
+2026-03-24T19:18:01.8477210Z Configuring test-util-includes-util-list.h.c using configuration
+2026-03-24T19:18:01.8477604Z Configuring test-util-includes-util-files.h.c using configuration
+2026-03-24T19:18:01.8478012Z Configuring test-util-includes-util-macros.h.c using configuration
+2026-03-24T19:18:01.8478415Z Configuring test-util-includes-util-matrix.h.c using configuration
+2026-03-24T19:18:01.8479084Z Configuring test-util-includes-util-prop-parsers.h.c using configuration
+2026-03-24T19:18:01.8479535Z Configuring test-util-includes-util-ratelimit.h.c using configuration
+2026-03-24T19:18:01.8479981Z Configuring test-util-includes-util-stringbuf.h.c using configuration
+2026-03-24T19:18:01.8480414Z Configuring test-util-includes-util-strings.h.c using configuration
+2026-03-24T19:18:01.8480821Z Configuring test-util-includes-util-time.h.c using configuration
+2026-03-24T19:18:01.8481178Z Configuring libinput-version.h using configuration
+2026-03-24T19:18:01.8481725Z Program test/test_quirks_files.py found: YES (/home/runner/work/hyprland-build/hyprland-build/libinput/test/test_quirks_files.py)
+2026-03-24T19:18:01.8482254Z Found CMake: /usr/local/bin/cmake (3.31.6)
+2026-03-24T19:18:01.8482572Z Run-time dependency gtk4 found: NO (tried pkgconfig and cmake)
+2026-03-24T19:18:01.8482907Z Run-time dependency gtk+-3.0 found: YES 3.24.41
+2026-03-24T19:18:01.8483186Z Run-time dependency cairo found: YES 1.18.0
+2026-03-24T19:18:01.8483454Z Run-time dependency glib-2.0 found: YES 2.80.0
+2026-03-24T19:18:01.8483723Z Run-time dependency x11 found: YES 1.8.7
+2026-03-24T19:18:01.8484002Z Run-time dependency wayland-client found: YES 1.23.1
+2026-03-24T19:18:01.8484321Z Run-time dependency wayland-protocols found: YES 1.45
+2026-03-24T19:18:01.8484678Z Program wayland-scanner found: YES (/opt/hypr/bin/wayland-scanner)
+2026-03-24T19:18:01.8485159Z Configuring test_tool_option_parsing.py using configuration
+2026-03-24T19:18:01.8485823Z Program test/helper-copy-and-exec-from-tmp.sh found: YES (/home/runner/work/hyprland-build/hyprland-build/libinput/test/helper-copy-and-exec-from-tmp.sh)
+2026-03-24T19:18:01.8486702Z Program test/symbols-leak-test found: YES (/home/runner/work/hyprland-build/hyprland-build/libinput/test/symbols-leak-test)
+2026-03-24T19:18:01.8487363Z C++ compiler for the host machine: g++-14 (gcc 14.2.0 "g++-14 (Ubuntu 14.2.0-4ubuntu2~24.04.1) 14.2.0")
+2026-03-24T19:18:01.8487779Z C++ linker for the host machine: g++-14 ld.bfd 2.42
+2026-03-24T19:18:01.8488104Z Configuring libinput-debug-gui.1 using configuration
+2026-03-24T19:18:01.8488398Z Configuring libinput.1 using configuration
+2026-03-24T19:18:01.8488763Z Configuring libinput-analyze.1 using configuration
+2026-03-24T19:18:01.8489110Z Configuring libinput-analyze-buttons.1 using configuration
+2026-03-24T19:18:01.8489492Z Configuring libinput-analyze-per-slot-delta.1 using configuration
+2026-03-24T19:18:01.8489900Z Configuring libinput-analyze-recording.1 using configuration
+2026-03-24T19:18:01.8490292Z Configuring libinput-analyze-touch-down-state.1 using configuration
+2026-03-24T19:18:01.8490677Z Configuring libinput-debug-events.1 using configuration
+2026-03-24T19:18:01.8491003Z Configuring libinput-debug-tablet.1 using configuration
+2026-03-24T19:18:01.8491332Z Configuring libinput-list-devices.1 using configuration
+2026-03-24T19:18:01.8491683Z Configuring libinput-list-kernel-devices.1 using configuration
+2026-03-24T19:18:01.8492037Z Configuring libinput-measure.1 using configuration
+2026-03-24T19:18:01.8492359Z Configuring libinput-measure-fuzz.1 using configuration
+2026-03-24T19:18:01.8492719Z Configuring libinput-measure-touchpad-size.1 using configuration
+2026-03-24T19:18:01.8493123Z Configuring libinput-measure-touchpad-tap.1 using configuration
+2026-03-24T19:18:01.8493608Z Configuring libinput-measure-touchpad-pressure.1 using configuration
+2026-03-24T19:18:01.8494026Z Configuring libinput-measure-touch-size.1 using configuration
+2026-03-24T19:18:01.8494362Z Configuring libinput-quirks.1 using configuration
+2026-03-24T19:18:01.8494656Z Configuring libinput-record.1 using configuration
+2026-03-24T19:18:01.8494964Z Configuring libinput-replay.1 using configuration
+2026-03-24T19:18:01.8495250Z Configuring libinput-test.1 using configuration
+2026-03-24T19:18:01.8495563Z Configuring libinput-quirks-list.1 using configuration
+2026-03-24T19:18:01.8495905Z Configuring libinput-quirks-validate.1 using configuration
+2026-03-24T19:18:01.8496225Z Configuring config.h using configuration
+2026-03-24T19:18:01.8496480Z Build targets in project: 40
+2026-03-24T19:18:01.8496717Z NOTICE: Future-deprecated features used:
+2026-03-24T19:18:01.8496964Z  * 0.64.0: {'copy arg in configure_file'}
+2026-03-24T19:18:01.8497135Z 
+2026-03-24T19:18:01.8497213Z libinput 1.28.1
+2026-03-24T19:18:01.8497318Z 
+2026-03-24T19:18:01.8497403Z   User defined options
+2026-03-24T19:18:01.8497598Z     prefix       : /opt/hypr
+2026-03-24T19:18:01.8497807Z     documentation: false
+2026-03-24T19:18:01.8498001Z     libwacom     : false
+2026-03-24T19:18:01.8498197Z     tests        : false
+2026-03-24T19:18:01.8498312Z 
+2026-03-24T19:18:01.8498403Z Found ninja-1.13.2 at /usr/local/bin/ninja
+2026-03-24T19:18:01.9013647Z ninja: Entering directory `build'
+2026-03-24T19:18:01.9340675Z [1/125] Compiling C object liblibinput-util.a.p/src_util-list.c.o
+2026-03-24T19:18:01.9480380Z [2/125] Compiling C object liblibinput-util.a.p/src_util-ratelimit.c.o
+2026-03-24T19:18:01.9842810Z [3/125] Compiling C object liblibinput-util.a.p/src_util-strings.c.o
+2026-03-24T19:18:02.0295650Z [4/125] Compiling C object liblibinput-util.a.p/src_util-prop-parsers.c.o
+2026-03-24T19:18:02.0348211Z [5/125] Linking static target liblibinput-util.a
+2026-03-24T19:18:02.0610841Z [6/125] Compiling C object libinput.so.10.13.0.p/src_filter.c.o
+2026-03-24T19:18:02.0929498Z [7/125] Compiling C object libinput.so.10.13.0.p/src_filter-custom.c.o
+2026-03-24T19:18:02.1422973Z [8/125] Compiling C object libquirks.a.p/src_quirks.c.o
+2026-03-24T19:18:02.1471107Z [9/125] Linking static target libquirks.a
+2026-03-24T19:18:02.1487689Z [10/125] Compiling C object libinput.so.10.13.0.p/src_filter-low-dpi.c.o
+2026-03-24T19:18:02.1550210Z [11/125] Compiling C object libinput.so.10.13.0.p/src_filter-flat.c.o
+2026-03-24T19:18:02.1814519Z [12/125] Compiling C object libinput.so.10.13.0.p/src_filter-mouse.c.o
+2026-03-24T19:18:02.2400797Z [13/125] Compiling C object libinput.so.10.13.0.p/src_filter-touchpad-flat.c.o
+2026-03-24T19:18:02.2464539Z [14/125] Compiling C object libinput.so.10.13.0.p/src_filter-touchpad.c.o
+2026-03-24T19:18:02.2524587Z [15/125] Compiling C object libinput.so.10.13.0.p/src_filter-touchpad-x230.c.o
+2026-03-24T19:18:02.2801716Z [16/125] Compiling C object libinput.so.10.13.0.p/src_filter-tablet.c.o
+2026-03-24T19:18:02.3378459Z [17/125] Compiling C object libinput.so.10.13.0.p/src_filter-trackpoint-flat.c.o
+2026-03-24T19:18:02.3387501Z [18/125] Compiling C object libinput.so.10.13.0.p/src_filter-trackpoint.c.o
+2026-03-24T19:18:02.3664251Z [19/125] Compiling C object libinput.so.10.13.0.p/src_libinput-private-config.c.o
+2026-03-24T19:18:02.4662607Z [20/125] Compiling C object libinput.so.10.13.0.p/src_evdev-debounce.c.o
+2026-03-24T19:18:02.6162025Z [21/125] Compiling C object libinput.so.10.13.0.p/src_evdev-totem.c.o
+2026-03-24T19:18:02.6189765Z [22/125] Compiling C object libinput.so.10.13.0.p/src_evdev-fallback.c.o
+2026-03-24T19:18:02.6969061Z [23/125] Compiling C object libinput.so.10.13.0.p/src_evdev.c.o
+2026-03-24T19:18:02.7185215Z [24/125] Compiling C object libinput.so.10.13.0.p/src_libinput.c.o
+2026-03-24T19:18:02.7457142Z [25/125] Compiling C object libinput.so.10.13.0.p/src_evdev-middle-button.c.o
+2026-03-24T19:18:02.8492711Z [26/125] Compiling C object libinput.so.10.13.0.p/src_evdev-mt-touchpad-thumb.c.o
+2026-03-24T19:18:02.8878376Z [27/125] Compiling C object libinput.so.10.13.0.p/src_evdev-mt-touchpad-tap.c.o
+2026-03-24T19:18:02.9370718Z [28/125] Compiling C object libinput.so.10.13.0.p/src_evdev-mt-touchpad-buttons.c.o
+2026-03-24T19:18:02.9818959Z [29/125] Compiling C object libinput.so.10.13.0.p/src_evdev-mt-touchpad-edge-scroll.c.o
+2026-03-24T19:18:03.0003673Z [30/125] Compiling C object libinput.so.10.13.0.p/src_evdev-mt-touchpad.c.o
+2026-03-24T19:18:03.1154965Z [31/125] Compiling C object libinput.so.10.13.0.p/src_evdev-tablet-pad-leds.c.o
+2026-03-24T19:18:03.1390147Z [32/125] Compiling C object libinput.so.10.13.0.p/src_evdev-mt-touchpad-gestures.c.o
+2026-03-24T19:18:03.1468285Z [33/125] Compiling C object libinput.so.10.13.0.p/src_evdev-tablet-pad.c.o
+2026-03-24T19:18:03.2359793Z [34/125] Compiling C object libinput.so.10.13.0.p/src_evdev-tablet.c.o
+2026-03-24T19:18:03.2441233Z [35/125] Compiling C object libinput.so.10.13.0.p/src_evdev-wheel.c.o
+2026-03-24T19:18:03.2629474Z [36/125] Compiling C object libinput.so.10.13.0.p/src_path-seat.c.o
+2026-03-24T19:18:03.2687728Z [37/125] Compiling C object libinput.so.10.13.0.p/src_udev-seat.c.o
+2026-03-24T19:18:03.3451395Z [38/125] Compiling C object libinput.so.10.13.0.p/src_timer.c.o
+2026-03-24T19:18:03.3756063Z [39/125] Compiling C object libfilter.a.p/src_filter-custom.c.o
+2026-03-24T19:18:03.3759750Z [40/125] Compiling C object libfilter.a.p/src_filter.c.o
+2026-03-24T19:18:03.3890023Z [41/125] Compiling C object libinput.so.10.13.0.p/src_util-libinput.c.o
+2026-03-24T19:18:03.4416091Z [42/125] Compiling C object libfilter.a.p/src_filter-flat.c.o
+2026-03-24T19:18:03.4734161Z [43/125] Compiling C object libfilter.a.p/src_filter-low-dpi.c.o
+2026-03-24T19:18:03.4780041Z [44/125] Compiling C object libfilter.a.p/src_filter-mouse.c.o
+2026-03-24T19:18:03.4844640Z [45/125] Compiling C object libfilter.a.p/src_filter-touchpad.c.o
+2026-03-24T19:18:03.5330051Z [46/125] Compiling C object libfilter.a.p/src_filter-touchpad-flat.c.o
+2026-03-24T19:18:03.5703192Z [47/125] Compiling C object libfilter.a.p/src_filter-tablet.c.o
+2026-03-24T19:18:03.5752460Z [48/125] Compiling C object libfilter.a.p/src_filter-touchpad-x230.c.o
+2026-03-24T19:18:03.5800639Z [49/125] Compiling C object libfilter.a.p/src_filter-trackpoint.c.o
+2026-03-24T19:18:03.6221093Z [50/125] Linking target libinput.so.10.13.0
+2026-03-24T19:18:03.6237570Z [51/125] Compiling C object libfilter.a.p/src_filter-trackpoint-flat.c.o
+2026-03-24T19:18:03.6280332Z [52/125] Generating pointer-constraints-unstable-v1 client header with a custom command
+2026-03-24T19:18:03.6313872Z [53/125] Generating pointer-constraints-unstable-v1 source with a custom command
+2026-03-24T19:18:03.6497887Z [54/125] Generating libinput-git-version.h with a custom command
+2026-03-24T19:18:03.6930003Z [55/125] Compiling C object libinput-fuzz-extract.p/udev_libinput-fuzz-extract.c.o
+2026-03-24T19:18:03.7160487Z [56/125] Compiling C object libinput-device-group.p/udev_libinput-device-group.c.o
+2026-03-24T19:18:03.7304103Z [57/125] Compiling C object liblibinput-util-libinput.a.p/src_util-libinput.c.o
+2026-03-24T19:18:03.7690417Z [58/125] Compiling C object libinput-fuzz-to-zero.p/udev_libinput-fuzz-to-zero.c.o
+2026-03-24T19:18:03.7750029Z [59/125] Compiling C object libinput-fuzz-extract.p/src_util-strings.c.o
+2026-03-24T19:18:03.7823156Z [60/125] Compiling C object libtools_shared.a.p/tools_shared.c.o
+2026-03-24T19:18:03.7944065Z [61/125] Compiling C object test-build-util-bits.h.p/meson-generated_.._test-util-includes-util-bits.h.c.o
+2026-03-24T19:18:03.8160265Z [62/125] Compiling C object test-build-util-input-event.h.p/meson-generated_.._test-util-includes-util-input-event.h.c.o
+2026-03-24T19:18:03.8162127Z [63/125] Compiling C object test-build-util-list.h.p/meson-generated_.._test-util-includes-util-list.h.c.o
+2026-03-24T19:18:03.8267587Z [64/125] Compiling C object libinput-fuzz-extract.p/src_util-prop-parsers.c.o
+2026-03-24T19:18:03.8311427Z [65/125] Compiling C object test-build-util-macros.h.p/meson-generated_.._test-util-includes-util-macros.h.c.o
+2026-03-24T19:18:03.8440025Z [66/125] Compiling C object test-build-util-backtrace.h.p/meson-generated_.._test-util-includes-util-backtrace.h.c.o
+2026-03-24T19:18:03.8443886Z In file included from test-util-includes-util-backtrace.h.c:2:
+2026-03-24T19:18:03.8447251Z ../src/util-backtrace.h: In function ‘backtrace_print’:
+2026-03-24T19:18:03.8450667Z ../src/util-backtrace.h:57:5: warning: "HAVE_GSTACK" is not defined, evaluates to 0 [-Wundef]
+2026-03-24T19:18:03.8453761Z    57 | #if HAVE_GSTACK
+2026-03-24T19:18:03.8480491Z       |     ^~~~~~~~~~~
+2026-03-24T19:18:03.8568014Z [67/125] Compiling C object test-build-util-prop-parsers.h.p/meson-generated_.._test-util-includes-util-prop-parsers.h.c.o
+2026-03-24T19:18:03.8681282Z [68/125] Compiling C object test-build-util-ratelimit.h.p/meson-generated_.._test-util-includes-util-ratelimit.h.c.o
+2026-03-24T19:18:03.8810489Z [69/125] Compiling C object test-build-util-matrix.h.p/meson-generated_.._test-util-includes-util-matrix.h.c.o
+2026-03-24T19:18:03.8826910Z [70/125] Compiling C object test-build-util-files.h.p/meson-generated_.._test-util-includes-util-files.h.c.o
+2026-03-24T19:18:03.8884259Z [71/125] Compiling C object test-build-util-stringbuf.h.p/meson-generated_.._test-util-includes-util-stringbuf.h.c.o
+2026-03-24T19:18:03.8885213Z [72/125] Linking static target libfilter.a
+2026-03-24T19:18:03.8926455Z [73/125] Linking static target liblibinput-util-libinput.a
+2026-03-24T19:18:03.8971860Z [74/125] Linking static target libtools_shared.a
+2026-03-24T19:18:03.9124931Z [75/125] Compiling C object test-build-util-time.h.p/meson-generated_.._test-util-includes-util-time.h.c.o
+2026-03-24T19:18:03.9326388Z [76/125] Compiling C object test-build-util-strings.h.p/meson-generated_.._test-util-includes-util-strings.h.c.o
+2026-03-24T19:18:04.0019879Z [77/125] Compiling C object libinput-debug-events.p/tools_libinput-debug-events.c.o
+2026-03-24T19:18:04.0284566Z [78/125] Compiling C object libinput-quirks.p/tools_libinput-quirks.c.o
+2026-03-24T19:18:04.0285472Z [79/125] Generating symbol file libinput.so.10.13.0.p/libinput.so.10.13.0.symbols
+2026-03-24T19:18:04.0408017Z [80/125] Compiling C object libinput-debug-tablet.p/tools_libinput-debug-tablet.c.o
+2026-03-24T19:18:04.0979039Z [81/125] Compiling C object libinput-measure.p/tools_libinput-measure.c.o
+2026-03-24T19:18:04.0985270Z [82/125] Compiling C object libinput-analyze.p/tools_libinput-analyze.c.o
+2026-03-24T19:18:04.1241072Z [83/125] Compiling C object libinput-list-devices.p/tools_libinput-list-devices.c.o
+2026-03-24T19:18:04.1318863Z [84/125] Compiling C object libinput-debug-gui.p/meson-generated_.._pointer-constraints-unstable-v1-protocol.c.o
+2026-03-24T19:18:04.1989811Z [85/125] Compiling C object libinput.p/tools_libinput-tool.c.o
+2026-03-24T19:18:04.2540419Z [86/125] Compiling C object ptraccel-debug.p/tools_ptraccel-debug.c.o
+2026-03-24T19:18:04.2757535Z [87/125] Compiling C object test-build-pedantic.p/test_build-pedantic.c.o
+2026-03-24T19:18:04.2878928Z [88/125] Compiling C object test-builddir-lookup.p/test_test-builddir-lookup.c.o
+2026-03-24T19:18:04.3049766Z [89/125] Compiling C object test-build-std-gnuc90.p/test_build-pedantic.c.o
+2026-03-24T19:18:04.3165532Z [90/125] Compiling C object test-build-linker.p/test_build-pedantic.c.o
+2026-03-24T19:18:04.3274938Z [91/125] Compiling C object libinput-record.p/tools_libinput-record.c.o
+2026-03-24T19:18:04.3431242Z [92/125] Compiling C++ object test-build-cxx.p/test_build-cxx.cc.o
+2026-03-24T19:18:04.3495746Z [93/125] Linking target libinput-device-group
+2026-03-24T19:18:04.3713187Z [94/125] Linking target libinput-fuzz-extract
+2026-03-24T19:18:04.3748127Z [95/125] Linking target libinput-fuzz-to-zero
+2026-03-24T19:18:04.3912276Z [96/125] Compiling C object libinput-test.p/tools_libinput-test.c.o
+2026-03-24T19:18:04.3927180Z [97/125] Linking target test-build-util-backtrace.h
+2026-03-24T19:18:04.3937224Z [98/125] Linking target test-build-util-bits.h
+2026-03-24T19:18:04.4133055Z [99/125] Linking target test-build-util-input-event.h
+2026-03-24T19:18:04.4141608Z [100/125] Linking target test-build-util-list.h
+2026-03-24T19:18:04.4210094Z [101/125] Linking target test-build-util-files.h
+2026-03-24T19:18:04.4355017Z [102/125] Linking target test-build-util-macros.h
+2026-03-24T19:18:04.4360450Z [103/125] Linking target test-build-util-matrix.h
+2026-03-24T19:18:04.4363500Z [104/125] Linking target test-build-util-prop-parsers.h
+2026-03-24T19:18:04.4580296Z [105/125] Linking target test-build-util-ratelimit.h
+2026-03-24T19:18:04.4582349Z [106/125] Linking target test-build-util-stringbuf.h
+2026-03-24T19:18:04.4586099Z [107/125] Linking target test-build-util-strings.h
+2026-03-24T19:18:04.4786370Z [108/125] Linking target test-build-util-time.h
+2026-03-24T19:18:04.4980289Z [109/125] Linking target libinput-debug-events
+2026-03-24T19:18:04.4983231Z [110/125] Linking target libinput-debug-tablet
+2026-03-24T19:18:04.5196151Z [111/125] Linking target libinput-quirks
+2026-03-24T19:18:04.5374910Z [112/125] Linking target libinput-measure
+2026-03-24T19:18:04.5381483Z [113/125] Linking target libinput-list-devices
+2026-03-24T19:18:04.5532238Z [114/125] Linking target libinput-analyze
+2026-03-24T19:18:04.5772804Z [115/125] Linking target libinput
+2026-03-24T19:18:04.5782493Z [116/125] Linking target libinput-record
+2026-03-24T19:18:04.5900557Z [117/125] Linking target ptraccel-debug
+2026-03-24T19:18:04.6019697Z [118/125] Linking target test-build-pedantic
+2026-03-24T19:18:04.6045030Z [119/125] Linking target test-builddir-lookup
+2026-03-24T19:18:04.6115379Z [120/125] Linking target test-build-std-gnuc90
+2026-03-24T19:18:04.6248006Z [121/125] Linking target test-build-linker
+2026-03-24T19:18:04.6363596Z [122/125] Linking target test-build-cxx
+2026-03-24T19:18:04.6476614Z [123/125] Linking target libinput-test
+2026-03-24T19:18:04.6551020Z [124/125] Compiling C object libinput-debug-gui.p/tools_libinput-debug-gui.c.o
+2026-03-24T19:18:04.7952570Z [125/125] Linking target libinput-debug-gui
+2026-03-24T19:18:04.7968942Z ninja: Entering directory `build'
+2026-03-24T19:18:04.8516063Z [1/4] Generating libinput-git-version.h with a custom command
+2026-03-24T19:18:04.8516757Z [1/2] Installing files.
+2026-03-24T19:18:05.0406631Z Installing subdir /home/runner/work/hyprland-build/hyprland-build/libinput/quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0408019Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-pine64.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0409499Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-icl.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0410277Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-dell.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0411030Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-hp.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0411790Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-razer.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0412581Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-vaio.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0413363Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-elantech.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0414145Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-chicony.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0414913Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-a4tech.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0415681Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-oracle.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0416457Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-system76.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0417228Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-lenovo.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0418253Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-framework.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0419243Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-gpd.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0420028Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-huawei.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0420813Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-contour.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0421601Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-microsoft.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0422386Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-gigabyte.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0423178Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-starlabs.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0423945Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-alps.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0424710Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/10-generic-mouse.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0425479Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-acer.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0426239Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-cyborg.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0427012Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-uniwill.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0427783Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-apple.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0428553Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-graviton.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0429508Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-madcatz.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0430268Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-sony.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0431038Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-toshiba.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0431809Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-ibm.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0432563Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-qemu.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0433332Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-ite.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0434103Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/10-generic-keyboard.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0434886Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-aiptek.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0435663Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-cypress.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0436447Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/10-generic-trackball.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0437218Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-lg.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0437968Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-trust.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0438951Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-asus.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0439804Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-minisforum.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0441098Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-vmware.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0442516Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-huion.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0443413Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-wacom.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0444176Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-logitech.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0444948Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-google.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0445731Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-synaptics.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0446507Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-honor.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0447275Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-glorious.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0448055Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/30-vendor-kensington.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0449103Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/quirks/50-system-chuwi.quirks to /opt/hypr/share/libinput
+2026-03-24T19:18:05.0449674Z Installing libinput-device-group to /opt/hypr/lib/udev
+2026-03-24T19:18:05.0450008Z Installing libinput-fuzz-extract to /opt/hypr/lib/udev
+2026-03-24T19:18:05.0450342Z Installing libinput-fuzz-to-zero to /opt/hypr/lib/udev
+2026-03-24T19:18:05.0450809Z Installing libinput.so.10.13.0 to /opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:18:05.0451197Z Installing libinput-debug-events to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0451571Z Installing libinput-debug-tablet to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0451933Z Installing libinput-quirks to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0452278Z Installing libinput-list-devices to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0452644Z Installing libinput-measure to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0452992Z Installing libinput-analyze to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0453327Z Installing libinput-record to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0453679Z Installing libinput-debug-gui to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0453989Z Installing libinput to /opt/hypr/bin
+2026-03-24T19:18:05.0454278Z Installing libinput-test to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0454747Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/src/libinput.h to /opt/hypr/include
+2026-03-24T19:18:05.0455225Z Installing new directory /opt/hypr/etc/libinput
+2026-03-24T19:18:05.0455797Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/80-libinput-device-groups.rules to /opt/hypr/lib/udev/rules.d
+2026-03-24T19:18:05.0456643Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/90-libinput-fuzz-override.rules to /opt/hypr/lib/udev/rules.d
+2026-03-24T19:18:05.0457509Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/meson-private/libinput.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:18:05.0458348Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/completion/zsh/_libinput to /opt/hypr/share/zsh/site-functions
+2026-03-24T19:18:05.0459299Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze-buttons to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0460244Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze-per-slot-delta to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0461077Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze-recording to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0461921Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze-touch-down-state to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0462770Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-list-kernel-devices to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0463565Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-fuzz to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0464375Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-touchpad-size to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0465218Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-touchpad-tap to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0466066Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-touchpad-pressure to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0466918Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-touch-size to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0467699Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-replay to /opt/hypr/libexec/libinput
+2026-03-24T19:18:05.0468450Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-debug-gui.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0469229Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0469937Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0470713Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze-buttons.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0471622Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze-per-slot-delta.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0472459Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze-recording.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0473303Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-analyze-touch-down-state.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0474112Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-debug-events.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0474882Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-debug-tablet.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0475655Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-list-devices.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0476448Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-list-kernel-devices.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0477249Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0477995Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-fuzz.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0478850Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-touchpad-size.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0479686Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-touchpad-tap.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0480529Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-touchpad-pressure.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0481475Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-measure-touch-size.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0482244Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-quirks.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0482975Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-record.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0483700Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-replay.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0484416Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-test.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0485153Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-quirks-list.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0485940Z Installing /home/runner/work/hyprland-build/hyprland-build/libinput/build/libinput-quirks-validate.1 to /opt/hypr/share/man/man1
+2026-03-24T19:18:05.0486629Z Installing symlink pointing to libinput.so.10.13.0 to /opt/hypr/lib/x86_64-linux-gnu/libinput.so.10
+2026-03-24T19:18:05.0487194Z Installing symlink pointing to libinput.so.10 to /opt/hypr/lib/x86_64-linux-gnu/libinput.so

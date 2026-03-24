@@ -1,0 +1,109 @@
+﻿2026-03-24T19:27:07.4624370Z ##[group]Run git clone --depth=1 https://github.com/hyprwm/hyprgraphics.git
+2026-03-24T19:27:07.4624938Z [36;1mgit clone --depth=1 https://github.com/hyprwm/hyprgraphics.git[0m
+2026-03-24T19:27:07.4625311Z [36;1mcd hyprgraphics[0m
+2026-03-24T19:27:07.4625960Z [36;1mcmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 -S . -B build[0m
+2026-03-24T19:27:07.4626652Z [36;1mcmake --build build -j$(nproc)[0m
+2026-03-24T19:27:07.4626909Z [36;1mcmake --install build[0m
+2026-03-24T19:27:07.4675304Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:27:07.4675535Z env:
+2026-03-24T19:27:07.4675697Z   CC: gcc-14
+2026-03-24T19:27:07.4675861Z   CXX: g++-14
+2026-03-24T19:27:07.4676040Z   PREFIX: /opt/hypr
+2026-03-24T19:27:07.4676668Z   PKG_CONFIG_PATH: /opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig
+2026-03-24T19:27:07.4677394Z   CMAKE_PREFIX_PATH: /opt/hypr
+2026-03-24T19:27:07.4677732Z   LD_LIBRARY_PATH: /opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:27:07.4678044Z ##[endgroup]
+2026-03-24T19:27:07.4755380Z Cloning into 'hyprgraphics'...
+2026-03-24T19:27:08.1230477Z Not searching for unused variables given on the command line.
+2026-03-24T19:27:08.1231148Z -- The C compiler identification is GNU 14.2.0
+2026-03-24T19:27:08.1790432Z -- The CXX compiler identification is GNU 14.2.0
+2026-03-24T19:27:08.1873142Z -- Detecting C compiler ABI info
+2026-03-24T19:27:08.2410819Z -- Detecting C compiler ABI info - done
+2026-03-24T19:27:08.2584700Z -- Check for working C compiler: /usr/bin/gcc-14 - skipped
+2026-03-24T19:27:08.2588122Z -- Detecting C compile features
+2026-03-24T19:27:08.2592803Z -- Detecting C compile features - done
+2026-03-24T19:27:08.2706958Z -- Detecting CXX compiler ABI info
+2026-03-24T19:27:08.3344610Z -- Detecting CXX compiler ABI info - done
+2026-03-24T19:27:08.3521921Z -- Check for working CXX compiler: /usr/bin/g++-14 - skipped
+2026-03-24T19:27:08.3525798Z -- Detecting CXX compile features
+2026-03-24T19:27:08.3532848Z -- Detecting CXX compile features - done
+2026-03-24T19:27:08.3638690Z -- Configuring hyprgraphics in Release
+2026-03-24T19:27:08.3812315Z -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: GLES3
+2026-03-24T19:27:08.3850215Z -- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1")
+2026-03-24T19:27:08.3860958Z -- Checking for modules 'libdrm;pixman-1;cairo;pangocairo;hyprutils;libjpeg;libwebp;libmagic;libpng;librsvg-2.0'
+2026-03-24T19:27:08.4153239Z --   Found libdrm, version 2.4.125
+2026-03-24T19:27:08.4234574Z --   Found pixman-1, version 0.42.2
+2026-03-24T19:27:08.4315448Z --   Found cairo, version 1.18.0
+2026-03-24T19:27:08.4400773Z --   Found pangocairo, version 1.52.1
+2026-03-24T19:27:08.4476419Z --   Found hyprutils, version 0.11.1
+2026-03-24T19:27:08.4555012Z --   Found libjpeg, version 2.1.5
+2026-03-24T19:27:08.4633444Z --   Found libwebp, version 1.3.2
+2026-03-24T19:27:08.4711543Z --   Found libmagic, version 5.45
+2026-03-24T19:27:08.4786602Z --   Found libpng, version 1.6.43
+2026-03-24T19:27:08.4872608Z --   Found librsvg-2.0, version 2.58.0
+2026-03-24T19:27:08.5907584Z -- Checking for modules 'libjxl;libjxl_cms;libjxl_threads'
+2026-03-24T19:27:08.6184140Z --   Package 'libjxl', required by 'virtual:world', not found
+2026-03-24T19:27:08.6302400Z --   Package 'libjxl_cms', required by 'virtual:world', not found
+2026-03-24T19:27:08.6420137Z --   Package 'libjxl_threads', required by 'virtual:world', not found
+2026-03-24T19:27:08.6431518Z -- Checking for module 'libheif'
+2026-03-24T19:27:08.6554035Z --   Package 'libheif', required by 'virtual:world', not found
+2026-03-24T19:27:08.6566379Z -- Configuring done (0.6s)
+2026-03-24T19:27:08.6970166Z -- Generating done (0.0s)
+2026-03-24T19:27:08.6975899Z -- Build files have been written to: /home/runner/work/hyprland-build/hyprland-build/hyprgraphics/build
+2026-03-24T19:27:08.7265347Z [  5%] Building CXX object CMakeFiles/hyprgraphics.dir/src/cairo/CairoSurface.cpp.o
+2026-03-24T19:27:08.7266952Z [ 10%] Building CXX object CMakeFiles/hyprgraphics.dir/src/color/Color.cpp.o
+2026-03-24T19:27:08.7268205Z [ 15%] Building CXX object CMakeFiles/hyprgraphics.dir/src/egl/Egl.cpp.o
+2026-03-24T19:27:08.7274037Z [ 20%] Building CXX object CMakeFiles/hyprgraphics.dir/src/image/Image.cpp.o
+2026-03-24T19:27:09.4006430Z [ 25%] Building CXX object CMakeFiles/hyprgraphics.dir/src/image/formats/Bmp.cpp.o
+2026-03-24T19:27:09.9070881Z [ 30%] Building CXX object CMakeFiles/hyprgraphics.dir/src/image/formats/Jpeg.cpp.o
+2026-03-24T19:27:10.2155846Z [ 35%] Building CXX object CMakeFiles/hyprgraphics.dir/src/image/formats/Png.cpp.o
+2026-03-24T19:27:11.2876447Z [ 40%] Building CXX object CMakeFiles/hyprgraphics.dir/src/image/formats/Svg.cpp.o
+2026-03-24T19:27:11.5602814Z In file included from /usr/include/c++/14/bits/shared_ptr_base.h:67,
+2026-03-24T19:27:11.5603615Z                  from /usr/include/c++/14/bits/shared_ptr.h:53,
+2026-03-24T19:27:11.5604216Z                  from /usr/include/c++/14/bits/fs_path.h:46,
+2026-03-24T19:27:11.5604780Z                  from /usr/include/c++/14/filesystem:52,
+2026-03-24T19:27:11.5605681Z                  from /home/runner/work/hyprland-build/hyprland-build/hyprgraphics/src/image/formats/Jpeg.cpp:4:
+2026-03-24T19:27:11.5608071Z /usr/include/c++/14/bits/stl_uninitialized.h: In function ‘std::expected<_cairo_surface*, std::__cxx11::basic_string<char> > JPEG::createSurfaceFromJPEG(const std::string&)’:
+2026-03-24T19:27:11.5620452Z /usr/include/c++/14/bits/stl_uninitialized.h:696:5: warning: variable ‘__first’ might be clobbered by ‘longjmp’ or ‘vfork’ [-Wclobbered]
+2026-03-24T19:27:11.5621738Z   696 |     __uninitialized_default_n(_ForwardIterator __first, _Size __n)
+2026-03-24T19:27:11.5622349Z       |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+2026-03-24T19:27:11.5623913Z /home/runner/work/hyprland-build/hyprland-build/hyprgraphics/src/image/formats/Jpeg.cpp:15:46: warning: variable ‘__first’ might be clobbered by ‘longjmp’ or ‘vfork’ [-Wclobbered]
+2026-03-24T19:27:11.5626068Z    15 | std::expected<cairo_surface_t*, std::string> JPEG::createSurfaceFromJPEG(const std::string& path) {
+2026-03-24T19:27:11.5626909Z       |                                              ^~~~
+2026-03-24T19:27:11.5917716Z [ 45%] Building CXX object CMakeFiles/hyprgraphics.dir/src/image/formats/Webp.cpp.o
+2026-03-24T19:27:12.1723833Z [ 50%] Building CXX object CMakeFiles/hyprgraphics.dir/src/image/utils/Format.cpp.o
+2026-03-24T19:27:13.2555821Z [ 55%] Building CXX object CMakeFiles/hyprgraphics.dir/src/resource/AsyncResourceGatherer.cpp.o
+2026-03-24T19:27:13.4552882Z [ 60%] Building CXX object CMakeFiles/hyprgraphics.dir/src/resource/resources/AsyncResource.cpp.o
+2026-03-24T19:27:13.7220284Z [ 65%] Building CXX object CMakeFiles/hyprgraphics.dir/src/resource/resources/ImageResource.cpp.o
+2026-03-24T19:27:13.7864739Z [ 70%] Building CXX object CMakeFiles/hyprgraphics.dir/src/resource/resources/StaticImageResource.cpp.o
+2026-03-24T19:27:15.1914922Z [ 75%] Building CXX object CMakeFiles/hyprgraphics.dir/src/resource/resources/TextResource.cpp.o
+2026-03-24T19:27:16.5864388Z [ 80%] Linking CXX shared library libhyprgraphics.so
+2026-03-24T19:27:16.6654701Z [ 80%] Built target hyprgraphics
+2026-03-24T19:27:16.6732184Z [ 85%] Building CXX object CMakeFiles/hyprgraphics_image.dir/tests/image.cpp.o
+2026-03-24T19:27:16.6733492Z [ 90%] Building CXX object CMakeFiles/hyprgraphics_arg.dir/tests/arg.cpp.o
+2026-03-24T19:27:19.9817413Z [ 95%] Linking CXX executable hyprgraphics_image
+2026-03-24T19:27:20.0675010Z [ 95%] Built target hyprgraphics_image
+2026-03-24T19:27:20.1948906Z [100%] Linking CXX executable hyprgraphics_arg
+2026-03-24T19:27:20.2802576Z [100%] Built target hyprgraphics_arg
+2026-03-24T19:27:20.2861338Z -- Install configuration: "Release"
+2026-03-24T19:27:20.2862953Z -- Installing: /opt/hypr/lib/libhyprgraphics.so.0.5.0
+2026-03-24T19:27:20.2868065Z -- Installing: /opt/hypr/lib/libhyprgraphics.so.4
+2026-03-24T19:27:20.2873082Z -- Set non-toolchain portion of runtime path of "/opt/hypr/lib/libhyprgraphics.so.0.5.0" to ""
+2026-03-24T19:27:20.2874455Z -- Installing: /opt/hypr/lib/libhyprgraphics.so
+2026-03-24T19:27:20.2875017Z -- Installing: /opt/hypr/include/hyprgraphics
+2026-03-24T19:27:20.2875942Z -- Installing: /opt/hypr/include/hyprgraphics/egl
+2026-03-24T19:27:20.2877021Z -- Installing: /opt/hypr/include/hyprgraphics/egl/Egl.hpp
+2026-03-24T19:27:20.2878877Z -- Installing: /opt/hypr/include/hyprgraphics/color
+2026-03-24T19:27:20.2879973Z -- Installing: /opt/hypr/include/hyprgraphics/color/Color.hpp
+2026-03-24T19:27:20.2882456Z -- Installing: /opt/hypr/include/hyprgraphics/image
+2026-03-24T19:27:20.2883468Z -- Installing: /opt/hypr/include/hyprgraphics/image/Image.hpp
+2026-03-24T19:27:20.2885270Z -- Installing: /opt/hypr/include/hyprgraphics/resource
+2026-03-24T19:27:20.2886640Z -- Installing: /opt/hypr/include/hyprgraphics/resource/AsyncResourceGatherer.hpp
+2026-03-24T19:27:20.2888404Z -- Installing: /opt/hypr/include/hyprgraphics/resource/resources
+2026-03-24T19:27:20.2889940Z -- Installing: /opt/hypr/include/hyprgraphics/resource/resources/AsyncResource.hpp
+2026-03-24T19:27:20.2892011Z -- Installing: /opt/hypr/include/hyprgraphics/resource/resources/StaticImageResource.hpp
+2026-03-24T19:27:20.2893831Z -- Installing: /opt/hypr/include/hyprgraphics/resource/resources/TextResource.hpp
+2026-03-24T19:27:20.2895700Z -- Installing: /opt/hypr/include/hyprgraphics/resource/resources/ImageResource.hpp
+2026-03-24T19:27:20.2897369Z -- Installing: /opt/hypr/include/hyprgraphics/cairo
+2026-03-24T19:27:20.2898560Z -- Installing: /opt/hypr/include/hyprgraphics/cairo/CairoSurface.hpp
+2026-03-24T19:27:20.2901405Z -- Installing: /opt/hypr/lib/pkgconfig/hyprgraphics.pc

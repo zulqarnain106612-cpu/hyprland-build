@@ -1,0 +1,153 @@
+﻿2026-03-24T19:17:52.7149778Z ##[group]Run git clone --depth=1 --branch 1.23.1 https://gitlab.freedesktop.org/wayland/wayland.git
+2026-03-24T19:17:52.7150402Z [36;1mgit clone --depth=1 --branch 1.23.1 https://gitlab.freedesktop.org/wayland/wayland.git[0m
+2026-03-24T19:17:52.7150783Z [36;1mcd wayland[0m
+2026-03-24T19:17:52.7151088Z [36;1mmeson setup build --prefix=$PREFIX -Ddocumentation=false -Dtests=false[0m
+2026-03-24T19:17:52.7151440Z [36;1mninja -C build -j$(nproc)[0m
+2026-03-24T19:17:52.7151676Z [36;1mninja -C build install[0m
+2026-03-24T19:17:52.7175467Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:17:52.7175690Z env:
+2026-03-24T19:17:52.7175853Z   CC: gcc-14
+2026-03-24T19:17:52.7176013Z   CXX: g++-14
+2026-03-24T19:17:52.7176184Z   PREFIX: /opt/hypr
+2026-03-24T19:17:52.7176747Z   PKG_CONFIG_PATH: /opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig
+2026-03-24T19:17:52.7177376Z   CMAKE_PREFIX_PATH: /opt/hypr
+2026-03-24T19:17:52.7177698Z   LD_LIBRARY_PATH: /opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:17:52.7177988Z ##[endgroup]
+2026-03-24T19:17:52.7228447Z Cloning into 'wayland'...
+2026-03-24T19:17:54.9125630Z warning: refs/tags/1.23.1 cf2d615d2de6adf8f4d3eafc551238b33c8e59bc is not a commit!
+2026-03-24T19:17:54.9128210Z Note: switching to 'a9fec8dd65977c57f4039ced34327204d9b9d779'.
+2026-03-24T19:17:54.9128611Z 
+2026-03-24T19:17:54.9129020Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-03-24T19:17:54.9129750Z changes and commit them, and you can discard any commits you make in this
+2026-03-24T19:17:54.9130509Z state without impacting any branches by switching back to a branch.
+2026-03-24T19:17:54.9130783Z 
+2026-03-24T19:17:54.9130945Z If you want to create a new branch to retain commits you create, you may
+2026-03-24T19:17:54.9131332Z do so (now or later) by using -c with the switch command. Example:
+2026-03-24T19:17:54.9131553Z 
+2026-03-24T19:17:54.9131643Z   git switch -c <new-branch-name>
+2026-03-24T19:17:54.9131808Z 
+2026-03-24T19:17:54.9131895Z Or undo this operation with:
+2026-03-24T19:17:54.9132029Z 
+2026-03-24T19:17:54.9132096Z   git switch -
+2026-03-24T19:17:54.9132202Z 
+2026-03-24T19:17:54.9132380Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-03-24T19:17:54.9132637Z 
+2026-03-24T19:17:56.0073576Z The Meson build system
+2026-03-24T19:17:56.0073992Z Version: 1.3.2
+2026-03-24T19:17:56.0074446Z Source dir: /home/runner/work/hyprland-build/hyprland-build/wayland
+2026-03-24T19:17:56.0074906Z Build dir: /home/runner/work/hyprland-build/hyprland-build/wayland/build
+2026-03-24T19:17:56.0075236Z Build type: native build
+2026-03-24T19:17:56.0075437Z Project name: wayland
+2026-03-24T19:17:56.0075636Z Project version: 1.23.1
+2026-03-24T19:17:56.0075986Z C compiler for the host machine: gcc-14 (gcc 14.2.0 "gcc-14 (Ubuntu 14.2.0-4ubuntu2~24.04.1) 14.2.0")
+2026-03-24T19:17:56.0076406Z C linker for the host machine: gcc-14 ld.bfd 2.42
+2026-03-24T19:17:56.0076673Z Host machine cpu family: x86_64
+2026-03-24T19:17:56.0076900Z Host machine cpu: x86_64
+2026-03-24T19:17:56.0077197Z Compiler for C supports arguments -Wno-unused-parameter: YES 
+2026-03-24T19:17:56.0077565Z Compiler for C supports arguments -Wstrict-prototypes: YES 
+2026-03-24T19:17:56.0077928Z Compiler for C supports arguments -Wmissing-prototypes: YES 
+2026-03-24T19:17:56.0078274Z Compiler for C supports arguments -fvisibility=hidden: YES 
+2026-03-24T19:17:56.0078570Z Has header "sys/prctl.h" : YES 
+2026-03-24T19:17:56.0079034Z Has header "sys/procctl.h" : NO 
+2026-03-24T19:17:56.0079466Z Has header "sys/ucred.h" : NO 
+2026-03-24T19:17:56.0079696Z Checking for function "accept4" : YES 
+2026-03-24T19:17:56.0079937Z Checking for function "mkostemp" : YES 
+2026-03-24T19:17:56.0080201Z Checking for function "posix_fallocate" : YES 
+2026-03-24T19:17:56.0080460Z Checking for function "prctl" : YES 
+2026-03-24T19:17:56.0080712Z Checking for function "memfd_create" : YES 
+2026-03-24T19:17:56.0080961Z Checking for function "mremap" : YES 
+2026-03-24T19:17:56.0081332Z Checking for function "strndup" : YES 
+2026-03-24T19:17:56.0081634Z Checking whether type "struct xucred" has member "cr_pid" : NO 
+2026-03-24T19:17:56.0081975Z Found pkg-config: YES (/usr/bin/pkg-config) 1.8.1
+2026-03-24T19:17:56.0082265Z Run-time dependency libffi found: YES 3.4.6
+2026-03-24T19:17:56.0082551Z Header "sys/signalfd.h" has symbol "SFD_CLOEXEC" : YES 
+2026-03-24T19:17:56.0082871Z Header "sys/timerfd.h" has symbol "TFD_CLOEXEC" : YES 
+2026-03-24T19:17:56.0083177Z Header "time.h" has symbol "CLOCK_MONOTONIC" : YES 
+2026-03-24T19:17:56.0083463Z Checking for function "clock_gettime" : NO 
+2026-03-24T19:17:56.0083693Z Library rt found: YES
+2026-03-24T19:17:56.0083955Z Checking for function "clock_gettime" with dependency -lrt: YES 
+2026-03-24T19:17:56.0084302Z Configuring config.h using configuration
+2026-03-24T19:17:56.0084574Z Configuring wayland-version.h using configuration
+2026-03-24T19:17:56.0084856Z Run-time dependency expat found: YES 2.6.1
+2026-03-24T19:17:56.0085127Z Run-time dependency libxml-2.0 found: YES 2.9.14
+2026-03-24T19:17:56.0085610Z Program embed.py found: YES (/usr/bin/python3 /home/runner/work/hyprland-build/hyprland-build/wayland/src/embed.py)
+2026-03-24T19:17:56.0086061Z Library m found: YES
+2026-03-24T19:17:56.0086268Z Run-time dependency threads found: YES
+2026-03-24T19:17:56.0086500Z Build targets in project: 13
+2026-03-24T19:17:56.0086726Z NOTICE: Future-deprecated features used:
+2026-03-24T19:17:56.0087038Z  * 0.62.0: {'pkgconfig.generate variable for builtin directories'}
+2026-03-24T19:17:56.0087263Z 
+2026-03-24T19:17:56.0087337Z wayland 1.23.1
+2026-03-24T19:17:56.0087437Z 
+2026-03-24T19:17:56.0087518Z   User defined options
+2026-03-24T19:17:56.0087706Z     prefix       : /opt/hypr
+2026-03-24T19:17:56.0087913Z     documentation: false
+2026-03-24T19:17:56.0088105Z     tests        : false
+2026-03-24T19:17:56.0088226Z 
+2026-03-24T19:17:56.0088316Z Found ninja-1.13.2 at /usr/local/bin/ninja
+2026-03-24T19:17:56.0475890Z ninja: Entering directory `build'
+2026-03-24T19:17:56.1439047Z [1/28] Compiling C object src/libwayland-private.a.p/wayland-os.c.o
+2026-03-24T19:17:56.1476806Z [2/28] Generating src/wayland.dtd.h with a custom command (wrapped by meson to capture output)
+2026-03-24T19:17:56.1774522Z [3/28] Compiling C object src/libwayland-util.a.p/wayland-util.c.o
+2026-03-24T19:17:56.1811338Z [4/28] Linking static target src/libwayland-util.a
+2026-03-24T19:17:56.5200247Z [5/28] Compiling C object src/libwayland-private.a.p/connection.c.o
+2026-03-24T19:17:56.5235098Z [6/28] Linking static target src/libwayland-private.a
+2026-03-24T19:17:56.9703360Z [7/28] Compiling C object src/wayland-scanner.p/scanner.c.o
+2026-03-24T19:17:57.0167509Z [8/28] Linking target src/wayland-scanner
+2026-03-24T19:17:57.0309660Z [9/28] Generating src/protocol source with a custom command
+2026-03-24T19:17:57.0312269Z [10/28] Generating src/wayland_client_protocol_h with a custom command
+2026-03-24T19:17:57.0315544Z [11/28] Generating src/wayland_client_protocol_core_h with a custom command
+2026-03-24T19:17:57.0316837Z [12/28] Generating src/wayland_server_protocol_h with a custom command
+2026-03-24T19:17:57.0388218Z [13/28] Generating src/wayland_server_protocol_core_h with a custom command
+2026-03-24T19:17:57.0641820Z [14/28] Compiling C object src/libwayland-client.so.0.23.1.p/meson-generated_.._wayland-protocol.c.o
+2026-03-24T19:17:57.0718919Z [15/28] Compiling C object src/libwayland-server.so.0.23.1.p/meson-generated_.._wayland-protocol.c.o
+2026-03-24T19:17:57.0895857Z [16/28] Compiling C object egl/libwayland-egl.so.1.23.1.p/wayland-egl.c.o
+2026-03-24T19:17:57.3006513Z [17/28] Compiling C object src/libwayland-server.so.0.23.1.p/wayland-shm.c.o
+2026-03-24T19:17:57.3994470Z [18/28] Compiling C object src/libwayland-server.so.0.23.1.p/event-loop.c.o
+2026-03-24T19:17:57.4741851Z [19/28] Compiling C object cursor/libwayland-cursor.so.0.23.1.p/os-compatibility.c.o
+2026-03-24T19:17:57.4800026Z [20/28] Compiling C object cursor/libwayland-cursor.so.0.23.1.p/wayland-cursor.c.o
+2026-03-24T19:17:57.5019246Z [21/28] Linking target egl/libwayland-egl.so.1.23.1
+2026-03-24T19:17:57.5249428Z [22/28] Compiling C object src/libwayland-client.so.0.23.1.p/wayland-client.c.o
+2026-03-24T19:17:57.5459699Z [23/28] Linking target src/libwayland-client.so.0.23.1
+2026-03-24T19:17:57.6190830Z [24/28] Compiling C object src/libwayland-server.so.0.23.1.p/wayland-server.c.o
+2026-03-24T19:17:57.6409117Z [25/28] Linking target src/libwayland-server.so.0.23.1
+2026-03-24T19:17:57.6895605Z [26/28] Compiling C object cursor/libwayland-cursor.so.0.23.1.p/xcursor.c.o
+2026-03-24T19:17:58.2857496Z [27/28] Generating symbol file src/libwayland-client.so.0.23.1.p/libwayland-client.so.0.23.1.symbols
+2026-03-24T19:17:58.3021872Z [28/28] Linking target cursor/libwayland-cursor.so.0.23.1
+2026-03-24T19:17:58.3037488Z ninja: Entering directory `build'
+2026-03-24T19:17:58.3048339Z [0/1] Installing files.
+2026-03-24T19:17:58.4854013Z Installing src/wayland-scanner to /opt/hypr/bin
+2026-03-24T19:17:58.4855154Z Installing src/wayland-server-protocol.h to /opt/hypr/include
+2026-03-24T19:17:58.4856347Z Installing src/wayland-client-protocol.h to /opt/hypr/include
+2026-03-24T19:17:58.4857618Z Installing src/libwayland-server.so.0.23.1 to /opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:17:58.4859344Z Installing src/libwayland-client.so.0.23.1 to /opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:17:58.4860841Z Installing cursor/libwayland-cursor.so.0.23.1 to /opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:17:58.4862261Z Installing egl/libwayland-egl.so.1.23.1 to /opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:17:58.4863983Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/src/wayland-util.h to /opt/hypr/include
+2026-03-24T19:17:58.4865744Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/src/wayland-server.h to /opt/hypr/include
+2026-03-24T19:17:58.4866882Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/src/wayland-server-core.h to /opt/hypr/include
+2026-03-24T19:17:58.4867962Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/src/wayland-client.h to /opt/hypr/include
+2026-03-24T19:17:58.4869251Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/src/wayland-client-core.h to /opt/hypr/include
+2026-03-24T19:17:58.4870325Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/cursor/wayland-cursor.h to /opt/hypr/include
+2026-03-24T19:17:58.4871371Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/egl/wayland-egl.h to /opt/hypr/include
+2026-03-24T19:17:58.4872382Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/egl/wayland-egl-core.h to /opt/hypr/include
+2026-03-24T19:17:58.4873461Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/egl/wayland-egl-backend.h to /opt/hypr/include
+2026-03-24T19:17:58.4874534Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/build/src/wayland-version.h to /opt/hypr/include
+2026-03-24T19:17:58.4875840Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/build/meson-private/wayland-scanner.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:17:58.4877280Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/build/meson-private/wayland-server.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:17:58.4878857Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/build/meson-private/wayland-client.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:17:58.4880281Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/build/meson-private/wayland-cursor.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:17:58.4882010Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/build/meson-private/wayland-egl.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:17:58.4883493Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/build/meson-private/wayland-egl-backend.pc to /opt/hypr/lib/x86_64-linux-gnu/pkgconfig
+2026-03-24T19:17:58.4884954Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/wayland-scanner.mk to /opt/hypr/share/wayland
+2026-03-24T19:17:58.4886059Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/protocol/wayland.xml to /opt/hypr/share/wayland
+2026-03-24T19:17:58.4887120Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/protocol/wayland.dtd to /opt/hypr/share/wayland
+2026-03-24T19:17:58.4888223Z Installing /home/runner/work/hyprland-build/hyprland-build/wayland/wayland-scanner.m4 to /opt/hypr/share/aclocal
+2026-03-24T19:17:58.4889455Z Installing symlink pointing to libwayland-server.so.0.23.1 to /opt/hypr/lib/x86_64-linux-gnu/libwayland-server.so.0
+2026-03-24T19:17:58.4890486Z Installing symlink pointing to libwayland-server.so.0 to /opt/hypr/lib/x86_64-linux-gnu/libwayland-server.so
+2026-03-24T19:17:58.4891473Z Installing symlink pointing to libwayland-client.so.0.23.1 to /opt/hypr/lib/x86_64-linux-gnu/libwayland-client.so.0
+2026-03-24T19:17:58.4892469Z Installing symlink pointing to libwayland-client.so.0 to /opt/hypr/lib/x86_64-linux-gnu/libwayland-client.so
+2026-03-24T19:17:58.4893459Z Installing symlink pointing to libwayland-cursor.so.0.23.1 to /opt/hypr/lib/x86_64-linux-gnu/libwayland-cursor.so.0
+2026-03-24T19:17:58.4894476Z Installing symlink pointing to libwayland-cursor.so.0 to /opt/hypr/lib/x86_64-linux-gnu/libwayland-cursor.so
+2026-03-24T19:17:58.4895435Z Installing symlink pointing to libwayland-egl.so.1.23.1 to /opt/hypr/lib/x86_64-linux-gnu/libwayland-egl.so.1
+2026-03-24T19:17:58.4896399Z Installing symlink pointing to libwayland-egl.so.1 to /opt/hypr/lib/x86_64-linux-gnu/libwayland-egl.so

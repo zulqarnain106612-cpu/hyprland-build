@@ -1,0 +1,17 @@
+﻿2026-03-24T19:16:54.4047884Z ##[group]Run wget -q https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.sh
+2026-03-24T19:16:54.4048581Z [36;1mwget -q https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.sh[0m
+2026-03-24T19:16:54.4049266Z [36;1msudo bash cmake-3.31.6-linux-x86_64.sh --skip-license --prefix=/usr/local[0m
+2026-03-24T19:16:54.4049630Z [36;1mcmake --version[0m
+2026-03-24T19:16:54.4078032Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:16:54.4078289Z ##[endgroup]
+2026-03-24T19:16:55.1909575Z CMake Installer Version: 3.31.6, Copyright (c) Kitware
+2026-03-24T19:16:55.1910145Z This is a self-extracting archive.
+2026-03-24T19:16:55.1913627Z The archive will be extracted to: /usr/local
+2026-03-24T19:16:55.1914706Z 
+2026-03-24T19:16:55.1914851Z Using target directory: /usr/local
+2026-03-24T19:16:55.1915238Z Extracting, please wait...
+2026-03-24T19:16:55.1915456Z 
+2026-03-24T19:16:56.5409035Z Unpacking finished successfully
+2026-03-24T19:16:56.5434047Z cmake version 3.31.6
+2026-03-24T19:16:56.5434423Z 
+2026-03-24T19:16:56.5434745Z CMake suite maintained and supported by Kitware (kitware.com/cmake).

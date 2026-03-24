@@ -1,0 +1,64 @@
+﻿2026-03-24T19:26:40.9065086Z ##[group]Run git clone --depth=1 https://github.com/hyprwm/hyprlang.git
+2026-03-24T19:26:40.9065711Z [36;1mgit clone --depth=1 https://github.com/hyprwm/hyprlang.git[0m
+2026-03-24T19:26:40.9066117Z [36;1mcd hyprlang[0m
+2026-03-24T19:26:40.9066884Z [36;1mcmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 -S . -B build[0m
+2026-03-24T19:26:40.9067719Z [36;1mcmake --build build -j$(nproc)[0m
+2026-03-24T19:26:40.9068028Z [36;1mcmake --install build[0m
+2026-03-24T19:26:40.9117461Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:26:40.9117726Z env:
+2026-03-24T19:26:40.9117913Z   CC: gcc-14
+2026-03-24T19:26:40.9118107Z   CXX: g++-14
+2026-03-24T19:26:40.9118312Z   PREFIX: /opt/hypr
+2026-03-24T19:26:40.9119068Z   PKG_CONFIG_PATH: /opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig
+2026-03-24T19:26:40.9120181Z   CMAKE_PREFIX_PATH: /opt/hypr
+2026-03-24T19:26:40.9120627Z   LD_LIBRARY_PATH: /opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:26:40.9121039Z ##[endgroup]
+2026-03-24T19:26:40.9212336Z Cloning into 'hyprlang'...
+2026-03-24T19:26:41.4220777Z Not searching for unused variables given on the command line.
+2026-03-24T19:26:41.4221555Z -- The C compiler identification is GNU 14.2.0
+2026-03-24T19:26:41.4779458Z -- The CXX compiler identification is GNU 14.2.0
+2026-03-24T19:26:41.4862072Z -- Detecting C compiler ABI info
+2026-03-24T19:26:41.5413925Z -- Detecting C compiler ABI info - done
+2026-03-24T19:26:41.5659869Z -- Check for working C compiler: /usr/bin/gcc-14 - skipped
+2026-03-24T19:26:41.5663710Z -- Detecting C compile features
+2026-03-24T19:26:41.5668413Z -- Detecting C compile features - done
+2026-03-24T19:26:41.5785292Z -- Detecting CXX compiler ABI info
+2026-03-24T19:26:41.6427860Z -- Detecting CXX compiler ABI info - done
+2026-03-24T19:26:41.6605269Z -- Check for working CXX compiler: /usr/bin/g++-14 - skipped
+2026-03-24T19:26:41.6609129Z -- Detecting CXX compile features
+2026-03-24T19:26:41.6616125Z -- Detecting CXX compile features - done
+2026-03-24T19:26:41.6721662Z -- Configuring hyprlang in Release
+2026-03-24T19:26:41.6754724Z -- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1")
+2026-03-24T19:26:41.6762384Z -- Checking for module 'hyprutils>=0.7.1'
+2026-03-24T19:26:41.6857774Z --   Found hyprutils, version 0.11.1
+2026-03-24T19:26:41.7085071Z -- Configuring done (0.3s)
+2026-03-24T19:26:41.7330163Z -- Generating done (0.0s)
+2026-03-24T19:26:41.7334635Z -- Build files have been written to: /home/runner/work/hyprland-build/hyprland-build/hyprlang/build
+2026-03-24T19:26:41.7578526Z [ 14%] Building CXX object CMakeFiles/hyprlang.dir/src/common.cpp.o
+2026-03-24T19:26:41.7581350Z [ 28%] Building CXX object CMakeFiles/hyprlang.dir/src/config.cpp.o
+2026-03-24T19:26:42.7924674Z /home/runner/work/hyprland-build/hyprland-build/hyprlang/src/common.cpp: In constructor ‘Hyprlang::CConfigValue::CConfigValue(Hyprlang::STRING)’:
+2026-03-24T19:26:42.7927998Z /home/runner/work/hyprland-build/hyprland-build/hyprlang/src/common.cpp:46:12: warning: ‘char* __builtin___strncpy_chk(char*, const char*, long unsigned int, long unsigned int)’ output truncated before terminating nul copying as many bytes from a string as its length [-Wstringop-truncation]
+2026-03-24T19:26:42.7930373Z    46 |     strncpy((char*)m_pData, value, strlen(value));
+2026-03-24T19:26:42.7930916Z       |            ^
+2026-03-24T19:26:42.7931702Z /home/runner/work/hyprland-build/hyprland-build/hyprlang/src/common.cpp:46:12: note: length computed here
+2026-03-24T19:26:42.7932686Z    46 |     strncpy((char*)m_pData, value, strlen(value));
+2026-03-24T19:26:42.7933257Z       |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-03-24T19:26:47.6944259Z [ 42%] Linking CXX shared library libhyprlang.so
+2026-03-24T19:26:47.7543162Z [ 42%] Built target hyprlang
+2026-03-24T19:26:47.7619097Z [ 57%] Building CXX object CMakeFiles/hyprlang_test.dir/tests/parse/main.cpp.o
+2026-03-24T19:26:47.7622070Z [ 71%] Building CXX object CMakeFiles/hyprlang_fuzz.dir/tests/fuzz/main.cpp.o
+2026-03-24T19:26:48.7649032Z [ 85%] Linking CXX executable hyprlang_fuzz
+2026-03-24T19:26:48.8182005Z [ 85%] Built target hyprlang_fuzz
+2026-03-24T19:26:52.8168053Z [100%] Linking CXX executable hyprlang_test
+2026-03-24T19:26:52.8726913Z [100%] Built target hyprlang_test
+2026-03-24T19:26:52.8781838Z -- Install configuration: "Release"
+2026-03-24T19:26:52.8783511Z -- Installing: /opt/hypr/lib/libhyprlang.so.0.6.8
+2026-03-24T19:26:52.8789424Z -- Installing: /opt/hypr/lib/libhyprlang.so.2
+2026-03-24T19:26:52.8794230Z -- Set non-toolchain portion of runtime path of "/opt/hypr/lib/libhyprlang.so.0.6.8" to ""
+2026-03-24T19:26:52.8795263Z -- Installing: /opt/hypr/lib/libhyprlang.so
+2026-03-24T19:26:52.8795838Z -- Installing: /opt/hypr/include/hyprlang.hpp
+2026-03-24T19:26:52.8800161Z -- Up-to-date: /opt/hypr/lib/libhyprlang.so.0.6.8
+2026-03-24T19:26:52.8800806Z -- Up-to-date: /opt/hypr/lib/libhyprlang.so.2
+2026-03-24T19:26:52.8803841Z -- Up-to-date: /opt/hypr/lib/libhyprlang.so
+2026-03-24T19:26:52.8804421Z -- Up-to-date: /opt/hypr/include/hyprlang.hpp
+2026-03-24T19:26:52.8805042Z -- Installing: /opt/hypr/lib/pkgconfig/hyprlang.pc

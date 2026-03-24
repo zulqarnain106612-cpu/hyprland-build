@@ -1,0 +1,51 @@
+﻿2026-03-24T19:17:47.3623448Z ##[group]Run git clone --depth=1 https://github.com/hyprwm/hyprwayland-scanner.git
+2026-03-24T19:17:47.3623985Z [36;1mgit clone --depth=1 https://github.com/hyprwm/hyprwayland-scanner.git[0m
+2026-03-24T19:17:47.3624454Z [36;1mcd hyprwayland-scanner[0m
+2026-03-24T19:17:47.3625058Z [36;1mcmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 -S . -B build[0m
+2026-03-24T19:17:47.3625677Z [36;1mcmake --build build -j$(nproc)[0m
+2026-03-24T19:17:47.3625921Z [36;1mcmake --install build[0m
+2026-03-24T19:17:47.3626191Z [36;1mwhich hyprwayland-scanner && echo SCANNER_OK[0m
+2026-03-24T19:17:47.3652614Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:17:47.3652839Z env:
+2026-03-24T19:17:47.3653007Z   CC: gcc-14
+2026-03-24T19:17:47.3653170Z   CXX: g++-14
+2026-03-24T19:17:47.3653343Z   PREFIX: /opt/hypr
+2026-03-24T19:17:47.3653907Z   PKG_CONFIG_PATH: /opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig
+2026-03-24T19:17:47.3654557Z   CMAKE_PREFIX_PATH: /opt/hypr
+2026-03-24T19:17:47.3654856Z   LD_LIBRARY_PATH: /opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu
+2026-03-24T19:17:47.3655140Z ##[endgroup]
+2026-03-24T19:17:47.3710213Z Cloning into 'hyprwayland-scanner'...
+2026-03-24T19:17:47.5944900Z Not searching for unused variables given on the command line.
+2026-03-24T19:17:47.5945538Z -- The C compiler identification is GNU 14.2.0
+2026-03-24T19:17:47.6409389Z -- The CXX compiler identification is GNU 14.2.0
+2026-03-24T19:17:47.6476750Z -- Detecting C compiler ABI info
+2026-03-24T19:17:47.6912227Z -- Detecting C compiler ABI info - done
+2026-03-24T19:17:47.7059193Z -- Check for working C compiler: /usr/bin/gcc-14 - skipped
+2026-03-24T19:17:47.7062694Z -- Detecting C compile features
+2026-03-24T19:17:47.7066908Z -- Detecting C compile features - done
+2026-03-24T19:17:47.7157265Z -- Detecting CXX compiler ABI info
+2026-03-24T19:17:47.7722141Z -- Detecting CXX compiler ABI info - done
+2026-03-24T19:17:47.7873275Z -- Check for working CXX compiler: /usr/bin/g++-14 - skipped
+2026-03-24T19:17:47.7876505Z -- Detecting CXX compile features
+2026-03-24T19:17:47.7883299Z -- Detecting CXX compile features - done
+2026-03-24T19:17:47.7948882Z -- Configuring hyprwayland-scanner in Release with CMake
+2026-03-24T19:17:47.7949443Z -- Checking deps...
+2026-03-24T19:17:47.7956894Z -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+2026-03-24T19:17:47.8448159Z -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+2026-03-24T19:17:47.8456872Z -- Found Threads: TRUE
+2026-03-24T19:17:47.8486586Z -- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1")
+2026-03-24T19:17:47.8493490Z -- Checking for module 'pugixml'
+2026-03-24T19:17:47.8565747Z --   Found pugixml, version 1.14
+2026-03-24T19:17:47.8776498Z -- Configuring done (0.3s)
+2026-03-24T19:17:47.8802730Z -- Generating done (0.0s)
+2026-03-24T19:17:47.8806224Z -- Build files have been written to: /home/runner/work/hyprland-build/hyprland-build/hyprwayland-scanner/build
+2026-03-24T19:17:47.8990923Z [ 50%] Building CXX object CMakeFiles/hyprwayland-scanner.dir/src/main.cpp.o
+2026-03-24T19:17:52.6464675Z [100%] Linking CXX executable hyprwayland-scanner
+2026-03-24T19:17:52.6970778Z [100%] Built target hyprwayland-scanner
+2026-03-24T19:17:52.7008256Z -- Install configuration: "Release"
+2026-03-24T19:17:52.7009176Z -- Installing: /opt/hypr/bin/hyprwayland-scanner
+2026-03-24T19:17:52.7012662Z -- Installing: /opt/hypr/lib/pkgconfig/hyprwayland-scanner.pc
+2026-03-24T19:17:52.7014699Z -- Installing: /opt/hypr/lib/cmake/hyprwayland-scanner/hyprwayland-scanner-config.cmake
+2026-03-24T19:17:52.7015780Z -- Installing: /opt/hypr/lib/cmake/hyprwayland-scanner/hyprwayland-scanner-config-version.cmake
+2026-03-24T19:17:52.7031507Z /opt/hypr/bin/hyprwayland-scanner
+2026-03-24T19:17:52.7032221Z SCANNER_OK

@@ -1,0 +1,13 @@
+﻿2026-03-24T19:26:23.3138087Z ##[group]Run set -e
+2026-03-24T19:26:23.3138353Z [36;1mset -e[0m
+2026-03-24T19:26:23.3138555Z [36;1mecho "CC=gcc-14" >> $GITHUB_ENV[0m
+2026-03-24T19:26:23.3138824Z [36;1mecho "CXX=g++-14" >> $GITHUB_ENV[0m
+2026-03-24T19:26:23.3139092Z [36;1mecho "PREFIX=/opt/hypr" >> $GITHUB_ENV[0m
+2026-03-24T19:26:23.3140182Z [36;1mecho "PKG_CONFIG_PATH=/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig" >> $GITHUB_ENV[0m
+2026-03-24T19:26:23.3140971Z [36;1mecho "CMAKE_PREFIX_PATH=/opt/hypr" >> $GITHUB_ENV[0m
+2026-03-24T19:26:23.3141411Z [36;1mecho "LD_LIBRARY_PATH=/opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu" >> $GITHUB_ENV[0m
+2026-03-24T19:26:23.3141833Z [36;1mecho "/opt/hypr/bin" >> $GITHUB_PATH[0m
+2026-03-24T19:26:23.3142270Z [36;1msudo mkdir -p /opt/hypr[0m
+2026-03-24T19:26:23.3142516Z [36;1msudo chown runner:runner /opt/hypr[0m
+2026-03-24T19:26:23.3194819Z shell: /usr/bin/bash -e {0}
+2026-03-24T19:26:23.3195086Z ##[endgroup]

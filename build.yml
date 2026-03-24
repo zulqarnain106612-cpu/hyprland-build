@@ -142,7 +142,6 @@ jobs:
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH=$PREFIX \
             -DCMAKE_POLICY_DEFAULT_CMP0023=OLD \
-            -DCMAKE_SHARED_LINKER_FLAGS="-Wl,--no-undefined -Wl,-rpath-link,$PREFIX/lib" \
             -S . -B build
           cmake --build build -j$(nproc) --verbose
           cmake --install build

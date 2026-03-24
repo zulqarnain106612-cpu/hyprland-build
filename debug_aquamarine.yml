@@ -1,0 +1,90 @@
+name: Build Hyprland 0.54.0
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  debug-aquamarine:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Install minimal deps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y gcc-14 g++-14 pkg-config git cmake ninja-build \
+            libwayland-dev wayland-protocols libpipewire-0.3-dev libspa-0.2-dev \
+            libinput-dev libudev-dev libseat-dev libdrm-dev libgbm-dev \
+            libdisplay-info-dev libvulkan-dev glslang-tools spirv-tools \
+            libxcb1-dev libxcb-dri3-dev libxcb-present-dev libxcb-randr0-dev \
+            libxcb-sync-dev libxcb-xfixes0-dev libxcb-composite0-dev \
+            libxcb-xinput-dev libxcb-xkb-dev libxcb-res0-dev libxcb-shm0-dev \
+            libxkbcommon-dev libpugixml-dev
+          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 14
+          sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 14
+
+      - name: Install CMake 3.31
+        run: |
+          wget -q https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.sh
+          sudo bash cmake-3.31.6-linux-x86_64.sh --skip-license --prefix=/usr/local
+
+      - name: Setup prefix
+        run: |
+          sudo mkdir -p /opt/hypr
+          sudo chown runner:runner /opt/hypr
+          echo "PREFIX=/opt/hypr" >> $GITHUB_ENV
+          echo "PKG_CONFIG_PATH=/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig" >> $GITHUB_ENV
+          echo "CMAKE_PREFIX_PATH=/opt/hypr" >> $GITHUB_ENV
+          echo "/opt/hypr/bin" >> $GITHUB_PATH
+
+      - name: Build hyprutils
+        run: |
+          git clone --depth=1 https://github.com/hyprwm/hyprutils.git
+          cd hyprutils
+          sed -i 's/fcntl(m_impl->m_logOfs.native_handle(), F_SETFD, FD_CLOEXEC);//' src/cli/Logger.cpp
+          /usr/local/bin/cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 -S . -B build
+          /usr/local/bin/cmake --build build -j$(nproc)
+          /usr/local/bin/cmake --install build
+
+      - name: Build hyprwayland-scanner
+        run: |
+          git clone --depth=1 https://github.com/hyprwm/hyprwayland-scanner.git
+          cd hyprwayland-scanner
+          /usr/local/bin/cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 -S . -B build
+          /usr/local/bin/cmake --build build -j$(nproc)
+          /usr/local/bin/cmake --install build
+          sudo ln -sf /opt/hypr/bin/hyprwayland-scanner /usr/bin/hyprwayland-scanner
+          echo "=== Verify scanner ==="
+          which hyprwayland-scanner
+          hyprwayland-scanner --version || true
+          ls -la /opt/hypr/lib/cmake/hyprwayland-scanner/ || echo NO_CMAKE_CONFIG
+
+      - name: Build aquamarine debug
+        run: |
+          set -e
+          echo "=== Debug aquamarine build environment ==="
+          echo "PREFIX=$PREFIX"
+          echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH"
+          echo "CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH"
+          pkg-config --modversion libinput && pkg-config --cflags --libs libinput
+          git clone --depth=1 https://github.com/hyprwm/aquamarine.git
+          cd aquamarine
+          rm -rf build
+
+          echo "=== Ensure libinput is linked explicitly ==="
+          cmake --no-warn-unused-cli \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=$PREFIX \
+            -DCMAKE_C_COMPILER=gcc-14 \
+            -DCMAKE_CXX_COMPILER=g++-14 \
+            -DCMAKE_PREFIX_PATH=$PREFIX \
+            -S . -B build
+
+          echo "=== Build ==="
+          /usr/local/bin/cmake --build build -j$(nproc)
+          /usr/local/bin/cmake --install build
+
+          echo "=== Post-build link check ==="
+          ldd $PREFIX/lib/libaquamarine.so* | grep libinput || true
+          echo "AQUAMARINE_OK"
