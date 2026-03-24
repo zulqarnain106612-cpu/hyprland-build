@@ -131,20 +131,19 @@ jobs:
         run: |
           set -e
           export PATH="/opt/hypr/bin:$PATH"
-          export LD_LIBRARY_PATH="/opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH"
-          export LDFLAGS="-L/opt/hypr/lib -L/opt/hypr/lib/x86_64-linux-gnu"
           which hyprwayland-scanner && echo "hyprwayland-scanner OK"
           pkg-config --modversion libinput
           git clone --depth=1 https://github.com/hyprwm/aquamarine.git
           cd aquamarine
+          # Remove test executables from CMakeLists.txt — they link against
+          # system libinput which lacks libinput_device_get_id_bustype (added in 1.26)
+          sed -i '/^# tests/,$ d' CMakeLists.txt
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
             -DCMAKE_C_COMPILER=gcc-14 \
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH=$PREFIX \
-            -DCMAKE_EXE_LINKER_FLAGS="-L/opt/hypr/lib -L/opt/hypr/lib/x86_64-linux-gnu -Wl,-rpath,/opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu" \
-            -DCMAKE_SHARED_LINKER_FLAGS="-L/opt/hypr/lib -L/opt/hypr/lib/x86_64-linux-gnu -Wl,-rpath,/opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
