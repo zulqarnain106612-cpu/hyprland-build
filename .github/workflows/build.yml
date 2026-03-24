@@ -51,9 +51,9 @@ jobs:
           echo "CC=gcc-14" >> $GITHUB_ENV
           echo "CXX=g++-14" >> $GITHUB_ENV
           echo "PREFIX=/opt/hypr" >> $GITHUB_ENV
-          echo "PKG_CONFIG_PATH=/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig" >> $GITHUB_ENV
-          echo "CMAKE_PREFIX_PATH=/opt/hypr" >> $GITHUB_ENV
-          echo "LD_LIBRARY_PATH=/opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu" >> $GITHUB_ENV
+          echo "PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig" >> $GITHUB_ENV
+          echo "CMAKE_PREFIX_PATH=/usr/local:/opt/hypr" >> $GITHUB_ENV
+          echo "LD_LIBRARY_PATH=/usr/local/lib:/opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu" >> $GITHUB_ENV
           echo "/opt/hypr/bin" >> $GITHUB_PATH
           sudo mkdir -p /opt/hypr
           sudo chown runner:runner /opt/hypr
@@ -105,7 +105,11 @@ jobs:
 
       - name: Build wayland 1.23.1
         run: |
-          git clone --depth=1 --branch 1.23.1 https://gitlab.freedesktop.org/wayland/wayland.git
+          for i in 1 2 3; do
+            git clone --depth=1 --branch 1.23.1 https://gitlab.freedesktop.org/wayland/wayland.git && break
+            echo "Clone attempt $i failed, retrying in 15s..."
+            sleep 15
+          done
           cd wayland
           meson setup build --prefix=$PREFIX -Ddocumentation=false -Dtests=false
           ninja -C build -j$(nproc)
@@ -113,11 +117,16 @@ jobs:
 
       - name: Build libinput 1.28.1
         run: |
-          git clone --depth=1 --branch 1.28.1 https://gitlab.freedesktop.org/libinput/libinput.git
+          for i in 1 2 3; do
+            git clone --depth=1 --branch 1.28.1 https://gitlab.freedesktop.org/libinput/libinput.git && break
+            echo "Clone attempt $i failed, retrying in 15s..."
+            sleep 15
+          done
           cd libinput
-          meson setup build --prefix=$PREFIX -Ddocumentation=false -Dtests=false -Dlibwacom=false
+          meson setup build --prefix=/usr/local -Ddocumentation=false -Dtests=false -Dlibwacom=false
           ninja -C build -j$(nproc)
-          ninja -C build install
+          sudo ninja -C build install
+          sudo ldconfig
 
       - name: Build xkbcommon 1.11.0
         run: |
