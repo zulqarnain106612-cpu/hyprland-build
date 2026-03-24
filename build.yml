@@ -131,11 +131,10 @@ jobs:
         run: |
           set -e
           pkg-config --modversion libinput
-          pkg-config --cflags --libs libinput
+          pkg-config --cflags --libs libinput 
           git clone --depth=1 https://github.com/hyprwm/aquamarine.git
           cd aquamarine
-          # Patch CMakeLists to explicitly link libinput after PkgConfig
-          sed -i 's/target_link_libraries(aquamarine OpenGL::EGL OpenGL::OpenGL PkgConfig::deps)/target_link_libraries(aquamarine OpenGL::EGL OpenGL::OpenGL PkgConfig::deps)\nif(NOT TARGET libinput)\n  find_library(LIBINPUT_LIB libinput REQUIRED)\n  target_link_libraries(aquamarine PRIVATE ${LIBINPUT_LIB})\nendif()/' CMakeLists.txt
+          # Build aquamarine with explicit libinput library path and no symbol stripping
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -143,6 +142,7 @@ jobs:
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH=$PREFIX \
             -DCMAKE_POLICY_DEFAULT_CMP0023=OLD \
+            -DCMAKE_SHARED_LINKER_FLAGS="-Wl,--no-undefined -Wl,-rpath-link,$PREFIX/lib" \
             -S . -B build
           cmake --build build -j$(nproc) --verbose
           cmake --install build
