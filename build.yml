@@ -172,14 +172,11 @@ jobs:
           meson setup build --prefix=$PREFIX
           ninja -C build install
 
-      - name: Install GCC-15 for Hyprland
+      - name: Install Clang-18 for Hyprland
         run: |
-          sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-          sudo apt-get update -qq
-          sudo apt-get install -y gcc-15 g++-15
-          sudo update-alternatives --install /usr/bin/gcc-15 gcc-15 /usr/bin/gcc-15 15
-          sudo update-alternatives --install /usr/bin/g++-15 g++-15 /usr/bin/g++-15 15
-          g++-15 --version
+          sudo apt-get install -y clang-18 lld-18
+          clang-18 --version
+          clang++-18 --version
 
       - name: Build Hyprland 0.54.0
         run: |
@@ -193,9 +190,10 @@ jobs:
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
-            -DCMAKE_C_COMPILER=gcc-15 \
-            -DCMAKE_CXX_COMPILER=g++-15 \
+            -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
+            -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCMAKE_PREFIX_PATH="$PREFIX;/usr/local" \
+            -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld-18" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
