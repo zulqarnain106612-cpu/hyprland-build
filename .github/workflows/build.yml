@@ -203,6 +203,7 @@ jobs:
             -DCMAKE_C_COMPILER=gcc-14 \
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH="/opt/hypr;/usr/local" \
+            -DPKG_CONFIG_PATH="/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
