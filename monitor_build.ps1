@@ -1,4 +1,4 @@
-$token   = 'TOKEN_REMOVED'
+$token   = $env:GH_TOKEN  # set via: $env:GH_TOKEN = '<your_token>'
 $repo    = 'zulqarnain1066-hub/hyprland-build'
 $headers = @{ Authorization = "token $token"; 'Content-Type' = 'application/json' }
 

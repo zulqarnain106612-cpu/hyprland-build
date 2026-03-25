@@ -1,6 +1,6 @@
-import urllib.request, json, time, sys
+import urllib.request, json, time, sys, os
 
-token = 'TOKEN_REMOVED'
+token = os.environ['GH_TOKEN']  # set via: set GH_TOKEN=<your_token>
 headers = {'Authorization': 'token ' + token}
 
 def get(url):

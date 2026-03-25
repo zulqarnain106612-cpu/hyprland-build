@@ -1,6 +1,6 @@
 import base64, json, urllib.request, sys, os
 
-token = 'TOKEN_REMOVED'
+token = os.environ['GH_TOKEN']  # set via: set GH_TOKEN=<your_token>
 base = os.path.dirname(os.path.abspath(__file__))
 
 with open(os.path.join(base, 'debug_aquamarine.yml'), 'rb') as f:
