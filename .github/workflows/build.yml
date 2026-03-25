@@ -144,6 +144,8 @@ jobs:
           pkg-config --modversion libinput
           git clone --depth=1 https://github.com/hyprwm/aquamarine.git
           cd aquamarine
+          # Remove test block but keep Installation block
+          sed -i '/^# tests/,/^# Installation/{/^# Installation/!d}' CMakeLists.txt
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -153,10 +155,8 @@ jobs:
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
-          # Manually install .pc file - configure_file writes to build dir but install rule may miss it
           mkdir -p $PREFIX/lib/pkgconfig
           cp build/aquamarine.pc $PREFIX/lib/pkgconfig/aquamarine.pc
-          echo "=== aquamarine.pc installed ==="
           pkg-config --modversion aquamarine
 
       - name: Build hyprwire
@@ -195,11 +195,6 @@ jobs:
           set -e
           export PKG_CONFIG_PATH="/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig"
           export PATH="/opt/hypr/bin:$PATH"
-          echo "=== PKG_CONFIG_PATH: $PKG_CONFIG_PATH ==="
-          echo "=== aquamarine.pc locations ==="
-          find /opt/hypr /usr/local -name 'aquamarine.pc' 2>/dev/null || true
-          echo "=== pkg-config modversion ==="
-          pkg-config --modversion aquamarine 2>&1 || true
           git clone --depth=1 --branch v0.54.0 https://github.com/hyprwm/Hyprland.git
           cd Hyprland
           git submodule update --init --recursive
@@ -209,7 +204,6 @@ jobs:
             -DCMAKE_C_COMPILER=gcc-14 \
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH="/opt/hypr;/usr/local" \
-            -DPKG_CONFIG_PATH="/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
