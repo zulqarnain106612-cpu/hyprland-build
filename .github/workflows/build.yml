@@ -192,6 +192,12 @@ jobs:
           cmake --build build
           cmake --install build
 
+      - name: Install glaze (header-only)
+        run: |
+          git clone --depth=1 --branch v4.4.1 https://github.com/stephenberry/glaze.git
+          sudo cmake -S glaze -B glaze/build -DCMAKE_INSTALL_PREFIX=/usr/local -DGLAZE_ENABLE_TESTS=OFF
+          sudo cmake --install glaze/build
+
       - name: Build Hyprland 0.54.0
         run: |
           set -e
@@ -200,6 +206,8 @@ jobs:
           git clone --depth=1 --branch v0.54.0 https://github.com/hyprwm/Hyprland.git
           cd Hyprland
           git submodule update --init --recursive
+          # Fix: string + string_view not supported in gcc-14 without C++26 stdlib; cast to std::string
+          sed -i 's/instanceSignature + "\/" + filename/instanceSignature + std::string(filename)/g' hyprctl/src/main.cpp
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
