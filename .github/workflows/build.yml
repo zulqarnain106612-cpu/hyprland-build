@@ -140,7 +140,8 @@ jobs:
         run: |
           set -e
           export PATH="/opt/hypr/bin:$PATH"
-          which hyprwayland-scanner && echo "hyprwayland-scanner OK"
+          echo "hyprwayland-scanner location: $(command -v hyprwayland-scanner)"
+          hyprwayland-scanner --version
           pkg-config --modversion libinput
           git clone --depth=1 https://github.com/hyprwm/aquamarine.git
           cd aquamarine
@@ -149,7 +150,9 @@ jobs:
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
             -DCMAKE_C_COMPILER=gcc-14 \
             -DCMAKE_CXX_COMPILER=g++-14 \
-            -DCMAKE_PREFIX_PATH=$PREFIX \
+            -DCMAKE_PREFIX_PATH="$PREFIX:/usr/local" \
+            -DCMAKE_SHARED_LINKER_FLAGS="-L/usr/local/lib -L/opt/hypr/lib -Wl,-rpath,/usr/local/lib,/opt/hypr/lib" \
+            -DCMAKE_EXE_LINKER_FLAGS="-L/usr/local/lib -L/opt/hypr/lib -Wl,-rpath,/usr/local/lib,/opt/hypr/lib" \
             -S . -B build
           cmake --build build --target aquamarine -j$(nproc)
           cmake --install build
