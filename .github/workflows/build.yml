@@ -195,7 +195,8 @@ jobs:
 
       - name: Install glaze (header-only)
         run: |
-          git clone --depth=1 --branch v4.4.1 https://github.com/stephenberry/glaze.git
+          # Hyprland 0.54.0 uses glz::generic which is glaze v3.x API
+          git clone --depth=1 --branch v3.6.2 https://github.com/stephenberry/glaze.git
           sudo cmake -S glaze -B glaze/build -DCMAKE_INSTALL_PREFIX=/usr/local -DGLAZE_ENABLE_TESTS=OFF
           sudo cmake --install glaze/build
 
