@@ -191,6 +191,8 @@ jobs:
       - name: Build Hyprland 0.54.0
         run: |
           set -e
+          export PKG_CONFIG_PATH="/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig"
+          export PATH="/opt/hypr/bin:$PATH"
           git clone --depth=1 --branch v0.54.0 https://github.com/hyprwm/Hyprland.git
           cd Hyprland
           git submodule update --init --recursive
@@ -199,7 +201,7 @@ jobs:
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
             -DCMAKE_C_COMPILER=gcc-14 \
             -DCMAKE_CXX_COMPILER=g++-14 \
-            -DCMAKE_PREFIX_PATH=$PREFIX \
+            -DCMAKE_PREFIX_PATH="/opt/hypr;/usr/local" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
