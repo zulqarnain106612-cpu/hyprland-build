@@ -144,9 +144,8 @@ jobs:
           pkg-config --modversion libinput
           git clone --depth=1 https://github.com/hyprwm/aquamarine.git
           cd aquamarine
-          # Remove test executables from CMakeLists.txt — they link against
-          # system libinput which lacks libinput_device_get_id_bustype (added in 1.26)
-          sed -i '/^# tests/,$ d' CMakeLists.txt
+          # Remove only the add_executable test targets, not install rules
+          sed -i '/^add_executable.*test/,/^)/d' CMakeLists.txt || true
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -156,6 +155,8 @@ jobs:
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
+          echo "=== aquamarine install check ==="
+          find $PREFIX -name 'aquamarine.pc' || echo "ERROR: aquamarine.pc not found after install"
 
       - name: Build hyprwire
         run: |
