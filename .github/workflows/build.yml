@@ -173,8 +173,7 @@ jobs:
 
       - name: Build xcb-errors
         run: |
-          sudo apt-get install -y -qq xcb-proto xutils-dev
-          git clone --depth=1 https://gitlab.freedesktop.org/xorg/lib/libxcb-errors.git
+          git clone --depth=1 --recurse-submodules https://gitlab.freedesktop.org/xorg/lib/libxcb-errors.git
           cd libxcb-errors
           autoreconf -fi
           ./configure --prefix=$PREFIX
