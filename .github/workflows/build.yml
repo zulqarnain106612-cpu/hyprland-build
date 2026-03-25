@@ -175,10 +175,9 @@ jobs:
         run: |
           git clone --depth=1 https://gitlab.freedesktop.org/xorg/lib/libxcb-errors.git
           cd libxcb-errors
-          autoreconf -fi || true
-          ./configure --prefix=$PREFIX || true
-          make -j$(nproc) || true
-          make install || true
+          meson setup build --prefix=$PREFIX
+          ninja -C build
+          ninja -C build install
 
       - name: Build hyprland-protocols
         run: |
