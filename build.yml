@@ -172,18 +172,30 @@ jobs:
           meson setup build --prefix=$PREFIX
           ninja -C build install
 
+      - name: Install GCC-15 for Hyprland
+        run: |
+          sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+          sudo apt-get update -qq
+          sudo apt-get install -y gcc-15 g++-15
+          sudo update-alternatives --install /usr/bin/gcc-15 gcc-15 /usr/bin/gcc-15 15
+          sudo update-alternatives --install /usr/bin/g++-15 g++-15 /usr/bin/g++-15 15
+          g++-15 --version
+
       - name: Build Hyprland 0.54.0
         run: |
           set -e
+          export PATH="/opt/hypr/bin:$PATH"
+          export PKG_CONFIG_PATH="/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig"
+          pkg-config --modversion aquamarine
           git clone --depth=1 --branch v0.54.0 https://github.com/hyprwm/Hyprland.git
           cd Hyprland
           git submodule update --init --recursive
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
-            -DCMAKE_C_COMPILER=gcc-14 \
-            -DCMAKE_CXX_COMPILER=g++-14 \
-            -DCMAKE_PREFIX_PATH=$PREFIX \
+            -DCMAKE_C_COMPILER=gcc-15 \
+            -DCMAKE_CXX_COMPILER=g++-15 \
+            -DCMAKE_PREFIX_PATH="$PREFIX;/usr/local" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
