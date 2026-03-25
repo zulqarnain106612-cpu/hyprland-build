@@ -195,8 +195,8 @@ jobs:
 
       - name: Install glaze (header-only)
         run: |
-          # Hyprland 0.54.0 uses glz::generic which is glaze v3.x API
-          git clone --depth=1 --branch v3.6.2 https://github.com/stephenberry/glaze.git
+          # Install latest glaze; patch Nix.cpp to use glz::json_t instead of glz::generic
+          git clone --depth=1 https://github.com/stephenberry/glaze.git
           sudo cmake -S glaze -B glaze/build -DCMAKE_INSTALL_PREFIX=/usr/local -DGLAZE_ENABLE_TESTS=OFF
           sudo cmake --install glaze/build
 
@@ -208,6 +208,8 @@ jobs:
           git clone --depth=1 --branch v0.54.0 https://github.com/hyprwm/Hyprland.git
           cd Hyprland
           git submodule update --init --recursive
+          # Fix: glz::generic was renamed to glz::json_t in modern glaze
+          sed -i 's/glz::generic/glz::json_t/g' start/src/helpers/Nix.cpp
           # Fix: string + string_view not supported in gcc-14 without C++26 stdlib; cast to std::string
           sed -i 's/instanceSignature + "\/" + filename/instanceSignature + std::string(filename)/g' hyprctl/src/main.cpp
           cmake --no-warn-unused-cli \
