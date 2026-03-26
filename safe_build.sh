@@ -150,7 +150,7 @@ echo "[PHASE 4] Building aquamarine -> $PREFIX..."
 cd ~/aquamarine
 rm -rf build
 $CMAKE --no-warn-unused-cli -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$PREFIX" \
-    -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 -S . -B build 2>&1 | tail -3
+    -DCMAKE_C_COMPILER=gcc-14 -DCMAKE_CXX_COMPILER=g++-14 -DBUILD_TESTING=OFF -S . -B build 2>&1 | tail -3
 $CMAKE --build build -j$JOBS 2>&1 | tail -3
 $CMAKE --install build 2>/dev/null
 echo "[DONE] aquamarine -> $PREFIX"
