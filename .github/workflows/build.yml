@@ -136,7 +136,6 @@ jobs:
           pkg-config --cflags --libs libinput
           git clone --depth=1 https://github.com/hyprwm/aquamarine.git
           cd aquamarine
-          # Build aquamarine with explicit libinput library path and no symbol stripping
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -144,6 +143,8 @@ jobs:
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH=$PREFIX \
             -DBUILD_TESTING=OFF \
+            -DCMAKE_EXE_LINKER_FLAGS="-L$PREFIX/lib -Wl,-rpath,$PREFIX/lib" \
+            -DCMAKE_SHARED_LINKER_FLAGS="-L$PREFIX/lib -Wl,-rpath,$PREFIX/lib" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
