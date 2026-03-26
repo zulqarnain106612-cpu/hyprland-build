@@ -211,10 +211,12 @@ jobs:
           git submodule update --init --recursive
           # Fix: glz::generic was renamed to glz::json_t in modern glaze
           sed -i 's/glz::generic/glz::json_t/g' start/src/helpers/Nix.cpp
-          # Fix: string + string_view operator+ not available without full C++26 stdlib; cast to std::string
+          # Fix: string + string_view operator+ requires full C++26 stdlib; cast to std::string
           sed -i 's/instanceSignature + "\/" + filename/instanceSignature + std::string(filename)/g' hyprctl/src/main.cpp
           # Fix: ternary CXCBConnection* vs std::nullptr_t - cast null branch to raw pointer type
           sed -i 's/? m_sX11Display->connection : nullptr/? m_sX11Display->connection : (xcb_connection_t*)nullptr/g' src/xwayland/XWM.hpp
+          # Point clang-18 at gcc-14 toolchain for full C++23/26 stdlib (std::expected etc.)
+          GCC14=$(dirname $(dirname $(realpath $(which gcc-14))))
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -222,6 +224,8 @@ jobs:
             -DCMAKE_CXX_COMPILER=clang++-18 \
             -DCMAKE_CXX_STANDARD=26 \
             -DCMAKE_PREFIX_PATH="/opt/hypr;/usr/local" \
+            -DCMAKE_CXX_FLAGS="--gcc-toolchain=$GCC14" \
+            -DCMAKE_C_FLAGS="--gcc-toolchain=$GCC14" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
@@ -229,12 +233,15 @@ jobs:
       - name: Build xdg-desktop-portal-hyprland
         run: |
           set -e
+          GCC14=$(dirname $(dirname $(realpath $(which gcc-14))))
           git clone --depth=1 --recursive https://github.com/hyprwm/xdg-desktop-portal-hyprland.git
           cd xdg-desktop-portal-hyprland
           cmake \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_C_COMPILER=clang-18 \
             -DCMAKE_CXX_COMPILER=clang++-18 \
+            -DCMAKE_CXX_FLAGS="--gcc-toolchain=$GCC14" \
+            -DCMAKE_C_FLAGS="--gcc-toolchain=$GCC14" \
             -DCMAKE_PREFIX_PATH=$PREFIX \
             -DCMAKE_INSTALL_LIBEXECDIR=$PREFIX/lib \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
