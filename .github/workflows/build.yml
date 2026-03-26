@@ -185,7 +185,9 @@ jobs:
           set -e
           export PATH="/opt/hypr/bin:$PATH"
           export PKG_CONFIG_PATH="/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig"
+          export LD_LIBRARY_PATH="/opt/hypr/lib:/opt/hypr/lib/x86_64-linux-gnu${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
           pkg-config --modversion aquamarine
+          pkg-config --modversion libinput
           git clone --depth=1 --branch v0.54.0 https://github.com/hyprwm/Hyprland.git
           cd Hyprland
           git submodule update --init --recursive
@@ -195,7 +197,8 @@ jobs:
             -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
             -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCMAKE_PREFIX_PATH="$PREFIX;/usr/local" \
-            -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld-18" \
+            -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld-18 -L/opt/hypr/lib -Wl,-rpath,/opt/hypr/lib" \
+            -DCMAKE_SHARED_LINKER_FLAGS="-L/opt/hypr/lib -Wl,-rpath,/opt/hypr/lib" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
