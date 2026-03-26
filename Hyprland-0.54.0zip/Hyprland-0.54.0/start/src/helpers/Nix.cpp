@@ -17,6 +17,18 @@ using namespace Hyprutils::OS;
 
 using namespace Hyprutils::File;
 
+namespace {
+    struct SHyprlandVersion {
+        std::vector<std::string> flags;
+    };
+}
+
+template <>
+struct glz::meta<SHyprlandVersion> {
+    using T = SHyprlandVersion;
+    static constexpr auto value = object("flags", &T::flags);
+};
+
 static std::optional<std::string> getFromEtcOsRelease(const std::string_view& sv) {
     static std::string content = "";
     static bool        once    = true;
@@ -95,14 +107,13 @@ bool Nix::shouldUseNixGL() {
         return false;
     }
 
-    auto json = glz::read_json<glz::generic>(proc.stdOut());
-    if (!json) {
+    auto version = glz::read_json<SHyprlandVersion>(proc.stdOut());
+    if (!version) {
         g_logger->log(Hyprutils::CLI::LOG_ERR, "failed to obtain hyprland version string (bad json)");
         return false;
     }
 
-    const auto FLAGS  = (*json)["flags"].get_array();
-    const bool IS_NIX = std::ranges::any_of(FLAGS, [](const auto& e) { return e.get_string() == std::string_view{"nix"}; });
+    const bool IS_NIX = std::ranges::any_of(version->flags, [](const auto& flag) { return flag == "nix"; });
 
     if (IS_NIX) {
         const auto NAME = getFromEtcOsRelease("NAME");
