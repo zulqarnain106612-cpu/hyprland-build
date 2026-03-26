@@ -1,0 +1,127 @@
+name: Auto-Heal Build Failures
+
+on:
+  workflow_run:
+    workflows: ["Build Hyprland 0.54.0"]
+    types: [completed]
+
+jobs:
+  analyze-and-fix:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Fetch failed job logs
+        id: fetch-logs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          set -e
+          REPO="${{ github.repository }}"
+          JOB_ID=$(gh api repos/$REPO/actions/runs/$RUN_ID/jobs --jq '.jobs[0].id')
+          gh api repos/$REPO/actions/jobs/$JOB_ID/logs > full_log.txt 2>&1 || true
+          # Extract last 200 lines of errors
+          grep -E "error:|fatal:|undefined reference|FAILED:" full_log.txt | tail -60 > errors.txt || true
+          echo "=== FAILED STEP ===" >> errors.txt
+          gh api repos/$REPO/actions/runs/$RUN_ID/jobs \
+            --jq '.jobs[0].steps[] | select(.conclusion=="failure") | .name' >> errors.txt || true
+          cat errors.txt
+
+
+      - name: Apply known patches
+        id: patch
+        run: |
+          set -e
+          ERRORS=$(cat errors.txt)
+          PATCHED=false
+          WORKFLOW=".github/workflows/build.yml"
+
+          # Pattern 1: std::expected missing → wrong gcc version
+          if echo "$ERRORS" | grep -q "no template named 'expected' in namespace 'std'"; then
+            echo "PATCH: std::expected missing - ensuring gcc-15"
+            sed -i 's/gcc-14/gcc-15/g; s/g++-14/g++-15/g' $WORKFLOW
+            # Ensure PPA is present
+            if ! grep -q "ubuntu-toolchain-r" $WORKFLOW; then
+              sed -i '/sudo apt-get update/i\          sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test' $WORKFLOW
+            fi
+            PATCHED=true
+          fi
+
+          # Pattern 2: #embed not supported → wrong gcc version
+          if echo "$ERRORS" | grep -q "invalid preprocessing directive #embed"; then
+            echo "PATCH: #embed not supported - ensuring gcc-15"
+            sed -i 's/gcc-14/gcc-15/g; s/g++-14/g++-15/g' $WORKFLOW
+            PATCHED=true
+          fi
+
+          # Pattern 3: libinput undefined reference in test binaries
+          if echo "$ERRORS" | grep -q "undefined reference to.*libinput"; then
+            echo "PATCH: aquamarine tests linking libinput - add --target aquamarine"
+            sed -i 's/cmake --build build -j\$(nproc)\n.*cmake --install build/cmake --build build --target aquamarine -j$(nproc)\n          cmake --install build/' $WORKFLOW || true
+            PATCHED=true
+          fi
+
+          # Pattern 4: glz::generic missing → glaze API changed
+          if echo "$ERRORS" | grep -q "glz::generic"; then
+            echo "PATCH: glz::generic -> glz::json_t"
+            if ! grep -q "glz::json_t" $WORKFLOW; then
+              sed -i "/git submodule update/a\\          sed -i 's/glz::generic/glz::json_t/g' start/src/helpers/Nix.cpp" $WORKFLOW
+            fi
+            PATCHED=true
+          fi
+
+          # Pattern 5: string+string_view operator error
+          if echo "$ERRORS" | grep -q "string_view\|instanceSignature"; then
+            echo "PATCH: string+string_view cast"
+            if ! grep -q "std::string(filename)" $WORKFLOW; then
+              sed -i "/glz::json_t/a\\          sed -i 's/instanceSignature + \"\\\\/\" + filename/instanceSignature + std::string(filename)/g' hyprctl/src/main.cpp" $WORKFLOW
+            fi
+            PATCHED=true
+          fi
+
+          # Pattern 6: append_range not available
+          if echo "$ERRORS" | grep -q "append_range"; then
+            echo "PATCH: append_range -> insert"
+            if ! grep -q "append_range" $WORKFLOW; then
+              sed -i "/cd hyprwire/a\\          find src -name '*.cpp' -o -name '*.hpp' | xargs perl -i -pe 's/(\\\\w[\\\\w.>*]+)\\\\.append_range\\\\(([^;]+)\\\\);/\\\\1.insert(\\\\1.end(), \\\\2.begin(), \\\\2.end());/g'" $WORKFLOW
+            fi
+            PATCHED=true
+          fi
+
+          echo "patched=$PATCHED" >> $GITHUB_OUTPUT
+
+      - name: Commit and push fix
+        if: steps.patch.outputs.patched == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/build.yml
+          git commit -m "auto-heal: apply patches from run ${{ github.event.workflow_run.id }}" || echo "Nothing to commit"
+          git push
+
+      - name: Re-trigger build
+        if: steps.patch.outputs.patched == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          sleep 5
+          gh workflow run build.yml --ref main
+          echo "Re-triggered Build Hyprland 0.54.0"
+
+      - name: Report no patch found
+        if: steps.patch.outputs.patched != 'true'
+        run: |
+          echo "No automatic patch found for this failure."
+          echo "Manual review required. Errors:"
+          cat errors.txt
+          exit 1

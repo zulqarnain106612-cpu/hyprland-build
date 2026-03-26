@@ -1,0 +1,151 @@
+Start line: 0 Total: 3104
+﻿2026-03-25T19:17:33.1988530Z Current runner version: '2.332.0'
+2026-03-25T19:17:33.2015368Z ##[group]Runner Image Provisioner
+2026-03-25T19:17:33.2016159Z Hosted Compute Agent
+2026-03-25T19:17:33.2016900Z Version: 20260213.493
+2026-03-25T19:17:33.2017544Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-03-25T19:17:33.2018238Z Build Date: 2026-02-13T00:28:41Z
+2026-03-25T19:17:33.2019005Z Worker ID: {753e4cc1-5efb-4853-a4b1-0573c73e8ffc}
+2026-03-25T19:17:33.2019711Z Azure Region: eastus
+2026-03-25T19:17:33.2020233Z ##[endgroup]
+2026-03-25T19:17:33.2021891Z ##[group]Operating System
+2026-03-25T19:17:33.2022470Z Ubuntu
+2026-03-25T19:17:33.2023239Z 24.04.3
+2026-03-25T19:17:33.2023872Z LTS
+2026-03-25T19:17:33.2024430Z ##[endgroup]
+2026-03-25T19:17:33.2024906Z ##[group]Runner Image
+2026-03-25T19:17:33.2025519Z Image: ubuntu-24.04
+2026-03-25T19:17:33.2026079Z Version: 20260309.50.1
+2026-03-25T19:17:33.2027274Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260309.50/images/ubuntu/Ubuntu2404-Readme.md
+2026-03-25T19:17:33.2028945Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260309.50
+2026-03-25T19:17:33.2029887Z ##[endgroup]
+2026-03-25T19:17:33.2031055Z ##[group]GITHUB_TOKEN Permissions
+2026-03-25T19:17:33.2033860Z Contents: read
+2026-03-25T19:17:33.2034822Z Metadata: read
+2026-03-25T19:17:33.2035448Z Packages: read
+2026-03-25T19:17:33.2035938Z ##[endgroup]
+2026-03-25T19:17:33.2038046Z Secret source: Actions
+2026-03-25T19:17:33.2039163Z Prepare workflow directory
+2026-03-25T19:17:33.2384872Z Prepare all required actions
+2026-03-25T19:17:33.2422400Z Getting action download info
+2026-03-25T19:17:33.5368062Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-03-25T19:17:33.8475418Z Complete job name: build
+2026-03-25T19:17:33.9211745Z ##[group]Run sudo apt-get update -qq
+2026-03-25T19:17:33.9212378Z [36;1msudo apt-get update -qq[0m
+2026-03-25T19:17:33.9212879Z [36;1msudo apt-get install -y \[0m
+2026-03-25T19:17:33.9213756Z [36;1m  gcc-14 g++-14 cmake ninja-build meson git pkg-config \[0m
+2026-03-25T19:17:33.9214518Z [36;1m  libpixman-1-dev libcairo2-dev libjpeg-dev libwebp-dev \[0m
+2026-03-25T19:17:33.9215270Z [36;1m  libmagic-dev libpng-dev librsvg2-dev libpango1.0-dev \[0m
+2026-03-25T19:17:33.9215985Z [36;1m  libgles2-mesa-dev libgl-dev libdrm-dev libgbm-dev \[0m
+2026-03-25T19:17:33.9216727Z [36;1m  libinput-dev libudev-dev libseat-dev libpam0g-dev \[0m
+2026-03-25T19:17:33.9217463Z [36;1m  libdisplay-info-dev libpipewire-0.3-dev libspa-0.2-dev \[0m
+2026-03-25T19:17:33.9218311Z [36;1m  libdbus-1-dev libsystemd-dev libwayland-dev wayland-protocols \[0m
+2026-03-25T19:17:33.9219152Z [36;1m  libwayland-egl-backend-dev libxcb1-dev libxcb-composite0-dev \[0m
+2026-03-25T19:17:33.9219940Z [36;1m  libxcb-damage0-dev libxcb-dri3-dev libxcb-ewmh-dev \[0m
+2026-03-25T19:17:33.9220659Z [36;1m  libxcb-icccm4-dev libxcb-present-dev libxcb-randr0-dev \[0m
+2026-03-25T19:17:33.9221416Z [36;1m  libxcb-render-util0-dev libxcb-render0-dev libxcb-res0-dev \[0m
+2026-03-25T19:17:33.9222160Z [36;1m  libxcb-shm0-dev libxcb-util-dev libxcb-xfixes0-dev \[0m
+2026-03-25T19:17:33.9222835Z [36;1m  libxcb-xinput-dev libxcb-xkb-dev libxcb-xtest0-dev \[0m
+2026-03-25T19:17:33.9223721Z [36;1m  libx11-dev libx11-xcb-dev libxcursor-dev libxcomposite-dev \[0m
+2026-03-25T19:17:33.9224475Z [36;1m  libxdamage-dev libxext-dev libxfixes-dev libxi-dev \[0m
+2026-03-25T19:17:33.9225222Z [36;1m  libxinerama-dev libxrandr-dev libxrender-dev libxtst-dev \[0m
+2026-03-25T19:17:33.9225955Z [36;1m  xwayland glslang-tools spirv-tools libvulkan-dev \[0m
+2026-03-25T19:17:33.9226636Z [36;1m  libsdbus-c++-dev libtomlplusplus-dev libzip-dev \[0m
+2026-03-25T19:17:33.9227453Z [36;1m  libpugixml-dev libre2-dev libmuparser-dev libgtk-3-dev \[0m
+2026-03-25T19:17:33.9228224Z [36;1m  libmtdev-dev libevdev-dev bison autoconf automake libtool \[0m
+2026-03-25T19:17:33.9229083Z [36;1m  xcb-proto libxcb-util-dev xutils-dev libffi-dev libexpat1-dev[0m
+2026-03-25T19:17:33.9230176Z [36;1msudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 14[0m
+2026-03-25T19:17:33.9231080Z [36;1msudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 14[0m
+2026-03-25T19:17:33.9292695Z shell: /usr/bin/bash -e {0}
+2026-03-25T19:17:33.9293638Z ##[endgroup]
+2026-03-25T19:17:41.3365783Z Reading package lists...
+2026-03-25T19:17:41.5358814Z Building dependency tree...
+2026-03-25T19:17:41.5363476Z Reading state information...
+2026-03-25T19:17:41.7326171Z gcc-14 is already the newest version (14.2.0-4ubuntu2~24.04.1).
+2026-03-25T19:17:41.7326986Z gcc-14 set to manually installed.
+2026-03-25T19:17:41.7327516Z g++-14 is already the newest version (14.2.0-4ubuntu2~24.04.1).
+2026-03-25T19:17:41.7328304Z git is already the newest version (1:2.53.0-0ppa1~ubuntu24.04.1).
+2026-03-25T19:17:41.7328950Z git set to manually installed.
+2026-03-25T19:17:41.7329539Z pkg-config is already the newest version (1.8.1-2build1).
+2026-03-25T19:17:41.7330247Z bison is already the newest version (2:3.8.2+dfsg-1build2).
+2026-03-25T19:17:41.7330871Z autoconf is already the newest version (2.71-3).
+2026-03-25T19:17:41.7331480Z automake is already the newest version (1:1.16.5-1.3ubuntu1).
+2026-03-25T19:17:41.7332178Z libtool is already the newest version (2.4.7-7build1).
+2026-03-25T19:17:41.7332836Z libffi-dev is already the newest version (3.4.6-1build1).
+2026-03-25T19:17:41.7333755Z libffi-dev set to manually installed.
+2026-03-25T19:17:41.7334359Z libexpat1-dev is already the newest version (2.6.1-2ubuntu0.4).
+2026-03-25T19:17:41.7334975Z libexpat1-dev set to manually installed.
+2026-03-25T19:17:41.7335592Z The following additional packages will be installed:
+2026-03-25T19:17:41.7336290Z   bsdextrautils bsdutils build-essential bzip2-doc cmake-data eject fdisk
+2026-03-25T19:17:41.7337710Z   gir1.2-atk-1.0 gir1.2-atspi-2.0 gir1.2-freedesktop gir1.2-freedesktop-dev
+2026-03-25T19:17:41.7338485Z   gir1.2-gdkpixbuf-2.0 gir1.2-girepository-2.0-dev gir1.2-glib-2.0
+2026-03-25T19:17:41.7339242Z   gir1.2-glib-2.0-dev gir1.2-gtk-3.0 gir1.2-gudev-1.0 gir1.2-harfbuzz-0.0
+2026-03-25T19:17:41.7339989Z   gir1.2-pango-1.0 gir1.2-rsvg-2.0 gobject-introspection
+2026-03-25T19:17:41.7340811Z   gobject-introspection-bin libatk-bridge2.0-dev libatk1.0-dev libatspi2.0-dev
+2026-03-25T19:17:41.7341824Z   libblkid-dev libblkid1 libbrotli-dev libbz2-dev libcairo-script-interpreter2
+2026-03-25T19:17:41.7342618Z   libdatrie-dev libdecor-0-0 libdecor-0-plugin-1-gtk libdeflate-dev
+2026-03-25T19:17:41.7343690Z   libdisplay-info1 libdrm-nouveau2 libdrm-radeon1 libegl-dev libegl-mesa0
+2026-03-25T19:17:41.7344544Z   libegl1 libegl1-mesa-dev libepoxy-dev libfdisk1 libfontconfig-dev
+2026-03-25T19:17:41.7345330Z   libfreetype-dev libfreetype6 libfribidi-dev libgdk-pixbuf-2.0-dev
+2026-03-25T19:17:41.7346164Z   libgdk-pixbuf2.0-bin libgirepository-1.0-dev libgirepository-2.0-0
+2026-03-25T19:17:41.7346995Z   libgirepository1.0-dev libgles-dev libgles1 libgles2 libglib2.0-0t64
+2026-03-25T19:17:41.7347757Z   libglib2.0-bin libglib2.0-data libglib2.0-dev libglib2.0-dev-bin
+2026-03-25T19:17:41.7348535Z   libglvnd-core-dev libglvnd-dev libglx-dev libgraphite2-dev libgudev-1.0-dev
+2026-03-25T19:17:41.7349345Z   libharfbuzz-cairo0 libharfbuzz-dev libharfbuzz-gobject0 libharfbuzz-icu0
+2026-03-25T19:17:41.7350011Z   libharfbuzz-subset0 libice-dev libinput-bin libinput10 libjbig-dev
+2026-03-25T19:17:41.7350546Z   libjpeg-turbo8-dev libjpeg8-dev libjs-highlight.js libjsoncpp25 liblerc-dev
+2026-03-25T19:17:41.7351330Z   liblzma-dev libmount-dev libmount1 libmtdev1t64 libmuparser2v5
+2026-03-25T19:17:41.7352208Z   libnss-systemd libopengl-dev libopengl0 libpam-systemd libpangoxft-1.0-0
+2026-03-25T19:17:41.7352743Z   libpciaccess-dev libpipewire-0.3-0t64 libpipewire-0.3-common libpng-tools
+2026-03-25T19:17:41.7353480Z   libpng16-16t64 libpthread-stubs0-dev libpugixml1v5 librhash0 librsvg2-2
+2026-03-25T19:17:41.7354205Z   librsvg2-common libsdbus-c++1 libseat1 libselinux1-dev libsepol-dev
+2026-03-25T19:17:41.7354717Z   libsharpyuv-dev libsm-dev libsmartcols1 libspa-0.2-modules libsystemd-shared
+2026-03-25T19:17:41.7355520Z   libsystemd0 libthai-dev libtiff-dev libtiff6 libtiffxx6 libtomlplusplus3t64
+2026-03-25T19:17:41.7356335Z   libudev1 libuuid1 libwacom-common libwacom-dev libwacom9 libwayland-bin
+2026-03-25T19:17:41.7357101Z   libwayland-server0 libwebpdecoder3 libwebrtc-audio-processing1 libxau-dev
+2026-03-25T19:17:41.7357859Z   libxcb-composite0 libxcb-damage0 libxcb-ewmh2 libxcb-icccm4
+2026-03-25T19:17:41.7358549Z   libxcb-render-util0 libxcb-res0 libxcb-shape0 libxcb-shape0-dev
+2026-03-25T19:17:41.7359314Z   libxcb-sync-dev libxcb-util1 libxcb-xinput0 libxcb-xkb1 libxcb-xtest0
+2026-03-25T19:17:41.7359832Z   libxcvt0 libxdmcp-dev libxft-dev libxkbcommon-dev mount pango1.0-tools
+2026-03-25T19:17:41.7360840Z   python3-mako python3-markdown systemd systemd-coredump systemd-dev
+2026-03-25T19:17:41.7361610Z   systemd-resolved systemd-sysv udev util-linux uuid-dev uuid-runtime
+2026-03-25T19:17:41.7362339Z   x11proto-core-dev x11proto-dev xorg-sgml-doctools xtrans-dev
+2026-03-25T19:17:41.7362722Z Suggested packages:
+2026-03-25T19:17:41.7363321Z   cmake-doc cmake-format elpa-cmake-mode libcairo2-doc libdatrie-doc
+2026-03-25T19:17:41.7364103Z   libevdev-doc freetype2-doc libgirepository1.0-doc low-memory-monitor
+2026-03-25T19:17:41.7364895Z   libglib2.0-doc libxml2-utils libgraphite2-utils libgtk-3-doc libice-doc
+2026-03-25T19:17:41.7365729Z   liblzma-doc libpango1.0-doc pipewire pipewire-doc librsvg2-bin librsvg2-doc
+2026-03-25T19:17:41.7366529Z   libsdbus-c++-bin libsm-doc libthai-doc libwacom-bin libwayland-doc
+2026-03-25T19:17:41.7367339Z   libx11-doc libxcb-doc libxext-doc nfs-common graphicsmagick python-mako-doc
+2026-03-25T19:17:41.7368197Z   python3-beaker python-markdown-doc systemd-container systemd-homed
+2026-03-25T19:17:41.7369144Z   systemd-userdbd systemd-boot libqrencode4 util-linux-extra
+2026-03-25T19:17:41.7369714Z   util-linux-locales
+2026-03-25T19:17:41.8487650Z The following NEW packages will be installed:
+2026-03-25T19:17:41.8488684Z   build-essential bzip2-doc cmake cmake-data gir1.2-atk-1.0 gir1.2-atspi-2.0
+2026-03-25T19:17:41.8489650Z   gir1.2-freedesktop gir1.2-freedesktop-dev gir1.2-gdkpixbuf-2.0
+2026-03-25T19:17:41.8490416Z   gir1.2-girepository-2.0-dev gir1.2-glib-2.0-dev gir1.2-gtk-3.0
+2026-03-25T19:17:41.8491290Z   gir1.2-gudev-1.0 gir1.2-harfbuzz-0.0 gir1.2-pango-1.0 gir1.2-rsvg-2.0
+2026-03-25T19:17:41.8492169Z   glslang-tools gobject-introspection gobject-introspection-bin
+2026-03-25T19:17:41.8493192Z   libatk-bridge2.0-dev libatk1.0-dev libatspi2.0-dev libblkid-dev
+2026-03-25T19:17:41.8494011Z   libbrotli-dev libbz2-dev libcairo-script-interpreter2 libcairo2-dev
+2026-03-25T19:17:41.8494913Z   libdatrie-dev libdbus-1-dev libdecor-0-0 libdecor-0-plugin-1-gtk
+2026-03-25T19:17:41.8495812Z   libdeflate-dev libdisplay-info-dev libdisplay-info1 libdrm-dev
+2026-03-25T19:17:41.8496645Z   libdrm-nouveau2 libdrm-radeon1 libegl-dev libegl-mesa0 libegl1
+2026-03-25T19:17:41.8497547Z   libegl1-mesa-dev libepoxy-dev libevdev-dev libfontconfig-dev libfreetype-dev
+2026-03-25T19:17:41.8498573Z   libfribidi-dev libgbm-dev libgdk-pixbuf-2.0-dev libgdk-pixbuf2.0-bin
+2026-03-25T19:17:41.8499406Z   libgirepository-1.0-dev libgirepository-2.0-0 libgirepository1.0-dev
+2026-03-25T19:17:41.8500190Z   libgl-dev libgles-dev libgles1 libgles2 libgles2-mesa-dev libglib2.0-dev
+2026-03-25T19:17:41.8500940Z   libglib2.0-dev-bin libglvnd-core-dev libglvnd-dev libglx-dev
+2026-03-25T19:17:41.8501694Z   libgraphite2-dev libgtk-3-dev libgudev-1.0-dev libharfbuzz-cairo0
+2026-03-25T19:17:41.8502526Z   libharfbuzz-dev libharfbuzz-gobject0 libharfbuzz-icu0 libharfbuzz-subset0
+2026-03-25T19:17:41.8503640Z   libice-dev libinput-bin libinput-dev libinput10 libjbig-dev libjpeg-dev
+2026-03-25T19:17:41.8504543Z   libjpeg-turbo8-dev libjpeg8-dev libjs-highlight.js libjsoncpp25 liblerc-dev
+2026-03-25T19:17:41.8505414Z   liblzma-dev libmagic-dev libmount-dev libmtdev-dev libmtdev1t64
+2026-03-25T19:17:41.8506234Z   libmuparser-dev libmuparser2v5 libopengl-dev libopengl0 libpam0g-dev
+2026-03-25T19:17:41.8507602Z   libpango1.0-dev libpangoxft-1.0-0 libpciaccess-dev libpipewire-0.3-0t64
+2026-03-25T19:17:41.8508612Z   libpipewire-0.3-common libpipewire-0.3-dev libpixman-1-dev libpng-dev
+2026-03-25T19:17:41.8509577Z   libpng-tools libpthread-stubs0-dev libpugixml-dev libpugixml1v5 libre2-dev
+2026-03-25T19:17:41.8510456Z   librhash0 librsvg2-2 librsvg2-common librsvg2-dev libsdbus-c++-dev
+2026-03-25T19:17:41.8511330Z   libsdbus-c++1 libseat-dev libseat1 libselinux1-dev libsepol-dev
+2026-03-25T19:17:41.8512153Z   libsharpyuv-dev libsm-dev libspa-0.2-dev libspa-0.2-modules libsystemd-dev
+2026-03-25T19:17:41.8513207Z   libthai-dev libtiff-dev libtiffxx6 libtomlplusplus-dev libtomlplusplus3t64

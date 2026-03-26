@@ -1,0 +1,30 @@
+2026-03-25T19:38:05.0878324Z At global scope:
+2026-03-25T19:38:05.0880239Z cc1plus: note: unrecognized command-line option ‘-Wno-gnu-zero-variadic-macro-arguments’ may have been intended to silence earlier diagnostics
+2026-03-25T19:38:05.1328148Z [  3%] Building CXX object hyprctl/CMakeFiles/hyprctl.dir/hw-protocols/hyprpaper_core-client.cpp.o
+2026-03-25T19:38:05.8117531Z [  3%] Building CXX object hyprpm/CMakeFiles/hyprpm.dir/src/core/HyprlandSocket.cpp.o
+2026-03-25T19:38:06.0727754Z /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp: In function ‘bool Nix::shouldUseNixGL()’:
+2026-03-25T19:38:06.0729578Z /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp:98:37: error: ‘generic’ is not a member of ‘glz’
+2026-03-25T19:38:06.0731047Z    98 |     auto json = glz::read_json<glz::generic>(proc.stdOut());
+2026-03-25T19:38:06.0731645Z       |                                     ^~~~~~~
+2026-03-25T19:38:06.0734000Z /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp:98:45: error: no matching function for call to ‘read_json<<expression error> >(const std::string&)’
+2026-03-25T19:38:06.0743514Z    98 |     auto json = glz::read_json<glz::generic>(proc.stdOut());
+2026-03-25T19:38:06.0748360Z       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+2026-03-25T19:38:06.0749049Z In file included from /usr/local/include/glaze/json/json_ptr.hpp:11,
+2026-03-25T19:38:06.0749725Z                  from /usr/local/include/glaze/core/ptr.hpp:9,
+2026-03-25T19:38:06.0750321Z                  from /usr/local/include/glaze/beve/ptr.hpp:8,
+2026-03-25T19:38:06.0750918Z                  from /usr/local/include/glaze/beve.hpp:7,
+2026-03-25T19:38:06.0751497Z                  from /usr/local/include/glaze/glaze.hpp:35,
+2026-03-25T19:38:06.0752595Z                  from /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp:13:
+2026-03-25T19:38:06.0754842Z /usr/local/include/glaze/json/read.hpp:2739:28: note: candidate: ‘template<class T, class Buffer>  requires (read_json_supported<T>) && (is_buffer<Buffer>) glz::error_ctx glz::read_json(T&, Buffer&&)’
+2026-03-25T19:38:06.0756376Z  2739 |    [[nodiscard]] error_ctx read_json(T& value, Buffer&& buffer)
+2026-03-25T19:38:06.0756989Z       |                            ^~~~~~~~~
+2026-03-25T19:38:06.0757738Z /usr/local/include/glaze/json/read.hpp:2739:28: note:   candidate expects 2 arguments, 1 provided
+2026-03-25T19:38:06.0760004Z /usr/local/include/glaze/json/read.hpp:2746:41: note: candidate: ‘template<class T, class Buffer>  requires (read_json_supported<T>) && (is_buffer<Buffer>) glz::expected<T, glz::error_ctx> glz::read_json(Buffer&&)’
+2026-03-25T19:38:06.0762362Z  2746 |    [[nodiscard]] expected<T, error_ctx> read_json(Buffer&& buffer)
+2026-03-25T19:38:06.0763047Z       |                                         ^~~~~~~~~
+2026-03-25T19:38:06.0763780Z /usr/local/include/glaze/json/read.hpp:2746:41: note:   template argument deduction/substitution failed:
+2026-03-25T19:38:06.0765102Z /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp:98:45: error: template argument 1 is invalid
+2026-03-25T19:38:06.0766245Z    98 |     auto json = glz::read_json<glz::generic>(proc.stdOut());
+2026-03-25T19:38:06.0766822Z       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+2026-03-25T19:38:06.0767360Z In file included from /usr/local/include/glaze/json.hpp:11,
+2026-03-25T19:38:06.0767968Z                  from /usr/local/include/glaze/glaze.hpp:41:

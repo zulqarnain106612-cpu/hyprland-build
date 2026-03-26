@@ -1,0 +1,4 @@
+2026-03-25T19:38:06.0729578Z /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp:98:37: error: ‘generic’ is not a member of ‘glz’
+2026-03-25T19:38:06.0734000Z /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp:98:45: error: no matching function for call to ‘read_json<<expression error> >(const std::string&)’
+2026-03-25T19:38:06.0765102Z /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp:98:45: error: template argument 1 is invalid
+2026-03-25T19:38:06.0809513Z /home/runner/work/hyprland-build/hyprland-build/Hyprland/start/src/helpers/Nix.cpp:98:45: error: template argument 1 is invalid
