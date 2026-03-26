@@ -1,6 +1,6 @@
 import base64, json, urllib.request, sys, os
 
-token = 'TOKEN_REMOVED'
+token = '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'
 base = os.path.dirname(os.path.abspath(__file__))
 
 # Get current SHA
