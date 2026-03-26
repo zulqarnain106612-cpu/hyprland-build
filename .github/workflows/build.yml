@@ -205,18 +205,21 @@ jobs:
           set -e
           export PKG_CONFIG_PATH="/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig"
           export PATH="/opt/hypr/bin:$PATH"
+          sudo apt-get install -y clang-18 2>/dev/null || true
           git clone --depth=1 --branch v0.54.0 https://github.com/hyprwm/Hyprland.git
           cd Hyprland
           git submodule update --init --recursive
           # Fix: glz::generic was renamed to glz::json_t in modern glaze
           sed -i 's/glz::generic/glz::json_t/g' start/src/helpers/Nix.cpp
-          # Fix: string + string_view not supported in gcc-14 without C++26 stdlib; cast to std::string
+          # Fix: string + string_view operator+ not available without full C++26 stdlib; cast to std::string
           sed -i 's/instanceSignature + "\/" + filename/instanceSignature + std::string(filename)/g' hyprctl/src/main.cpp
+          # Fix: ternary CXCBConnection* vs std::nullptr_t - cast null branch to raw pointer type
+          sed -i 's/? m_sX11Display->connection : nullptr/? m_sX11Display->connection : (xcb_connection_t*)nullptr/g' src/xwayland/XWM.hpp
           cmake --no-warn-unused-cli \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
-            -DCMAKE_C_COMPILER=gcc-14 \
-            -DCMAKE_CXX_COMPILER=g++-14 \
+            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_CXX_COMPILER=clang++-18 \
             -DCMAKE_CXX_STANDARD=26 \
             -DCMAKE_PREFIX_PATH="/opt/hypr;/usr/local" \
             -S . -B build
@@ -230,8 +233,8 @@ jobs:
           cd xdg-desktop-portal-hyprland
           cmake \
             -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_C_COMPILER=gcc-14 \
-            -DCMAKE_CXX_COMPILER=g++-14 \
+            -DCMAKE_C_COMPILER=clang-18 \
+            -DCMAKE_CXX_COMPILER=clang++-18 \
             -DCMAKE_PREFIX_PATH=$PREFIX \
             -DCMAKE_INSTALL_LIBEXECDIR=$PREFIX/lib \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
