@@ -133,7 +133,6 @@ jobs:
           export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig:$PREFIX/lib/x86_64-linux-gnu/pkgconfig:$PREFIX/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig"
           export LD_LIBRARY_PATH="$PREFIX/lib:$PREFIX/lib/x86_64-linux-gnu${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
           pkg-config --modversion libinput
-          pkg-config --cflags --libs libinput
           git clone --depth=1 https://github.com/hyprwm/aquamarine.git
           cd aquamarine
           cmake --no-warn-unused-cli \
@@ -143,10 +142,8 @@ jobs:
             -DCMAKE_CXX_COMPILER=g++-14 \
             -DCMAKE_PREFIX_PATH=$PREFIX \
             -DBUILD_TESTING=OFF \
-            -DCMAKE_EXE_LINKER_FLAGS="-L$PREFIX/lib -Wl,-rpath,$PREFIX/lib" \
-            -DCMAKE_SHARED_LINKER_FLAGS="-L$PREFIX/lib -Wl,-rpath,$PREFIX/lib" \
             -S . -B build
-          cmake --build build -j$(nproc)
+          cmake --build build --target aquamarine -j$(nproc)
           cmake --install build
 
       - name: Build hyprwire
@@ -199,7 +196,6 @@ jobs:
             -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCMAKE_PREFIX_PATH="$PREFIX;/usr/local" \
             -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld-18 -L/opt/hypr/lib -Wl,-rpath,/opt/hypr/lib" \
-            -DCMAKE_SHARED_LINKER_FLAGS="-L/opt/hypr/lib -Wl,-rpath,/opt/hypr/lib" \
             -S . -B build
           cmake --build build -j$(nproc)
           cmake --install build
