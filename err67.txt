@@ -1,0 +1,2 @@
+2026-03-25T19:19:54.2061023Z CMake Error at /usr/local/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:67 (message):
+2026-03-25T19:19:54.2070475Z     collect2: error: ld returned 1 exit status

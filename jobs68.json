@@ -1,0 +1,217 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 68597928232,
+      "run_id": 23560252092,
+      "workflow_name": "Build Hyprland 0.54.0",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/zulqarnain1066-hub/hyprland-build/actions/runs/23560252092",
+      "run_attempt": 1,
+      "node_id": "CR_kwDORvF3gc8AAAAP-MFRKA",
+      "head_sha": "7ef20681d86b711ae2c55e38b8296aea250ba0cb",
+      "url": "https://api.github.com/repos/zulqarnain1066-hub/hyprland-build/actions/jobs/68597928232",
+      "html_url": "https://github.com/zulqarnain1066-hub/hyprland-build/actions/runs/23560252092/job/68597928232",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-03-25T19:34:26Z",
+      "started_at": "2026-03-25T19:34:28Z",
+      "completed_at": "2026-03-25T19:38:21Z",
+      "name": "build",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-25T19:34:29Z",
+          "completed_at": "2026-03-25T19:34:30Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-25T19:34:30Z",
+          "completed_at": "2026-03-25T19:35:10Z"
+        },
+        {
+          "name": "Install CMake 3.31",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-25T19:35:10Z",
+          "completed_at": "2026-03-25T19:35:13Z"
+        },
+        {
+          "name": "Set env",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-25T19:35:13Z",
+          "completed_at": "2026-03-25T19:35:13Z"
+        },
+        {
+          "name": "Build hyprutils",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-25T19:35:13Z",
+          "completed_at": "2026-03-25T19:35:30Z"
+        },
+        {
+          "name": "Build hyprlang",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-25T19:35:30Z",
+          "completed_at": "2026-03-25T19:35:41Z"
+        },
+        {
+          "name": "Build hyprcursor",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-25T19:35:41Z",
+          "completed_at": "2026-03-25T19:35:56Z"
+        },
+        {
+          "name": "Build hyprgraphics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-25T19:35:56Z",
+          "completed_at": "2026-03-25T19:36:08Z"
+        },
+        {
+          "name": "Build hyprwayland-scanner",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-03-25T19:36:08Z",
+          "completed_at": "2026-03-25T19:36:13Z"
+        },
+        {
+          "name": "Add /opt/hypr/bin to PATH",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-03-25T19:36:13Z",
+          "completed_at": "2026-03-25T19:36:13Z"
+        },
+        {
+          "name": "Build wayland 1.23.1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-25T19:36:13Z",
+          "completed_at": "2026-03-25T19:36:19Z"
+        },
+        {
+          "name": "Build libinput 1.28.1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-03-25T19:36:19Z",
+          "completed_at": "2026-03-25T19:36:25Z"
+        },
+        {
+          "name": "Build xkbcommon 1.11.0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-03-25T19:36:25Z",
+          "completed_at": "2026-03-25T19:36:34Z"
+        },
+        {
+          "name": "Build aquamarine",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-03-25T19:36:34Z",
+          "completed_at": "2026-03-25T19:37:03Z"
+        },
+        {
+          "name": "Build hyprwire",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-03-25T19:37:03Z",
+          "completed_at": "2026-03-25T19:37:32Z"
+        },
+        {
+          "name": "Build xcb-errors",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-03-25T19:37:32Z",
+          "completed_at": "2026-03-25T19:37:44Z"
+        },
+        {
+          "name": "Build hyprland-protocols",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-03-25T19:37:44Z",
+          "completed_at": "2026-03-25T19:37:44Z"
+        },
+        {
+          "name": "Install glaze (header-only)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-03-25T19:37:44Z",
+          "completed_at": "2026-03-25T19:37:49Z"
+        },
+        {
+          "name": "Build Hyprland 0.54.0",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 19,
+          "started_at": "2026-03-25T19:37:49Z",
+          "completed_at": "2026-03-25T19:38:20Z"
+        },
+        {
+          "name": "Build xdg-desktop-portal-hyprland",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 20,
+          "started_at": "2026-03-25T19:38:20Z",
+          "completed_at": "2026-03-25T19:38:20Z"
+        },
+        {
+          "name": "Package artifacts",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 21,
+          "started_at": "2026-03-25T19:38:20Z",
+          "completed_at": "2026-03-25T19:38:20Z"
+        },
+        {
+          "name": "Upload artifact",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 22,
+          "started_at": "2026-03-25T19:38:20Z",
+          "completed_at": "2026-03-25T19:38:20Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-25T19:38:20Z",
+          "completed_at": "2026-03-25T19:38:20Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/zulqarnain1066-hub/hyprland-build/check-runs/68597928232",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000078,
+      "runner_name": "GitHub Actions 1000000078",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

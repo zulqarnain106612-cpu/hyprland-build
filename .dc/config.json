@@ -1,0 +1,15 @@
+{
+  "defaultShell": "powershell",
+  "workspacePath": "c:\\Users\\Zulqarnain\\Downloads\\hyperwm\\New folder",
+  "lastSelectedFolder": "c:\\Users\\Zulqarnain\\Downloads\\hyperwm\\New folder",
+  "trustedDirectories": [
+    "c:\\Users\\Zulqarnain\\Downloads\\hyperwm\\New folder"
+  ],
+  "autoConfirm": true,
+  "fileWriteLineLimit": 3000,
+  "ignoredPatterns": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/.idea/**"
+  ]
+}

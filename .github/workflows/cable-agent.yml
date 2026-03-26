@@ -1,0 +1,30 @@
+name: CI Cable Agent
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  cable-agent:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare log directory and script permissions
+        run: |
+          mkdir -p .github/logs
+          chmod +x .github/scripts/cable-agent.sh
+
+      - name: Install dependencies (minimal)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y gcc-14 g++-14 cmake ninja-build meson git pkg-config libgl-dev libwayland-dev wayland-protocols libinput-dev libxkbcommon-dev libxkbcommon-x11-dev libdrm-dev libgbm-dev libudev-dev libseat-dev libpipewire-0.3-dev libspa-0.2-dev libdbus-1-dev libsystemd-dev libxcb1-dev libx11-dev xwayland libgles2-mesa-dev libvulkan-dev
+
+      - name: Run CI Cable Agent
+        env:
+          SUDO_PASS: ${{ secrets.SUDO_PASSWORD }}
+        run: |
+          .github/scripts/cable-agent.sh

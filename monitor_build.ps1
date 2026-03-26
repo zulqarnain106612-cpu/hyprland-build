@@ -42,12 +42,12 @@ $arts = Invoke-RestMethod "https://api.github.com/repos/$repo/actions/runs/$runI
 if ($arts.total_count -gt 0) {
     $art = $arts.artifacts[0]
     Write-Host "    Name: $($art.name)"
-    Write-Host "    Size: $([math]::Round($art.size_in_bytes/1MB,1)) MB"
+    Write-Host "    Size: $($art.size_in_bytes) bytes"
     Write-Host "    ID:   $($art.id)"
     $art.id | Out-File "$PSScriptRoot\artifact_id.txt" -NoNewline
     Write-Host "    Saved artifact ID to artifact_id.txt"
 } else {
-    Write-Host "    No artifact — build may have failed"
-    $logurl = 'https://github.com/' + $repo + '/actions/runs/' + $runId
-    Write-Host "    Logs: $logurl"
+    Write-Host "    No artifact - build may have failed"
+    $logurl = 'https://github.com/' + $repo + '/actions/runs/' + [string]$runId
+    Write-Host ('    Logs: ' + $logurl)
 }
