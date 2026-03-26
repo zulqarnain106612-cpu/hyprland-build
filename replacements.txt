@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 literal:REDACTED_TOKEN==>TOKEN_REMOVED
+=======
+literal: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==>TOKEN_REMOVED
+>>>>>>> fix/hyprland-build-green
