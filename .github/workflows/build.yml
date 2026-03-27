@@ -203,6 +203,8 @@ jobs:
       - name: Build Hyprland 0.54.0
         run: |
           set -e
+          # Remove system libinput-dev so linker only finds our custom /opt/hypr build
+          sudo apt-get remove -y libinput-dev || true
           export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/local/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/lib/pkgconfig:/opt/hypr/lib/x86_64-linux-gnu/pkgconfig:/opt/hypr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig"
           export PATH="/opt/hypr/bin:$PATH"
           git clone --depth=1 --branch v0.54.0 https://github.com/hyprwm/Hyprland.git
