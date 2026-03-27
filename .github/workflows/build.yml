@@ -232,6 +232,7 @@ jobs:
           set -e
           git clone --depth=1 --recursive https://github.com/hyprwm/xdg-desktop-portal-hyprland.git
           cd xdg-desktop-portal-hyprland
+          sed -i '/add_subdirectory.*share-picker/d' CMakeLists.txt
           cmake \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_C_COMPILER=gcc-15 \
