@@ -239,7 +239,8 @@ jobs:
             -DCMAKE_PREFIX_PATH=$PREFIX \
             -DCMAKE_INSTALL_LIBEXECDIR=$PREFIX/lib \
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
-            -DCMAKE_EXE_LINKER_FLAGS="-L/usr/local/lib -Wl,-rpath,/usr/local/lib:/opt/hypr/lib" \
+            -DCMAKE_EXE_LINKER_FLAGS="-L/opt/hypr/lib -L/usr/local/lib -Wl,-rpath,/opt/hypr/lib:/usr/local/lib" \
+            -DBUILD_HYPRLAND_SHARE_PICKER=OFF \
             -B build
           cmake --build build -j$(nproc)
           cmake --install build
