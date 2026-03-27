@@ -227,26 +227,6 @@ jobs:
           cmake --build build -j$(nproc)
           cmake --install build
 
-      - name: Build xdg-desktop-portal-hyprland
-        run: |
-          set -e
-          git clone --depth=1 --recursive https://github.com/hyprwm/xdg-desktop-portal-hyprland.git
-          cd xdg-desktop-portal-hyprland
-          rm -rf hyprland-share-picker
-          sed -i '/share.picker\|share_picker\|SHARE_PICKER/Id' CMakeLists.txt
-          cmake \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_C_COMPILER=gcc-15 \
-            -DCMAKE_CXX_COMPILER=g++-15 \
-            -DCMAKE_PREFIX_PATH=$PREFIX \
-            -DCMAKE_INSTALL_LIBEXECDIR=$PREFIX/lib \
-            -DCMAKE_INSTALL_PREFIX=$PREFIX \
-            -DCMAKE_EXE_LINKER_FLAGS="-L/opt/hypr/lib -L/usr/local/lib -Wl,-rpath,/opt/hypr/lib:/usr/local/lib" \
-            -DBUILD_HYPRLAND_SHARE_PICKER=OFF \
-            -B build
-          cmake --build build -j$(nproc)
-          cmake --install build
-
       - name: Package artifacts
         run: |
           sudo ldconfig
