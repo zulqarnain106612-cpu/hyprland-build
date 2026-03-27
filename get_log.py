@@ -1,6 +1,6 @@
 import urllib.request, json, zipfile, io, sys
 
-token = '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'
+token = 'GH_TOKEN_PLACEHOLDER'
 repo = 'zulqarnain106612-cpu/hyprland-build'
 run_id = 23601281830
 headers = {'Authorization': 'token ' + token}

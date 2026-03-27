@@ -1,6 +1,6 @@
 import urllib.request, urllib.error, zipfile, io, os, sys
 
-token = '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'
+token = 'GH_TOKEN_PLACEHOLDER'
 run_id = 23581328233
 
 class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
